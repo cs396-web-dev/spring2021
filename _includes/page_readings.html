@@ -1,0 +1,27 @@
+{% assign optional = 0 %}
+{% comment %}
+<h3>Required</h3>
+{% endcomment %}
+<ul class="readings">
+{% for item in page.readings %}
+    {% if item.optional == 1 %}
+        {% assign optional = 1 %}
+    {% else %}
+        {% include reading.html %} 
+    {% endif %}
+{% endfor %}
+</ul>
+
+
+{% comment %}
+{% if optional == 1 %}
+    <h3>Optional</h3>
+    <ul class="readings">
+    {% for item in page.readings %}
+        {% if item.optional == 1 %}
+            {% include reading.html %} 
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endcomment %}
