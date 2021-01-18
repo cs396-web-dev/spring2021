@@ -307,6 +307,6 @@ The video below shows the expected output of all the routes.
 
 ## What to Turn In
 
-Delete the `node_modules` folder, zip the entire directory, and upload `hw1.zip` to Canvas. Please be careful that you __don't just upload the original starter files__, but that your zip file includes __YOUR CODE__. Additionally, you may want to download your submission, unzip it, run `npm install`, and make sure that it works as expected.
+When you're done, upload your completed `server/index.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
 
-_Make sure to delete the `node_modules` folder before you turn in the assignment. Do NOT upload this folder to Canvas._
+Please be careful that you __don't just upload the original starter files__, but that your zip file includes __YOUR CODE__. Also, make sure not to submit the `index.js` file located in the `client` folder!
