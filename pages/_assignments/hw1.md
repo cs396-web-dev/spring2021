@@ -64,6 +64,7 @@ Open `routes.js` and examine the first route. All HTTP routes consist of 3 compo
 ```javascript
 router.route("/")                   // Path
     .get((_req, res) => {           // HTTP Method
+        console.log("GET /");
         res.status(200).send({      // Handler
             data: "App is running"
         });
@@ -98,6 +99,8 @@ A list of objects representing the Doctor's companions is stored at `data.compan
 - `alive`: A boolean representing whether the character is alive or dead.
 
 ## Part 4: Writing the API
+
+Your job is to implement each route in the API so that the client can interact with the data. You should replace `res.status(501).send()` in each route with your own code that sends back a response with a `200` status and any necessary data.
 
 Implement the following GET routes.
 
