@@ -42,36 +42,36 @@ Login or signup for a <a href="https://account.mongodb.com/account/login" target
 ### 2. Create a Project
 Click on the "create a new project button". Type in the name of your project as “CS330” and click next. Ignore the add teammates prompt and finish the setup.
 
-<img class="large frame" src="/winter2021/assets/images/lab02/ss1.png" />
+<img class="large frame" src="/spring2021/assets/images/lab02/ss1.png" />
    
 ### 3. Build a Cluster
 Click on Build a Cluster. Select the free options on the next page.
 
-<img class="large frame" src="/winter2021/assets/images/lab02/ss2.png" />
+<img class="large frame" src="/spring2021/assets/images/lab02/ss2.png" />
 
 Do not change anything on this page and proceed to create a cluster. It might take several minutes so grab some coffee and relax.
 
 ### 4. Create a Database User
 Next, set up a user and password that will be used by your web applications to access the database.
 
-<img class="large frame" src="/winter2021/assets/images/lab02/ss3.png" />
+<img class="large frame" src="/spring2021/assets/images/lab02/ss3.png" />
 
 Click on “Database Access” under SECURITY. Then click “Add New Database User”.
 
-<img class="large frame" src="/winter2021/assets/images/lab02/ss4.png" />
+<img class="large frame" src="/spring2021/assets/images/lab02/ss4.png" />
 
 Follow these configurations and use your unique username and password.
 
 ### 5. Grant Network Access
 Finally, click “Network Access” just below the “Database Access” and click Add IP Address and then click “Allow access from Anywhere”. When deploying your backend to servers you will not have to reconfigure the IP address. Confirm to close and complete that step. This might take another few minutes so continue watching your TV show.
 
-<img class="large frame" src="/winter2021/assets/images/lab02/ss5.png" />
+<img class="large frame" src="/spring2021/assets/images/lab02/ss5.png" />
  
 We will use databases stored in this cluster in upcoming labs and homework assignments. Meanwhile, if you are curious about how to interact with MongoDB, take a look at their documentation on <a href="https://docs.mongodb.com/manual/crud/" target="_blank">CRUD operations​</a> (CRUD = "Create, Read, Update, & Delete").
 
 {:#step2}
 ## II. Set Up a Local Python Web Server
-<a class="nu-button" href="/winter2021/course-files/assignments/cs330-web-server.zip">cs330-web-server.zip <i class="fas fa-download" aria-hidden="true"></i></a>
+<a class="nu-button" href="/spring2021/course-files/assignments/cs330-web-server.zip">cs330-web-server.zip <i class="fas fa-download" aria-hidden="true"></i></a>
 
 Download the `cs330-web-server.zip` file, unzip it, and move this folder to a place where you regularly save files for coursework (stay organized -- you'll be working with a lot of files in this class). 
 
@@ -95,9 +95,9 @@ If you open the `requirements.txt` file and take a look at it, you'll note that 
 Go to MongDB Atlas and find your connection string. To do this:
 1. Click on the "Clusters" link (left-hand navigation)
 2. Click on the project you just made (“CS330”)
-3. Scroll to the right until you see a button called "Connect". Click the "Connect" button.<br><img class="large frame" src="/winter2021/assets/images/lab02/db_connect_1.png" />
-4. Next, click the "Connect to Application" option:<br><img class="large frame" src="/winter2021/assets/images/lab02/db_connect_2.png" />
-5. Finally, select the Python options and copy your connection string:<br><img class="large frame" src="/winter2021/assets/images/lab02/db_connect_3.png" />
+3. Scroll to the right until you see a button called "Connect". Click the "Connect" button.<br><img class="large frame" src="/spring2021/assets/images/lab02/db_connect_1.png" />
+4. Next, click the "Connect to Application" option:<br><img class="large frame" src="/spring2021/assets/images/lab02/db_connect_2.png" />
+5. Finally, select the Python options and copy your connection string:<br><img class="large frame" src="/spring2021/assets/images/lab02/db_connect_3.png" />
 
 ### 3. Connect your application to your database
 My connection string (copied from MongoDB Atlas) is this...
