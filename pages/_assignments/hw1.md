@@ -307,6 +307,6 @@ The video below shows the expected output of all the routes.
 
 ## What to Turn In
 
-When you're done, upload your completed `index.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
+When you're done, upload your completed `routes.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
 
-Please be careful that you __don't just upload the original starter files__, but that your zip file includes __YOUR CODE__. Also, make sure not to submit the `index.js` file located in the `client` folder!
+Please be careful that you __don't just upload the original starter file__, but that you submit __YOUR CODE__.
