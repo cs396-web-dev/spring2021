@@ -54,7 +54,7 @@ line2
 line3
 ```
 
-### 2. Fibonacci Sequence
+### 2. Fibonacci Sequence [Optional]
 
 The Fibonacci sequence is a famous mathematical sequence that starts `0, 1` and continues with each elements equalling the sum of the previous two elements. Edit the function `fibonacci` to print a list of the first `n` elements of the Fibonacci sequence.
 
@@ -120,7 +120,7 @@ $ console.log(filter([1, 2, 3, 4, 5], n => n < 3));
 [ 1, 2 ]
 ```
 
-### 4. reduce
+### 4. reduce [Optional]
 
 Edit the function `reduce` to combine elements of `arr` pairwise (using the function `f`) until the list has been reduced to a single element. If the list is empty, return `null`. Assume that all elements of `arr` are numeric.
 
