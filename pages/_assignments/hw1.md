@@ -13,7 +13,7 @@ points: 15
 
 <a class="nu-button" href="/spring2021/course-files/assignments/hw1.zip">hw1.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-To start, download `hw1.zip`, unzip it, and open the folder in VSCode. You should see two JavaScript files and one HTML file; In this assignment, you will implement endpoints for a basic web API in `server/routes.js` (you don't need to worry about the other files... for now).
+To start, download `hw1.zip`, unzip it, and open the folder in VSCode. You should see two JavaScript files and one HTML file; In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
 
 Writing a web server from scratch is very tricky, but thankfully, we don't have to! Node has some great libraries that we can use to do a lot of the heavy lifting for us.
 
@@ -25,15 +25,15 @@ To install the packages you'll need for this assignment, type the following comm
 $ npm install body-parser express --save
 ```
 
-You should now have `package.json`, `package-lock.json`, and `node_modules` in your directory. The `.json` files describe the details of the dependencies needed for the project, and the `node_modules` folder contains the source code for any downloaded libraries.
+You should now have `package.json`, `package-lock.json`, and `node_modules` in your directory. The `JSON` files describe the details of the dependencies needed for the project, and the `node_modules` folder contains the source code for any downloaded libraries.
 
-## Part 2: Creating a Web Service with Express
+## Part 2: Run and Use the Server
 
 The code we wrote in Lab 1 (and, likely, most of the code you've written for previous courses) took the form of a _program_, which runs once. In this homework, we will be writing a _service_, which runs indefinitely and provides utilities that can be called on by other programs.
 
-<img class="large frame" src="/winter2021/assets/images/hw1/img1.png"/>
-
 Imagine we wanted to create a website where a user can search for information about the hit BBC show _Doctor Who_. When a user asks for this information, their request goes to a web API, which processes their request and sends back the data needed to display the results on screen. This API is what you will be building for this assignment.
+
+<img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
 
 You will be using the [Express](https://expressjs.com/) framework to build your API. To run the server, type `node index.js` into your terminal window:
 
@@ -42,15 +42,15 @@ $ node index.js
 Application listening on PORT: 8081
 ```
 
-The server is now running! If you visit [localhost:8081](localhost:8081) in a browser window, you should see a message that the app is running.
+The server is now running! If you visit [http://localhost:8081](localhost:8081) in a browser window, you should see a message that the app is running.
 
-<img class="large frame" src="/winter2021/assets/images/hw1/img2.png"/>
+<img class="large frame" src="/spring2021/assets/images/hw1/img2.png"/>
 
-Now that we have a server up and running, we can access it from a website! Open `index.html` in another browser tab and click "App Status". The website uses the `fetch` API (which we'll start using in Homework 3) to get data from your server and display it on the page.
+To test our API, we're going to be using [Postman](https://www.postman.com/downloads/), which is a GUI that lets us send HTTP requests to a specified endpoint. Download Postman, open it up, and put `http://localhost:8081` in the "Enter request URL" bar. Make sure GET is selected in the dropdown and cliek Send; You should see the response from the request as below:
 
-<!---
-Promises, JSON & body-parser, HTTP & Status Codes
--->
+<img class="large frame" src="/spring2021/assets/images/hw1/img3.png"/>
+
+You can use Postman similarly to debug all the routes we will be writing in this assignment.
 
 ## Part 3: Assignment Information
 
@@ -307,6 +307,6 @@ The video below shows the expected output of all the routes.
 
 ## What to Turn In
 
-When you're done, upload your completed `server/index.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
+When you're done, upload your completed `index.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
 
 Please be careful that you __don't just upload the original starter files__, but that your zip file includes __YOUR CODE__. Also, make sure not to submit the `index.js` file located in the `client` folder!
