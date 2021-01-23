@@ -13,13 +13,13 @@ points: 15
 
 <a class="nu-button" href="/spring2021/course-files/assignments/hw1.zip">hw1.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-To start, download `hw1.zip`, unzip it, and open the folder in VSCode. You should see two JavaScript files and one HTML file; In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
+To start, download `hw1.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. You should see three JavaScript files; In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
 
-Writing a web server from scratch is very tricky, but thankfully, we don't have to! Node has some great libraries that we can use to do a lot of the heavy lifting for us.
+Writing a web server from scratch is tricky, but thankfully, we don't have to! Node has some great libraries that we can use to do a lot of the heavy lifting for us.
 
 You can download libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Open a new terminal window in VSCode (inside the `hw01` directory) and type `npm init`. Follow the prompts, leaving all settings as recommended.
 
-To install the packages you'll need for this assignment, type the following command in the terminal window:
+Select `Terminal -> New Terminal` to open a new terminal instance at the bottom of the VSCode window. To install the packages you'll need for this assignment, type the following command in the terminal window:
 
 ```bash
 $ npm install body-parser express --save
@@ -31,11 +31,7 @@ You should now have `package.json`, `package-lock.json`, and `node_modules` in y
 
 The code we wrote in Lab 1 (and, likely, most of the code you've written for previous courses) took the form of a _program_, which runs once. In this homework, we will be writing a _service_, which runs indefinitely and provides utilities that can be called on by other programs.
 
-Imagine we wanted to create a website where a user can search for information about the hit BBC show _Doctor Who_. When a user asks for this information, their request goes to a web API, which processes their request and sends back the data needed to display the results on screen. This API is what you will be building for this assignment.
-
-<img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
-
-You will be using the [Express](https://expressjs.com/) framework to build your API. To run the server, type `node index.js` into your terminal window:
+You will be using the [Express](https://expressjs.com/) framework to build your service. To run the server, type `node index.js` into your terminal window:
 
 ```bash
 $ node index.js
@@ -46,7 +42,7 @@ The server is now running! If you visit [http://localhost:8081](localhost:8081) 
 
 <img class="large frame" src="/spring2021/assets/images/hw1/img2.png"/>
 
-To test our API, we're going to be using [Postman](https://www.postman.com/downloads/), which is a GUI that lets us send HTTP requests to a specified endpoint. Download Postman, open it up, and put `http://localhost:8081` in the "Enter request URL" bar. Make sure GET is selected in the dropdown and cliek Send; You should see the response from the request as below:
+To test our API, we're going to be using [Postman](https://www.postman.com/downloads/), which is a GUI that lets us send HTTP requests to a specified endpoint. Download Postman, open it up, and put `http://localhost:8081` in the "Enter request URL" bar. Make sure GET is selected in the dropdown and click Send; You should see the response from the request as below:
 
 <img class="large frame" src="/spring2021/assets/images/hw1/img3.png"/>
 
@@ -54,7 +50,11 @@ You can use Postman similarly to debug all the routes we will be writing in this
 
 ## Part 3: Assignment Information
 
-### Routing
+In this assignment, you will create a service where a user can search for information about the hit BBC show _Doctor Who_. When a user asks for this information, their request goes to a web API, which processes their request and sends back the data needed to display the results on screen. The user will also be able to add information to the service, as well as save lists of their favorite characters.
+
+<img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
+
+### Anatomy of a Route
 
 Open `routes.js` and examine the first route. All HTTP routes consist of 3 components:
 - The path, which will be appended to the host route to be accessed by the front-end application
@@ -71,13 +71,13 @@ router.route("/")                   // Path
     });
 ```
 
-This first route simply sends the receiver a response with a message saying "App is running". Messages between the server and client are sent via JSON, which is a standardized notation for structured data. For all the routes in this homework, responses should take the form of a JavaScript Object with a `data` field that holds the required information.
+This first route simply sends the receiver a response with a message saying "App is running". Instead of a normal function, which uses `return` to output a value, an API uses the `.send()` method to send a value back to the system requesting it (in this case, Postman). Messages between the server and client are sent via JSON, which is a standardized notation for structured data. This route sends back a JavaScript object with one key-value pair; the client can then receive the message and look at the `data` field to find the requested information.
 
 This route does not accept any input from the user; It will send back the same data each time it is called. There are two ways in which data can be embedded within requests to be used by the handler. The first is _parameters_, which take the form of colon-prefixed variables in the route path. For example, in the path `"/doctor/:n"`, `n` is a parameter that can be accessed within the handler using `req.params["n"]`.
 
 The second is the _request body_, which can hold any type of information in a JSON object. __NOTE__: GET requests are forbidden from containing request bodies; Only the PUSH, PUT, PATCH, and DELETE methods can use them. You can access this object using `req.body`. The `body-parser` library we downloaded handled converting this body into a readable JSON format.
 
-All HTTP responses have an attached _status code_, which represents additional information about the request. A list of all valid HTTP status codes can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). For this assignment, all routes should return a `200` status code unless otherwise specified.
+All HTTP responses have an attached _status code_, which represents additional information about the request. A list of all valid HTTP status codes can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). For this assignment, all routes should return a `200` status code for a valid request unless POST is used, in which case a `201` status should be used.
 
 ### Data
 
@@ -100,15 +100,15 @@ A list of objects representing the Doctor's companions is stored at `data.compan
 
 ## Part 4: Writing the API
 
-Your job is to implement each route in the API so that the client can interact with the data. You should replace `res.status(501).send()` in each route with your own code that sends back a response with a `200` status and any necessary data.
+Your job is to replace `res.status(501).send()` in each route with your own code that sends back a response alongside an appropriate status (described earlier). All data should be sent in the `data` field of a JavaScript object.
 
 Implement the following GET routes.
 
 <table>
     <th>
         Method/Route
-        <td>Response Data Value</td>
-        <td>Response Data Type</td>
+        <td>Response <code>data</code> Value</td>
+        <td>Response <code>data</code> Type</td>
         <td>Points</td>
     </th>
     <tr>
@@ -186,8 +186,8 @@ __Note 2 (Electric Boogaloo)__: Receiving two POST requests with identical bodie
         Method/Route
         <td>Effect</td>
         <td>Request Body</td>
-        <td>Response Data Value</td>
-        <td>Response Data Type</td>
+        <td>Response <code>data</code> Value</td>
+        <td>Response <code>data</code> Type</td>
         <td>Points</td>
     </th>
     <tr>
@@ -247,8 +247,8 @@ The last few routes involve setting up a favorites system in which a user can sa
         Method/Route
         <td>Effect</td>
         <td>Request Body</td>
-        <td>Response Data Value</td>
-        <td>Response Data Type</td>
+        <td>Response <code>data</code> Value</td>
+        <td>Response <code>data</code> Type</td>
         <td>Points</td>
     </th>
     <tr>
