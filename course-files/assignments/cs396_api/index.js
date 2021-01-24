@@ -20,8 +20,8 @@ app.use(middleware.cors);
 
 const config = require("./config/config")[env || "development"];
 const mongoose = require("mongoose");
+console.log("Trying to connect to database...");
 mongoose.connect(config.database, config.mongoConfig, err => {
-    console.log("Trying to connect to database...")
     if (err) {
         console.log("Could not connect to database.");
     } else {
