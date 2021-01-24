@@ -13,28 +13,20 @@ points: 15
 
 <a class="nu-button" href="/spring2021/course-files/assignments/hw1.zip">hw1.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-To start, download `hw1.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. You should see three JavaScript files; In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
+To start, download `hw1.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
 
 Writing a web server from scratch is tricky, but thankfully, we don't have to! Node has some great libraries that we can use to do a lot of the heavy lifting for us.
 
-You can download libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Open a new terminal window in VSCode (inside the `hw01` directory) and type `npm init`. Follow the prompts, leaving all settings as recommended.
-
-Select `Terminal -> New Terminal` to open a new terminal instance at the bottom of the VSCode window. To install the packages you'll need for this assignment, type the following command in the terminal window:
-
-```bash
-$ npm install body-parser express --save
-```
-
-You should now have `package.json`, `package-lock.json`, and `node_modules` in your directory. The `JSON` files describe the details of the dependencies needed for the project, and the `node_modules` folder contains the source code for any downloaded libraries.
+You can download libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `hw01` directory.
 
 ## Part 2: Run and Use the Server
 
 The code we wrote in Lab 1 (and, likely, most of the code you've written for previous courses) took the form of a _program_, which runs once. In this homework, we will be writing a _service_, which runs indefinitely and provides utilities that can be called on by other programs.
 
-You will be using the [Express](https://expressjs.com/) framework to build your service. To run the server, type `node index.js` into your terminal window:
+You will be using the [Express](https://expressjs.com/) framework to build your service. To run the server, type `npm start` into your terminal window:
 
 ```bash
-$ node index.js
+$ npm start
 Application listening on PORT: 8081
 ```
 
@@ -301,11 +293,9 @@ The last few routes involve setting up a favorites system in which a user can sa
     </tr>
 </table>
 
-The video below shows the expected output of all the routes.
-
-[INSERT VIDEO HERE]()
-
 ## What to Turn In
+
+We have provided a testing script for you to use to debug your program. This is the same script we will be using to grade your code; If your code passes all provided tests (and you didn't hard-code in the correct responses), you should receive full points. To run the tests, open a second terminal window to the `hw01` directory __while your server is running__ and type `npm test`.
 
 When you're done, upload your completed `routes.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
 
