@@ -11,13 +11,13 @@ points: 15
 
 ## Part 1: Node Package Manager (npm)
 
-<a class="nu-button" href="/spring2021/course-files/assignments/hw1.zip">hw1.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+<a class="nu-button" href="/spring2021/course-files/assignments/cs396_api.zip">cs396_api.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-To start, download `hw1.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
+To start, download `cs396_api.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
 
 Writing a web server from scratch is tricky, but thankfully, we don't have to! Node has some great libraries that we can use to do a lot of the heavy lifting for us.
 
-You can download libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `hw01` directory.
+You can download libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `cs396_api` directory.
 
 ## Part 2: Run and Use the Server
 
@@ -295,7 +295,7 @@ The last few routes involve setting up a favorites system in which a user can sa
 
 ## What to Turn In
 
-We have provided a testing script for you to use to debug your program. This is the same script we will be using to grade your code; If your code passes all provided tests (and you didn't hard-code in the correct responses), you should receive full points. To run the tests, open a second terminal window to the `hw01` directory __while your server is running__ and type `npm test`.
+We have provided a testing script for you to use to debug your program. This is the same script we will be using to grade your code; If your code passes all provided tests (and you didn't hard-code in the correct responses), you should receive full points. To run the tests, open a second terminal window to the `cs396_api` directory __while your server is running__ and type `npm test`.
 
 When you're done, upload your completed `routes.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
 
