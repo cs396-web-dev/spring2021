@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "initialize": "cross-env NODE_ENV=development node config/scripts/initializeDatabase.js",
+    "populate": "cross-env NODE_ENV=development node ./config/scripts/populateDatabase.js",
     "start": "cross-env NODE_ENV=development node index.js",
     "test": "mocha"
   },
