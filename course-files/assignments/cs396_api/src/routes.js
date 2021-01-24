@@ -16,7 +16,7 @@ router.route("/")
 // Edit below this line
 // ---------------------------------------------------
 
-const data = require("./data");
+const data = require("../config/data.json");
 
 router.route("/doctor")
     .get((_req, res) => {

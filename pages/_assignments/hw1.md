@@ -13,7 +13,7 @@ points: 15
 
 <a class="nu-button" href="/spring2021/course-files/assignments/cs396_api.zip">cs396_api.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-To start, download `cs396_api.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. In this assignment, you will implement endpoints for a basic web API in `routes.js` (you don't need to worry about the other files... for now).
+To start, download `cs396_api.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. In this assignment, you will implement endpoints for a basic web API in `src/routes.js` (you don't need to worry about the other files... for now).
 
 Writing a web server from scratch is tricky, but thankfully, we don't have to! Node has some great libraries that we can use to do a lot of the heavy lifting for us.
 
@@ -28,9 +28,11 @@ You will be using the [Express](https://expressjs.com/) framework to build your 
 ```bash
 $ npm start
 Application listening on PORT: 8081
+Trying to connect to database...
+Could not connect to database.
 ```
 
-The server is now running! If you visit [http://localhost:8081](localhost:8081) in a browser window, you should see a message that the app is running.
+The server is now running! Don't worry about the lines that mention a database; We'll get to that in Homework 2. If you visit [http://localhost:8081](localhost:8081) in a browser window, you should see a message that the app is running.
 
 <img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
 

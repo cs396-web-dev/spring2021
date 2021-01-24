@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const data = require("./data.json");
+const data = require("../response_data.json");
 
 const host = "http://localhost:8081";
 
