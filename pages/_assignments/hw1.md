@@ -32,11 +32,11 @@ Application listening on PORT: 8081
 
 The server is now running! If you visit [http://localhost:8081](localhost:8081) in a browser window, you should see a message that the app is running.
 
-<img class="large frame" src="/spring2021/assets/images/hw1/img2.png"/>
+<img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
 
 To test our API, we're going to be using [Postman](https://www.postman.com/downloads/), which is a GUI that lets us send HTTP requests to a specified endpoint. Download Postman, open it up, and put `http://localhost:8081` in the "Enter request URL" bar. Make sure GET is selected in the dropdown and click Send; You should see the response from the request as below:
 
-<img class="large frame" src="/spring2021/assets/images/hw1/img3.png"/>
+<img class="large frame" src="/spring2021/assets/images/hw1/img2.png"/>
 
 You can use Postman similarly to debug all the routes we will be writing in this assignment.
 
@@ -44,7 +44,7 @@ You can use Postman similarly to debug all the routes we will be writing in this
 
 In this assignment, you will create a service where a user can search for information about the hit BBC show _Doctor Who_. When a user asks for this information, their request goes to a web API, which processes their request and sends back the data needed to display the results on screen. The user will also be able to add information to the service, as well as save lists of their favorite characters.
 
-<img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
+<img class="large frame" src="/spring2021/assets/images/hw1/img3.png"/>
 
 ### Anatomy of a Route
 
