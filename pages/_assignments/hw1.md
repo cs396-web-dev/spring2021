@@ -298,7 +298,7 @@ The last few routes involve setting up a favorites system in which a user can sa
 
 ## What to Turn In
 
-We have provided a testing script for you to use to debug your program. This is the same script we will be using to grade your code; If your code passes all provided tests (and you didn't hard-code in the correct responses), you should receive full points. To run the tests, open a second terminal window to the `cs396_api` directory __while your server is running__ and type `npm test`.
+Below is a video showing the expected output of some requests to the server (we recommend you pause at each step to compare your server's output to the video). The video does _not_ show every possible input we will be testing during grading, but it should give you a good idea whether or not you're on the right track.
 
 When you're done, upload your completed `routes.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
 
