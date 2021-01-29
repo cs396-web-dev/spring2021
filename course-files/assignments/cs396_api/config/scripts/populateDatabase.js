@@ -17,13 +17,18 @@ mongoose.connect(config.database, config.mongoConfig, err => {
     } else {
         console.log(`Connected to ${process.env.DB_NAME}.`);
     }
+    console.log("Clearing database...");
     Promise.all([
         Companion,
         Doctor
     ].map(schema => schema.deleteMany()))
-        .then(() => Promise.all(
-            data.doctors.map(obj => Doctor.create(obj).save())
-        ))
+        .then(() => {
+            console.log("Database cleared.");
+            console.log("Populating database...");
+            return Promise.all(
+                data.doctors.map(obj => Doctor.create(obj).save())
+            );
+        })
         .then(() => Promise.all(
             data.companions.map(obj => Companion.create(obj).save())
         ))
@@ -31,5 +36,8 @@ mongoose.connect(config.database, config.mongoConfig, err => {
             console.log(err);
             process.exit(1);
         })
-        .finally(() => process.exit(0));
+        .finally(() => {
+            console.log("Database populated successfully.");
+            process.exit(0);
+        });
 });
