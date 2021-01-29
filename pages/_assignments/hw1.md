@@ -92,6 +92,7 @@ A list of objects representing the Doctor's companions is stored at `data.compan
 - `seasons`: A list of the seasons during which this character appears
 - `alive`: A boolean representing whether the character is alive or dead.
 
+{:#routes}
 ## Part 4: Writing the API
 
 Your job is to replace `res.status(501).send()` in each route with your own code that sends back a response alongside an appropriate status (described earlier). All data should be sent in the `data` field of a JavaScript object.

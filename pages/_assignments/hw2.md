@@ -1,6 +1,6 @@
 ---
 layout: assignment-two-column
-title: Writing a Web API
+title: Databases
 abbreviation: HW2
 type: homework
 due_date: 2021-04-13
@@ -8,3 +8,98 @@ ordering: 1
 draft: 0
 points: 15
 ---
+
+## Part 1: Background Information
+
+{:.callout}
+> ### Readings
+> 
+> 1. <a href="https://medium.com/@anshul.vyas380/mvc-pattern-3b5366e60ce4" target="_blank">The Model-View-Controller (MVC) design pattern</a>
+> 2. <a href="https://javascript.info/promise-basics" target="_blank">How to use Promises in JS</a>
+> 3. <a href="https://mongoosejs.com/docs/queries.html" target="_blank">Mongoose Queries</a>
+
+In Homework 1, we built a _stateful web app_, where the server itself stores data and information about previous requests that are used to interact with the client. However, this is not good practice for real web applications. In real systems, there are often lots of different identical servers that a user can make requests to. If data is stored on the server, the system must route each user to the same server each time they make a request to keep their information consistent, which becomes a logistical nightmare (CS 310 and 345 cover scalable system architecture in more depth). Additionally, if a stateful application goes down (say, if the computer crashes), all the data that was stored on the server instance is lost forever.
+
+To avoid these problems, we can create a _stateless_ application, in which no state is stored in the server. The solution to this problem is to use a _database_, which is a persistent data store that exists outside of the server. Web applications using REST typically use the Model-view-controller (MVC) design pattern, in which the user requests something from the controller (the server), which gets data from the model (the database), which is sent back to the controller and used to update the view (what you see on a web page).
+
+<img class="small frame" src="/spring2021/assets/images/hw2/img1.png" alt="Diagram of the MVC design pattern. Arrows show information passing from the user to the controller to the model, then back to the controller and finally to the view."/>
+
+The goal of this assignment is to turn the server you wrote in HW1 into a _stateless_ app, replacing the components that relied on the `data` object with database accesses. Go ahead and delete the following line from `routes.js`, since we won't be needing it anymore:
+
+```javascript
+const data = require("../config/data.json");
+```
+
+By handling the storage of all data in the database, rather than in a server instance, we can ensure that our API is stateless. The listed readings will help introduce you to
+
+1. The MVC design pattern and how it applies to web programming. For now, we will just be focusing on the Model and Controller aspects of the application; We will start discussing the View next week in class.
+2. Promises, a common JS paradigm for asynchronous programming. For now, put the most focus on the sections on how to _use_ Promises, rather than how to create them (the introduction and the "Consumers: then, catch, finally" sections may prove useful).
+3. How to query documents from a MongoDB database using the Mongoose library.
+
+I would recommend that you read through these resources somewhat thoroughly; Otherwise, this assignment could prove challenging. All Mongoose queries are Promises, so you should know how to use `.then()` to retrieve their results once executed.
+
+## Part 2: Uploading to MongoDB
+
+First, we need to make sure that the data we need is present in our database. We have provided a script that will reset your database and fill it with the necessary data. Run `npm run populate` in the project directory; If successful, you should see the following output:
+
+```bash
+$ npm run populate
+
+> cs396@1.0.0 populate
+> cross-env NODE_ENV=development node ./config/scripts/populateDatabase.js
+
+Trying to connect to database...
+Connected to cs396_db.
+Clearing database...
+Database cleared.
+Populating database...
+Database populated successfully.
+```
+
+Check to make sure that the data was uploaded successfully to your MongoDB cluster. You can view your data in the `collections` tab of the cluster:
+
+<img class="medium frame" src="/spring2021/assets/images/hw2/img2.png" alt="The MongoDB Cluster window with the 'collections' button highlighted."/>
+
+<img class="large frame" src="/spring2021/assets/images/hw2/img3.png" alt="MongoDB collections window showing JSON-formatted data."/>
+
+We have 2 collections in our database, one each for Doctor and Companion objects. Note that each object has a 24-character `_id`; These ids are generated automatically by MongoDB, so you don't need to create them for POST requests like in HW1 (in fact, you should never manually create or modify them for any reason).
+
+## Part 3: Your Job
+
+Implement the Doctor Who API using the data located in your MongoDB cluster. Use the provided `Doctor` and `Companion` schema to query the database.
+
+Let's walk through the first example together (you can test it using Postman the same way we did in Homework 1):
+
+```javascript
+router.route("/doctor")
+    .get((req, res) => {
+        console.log(`GET /doctor/${req.params.id}`);
+        Doctor.find({})
+            .then(data => {
+                res.status(200).send({ data });
+            })
+            .catch(err => {
+                res.status(404).send({ err });
+            });
+    })
+```
+
+In this example, we query the database for all `Doctor` documents and send them back to the client, sending an error instead if the query failed.
+- `Doctor.find({})` performs a query for Doctor objects. The argument to `.find` is a JSON object containing search queries for objects you want to find. Since we pass in an empty object, all documents are returned.
+- `.then(data => { ... })` follows the Promise syntax described in reading 2; For Mongoose queries, the callback passed to `.then()` takes a `data` object, which is a list of objects returned by the query.
+- `res.status(200).send({ data });` sends back the data to the client with a status code indicating that the request succeeded.
+- `res.status(404).send({ err });` is called if there is an error while querying MongoDB (e.g. if the connection is broken). In this case, we send back an error message with a status code indicating that the requested resource couldn't be found.
+
+__Note__: The `({ data })` and `({ err })` syntax used in the above example is JS shorthand for creating objects and can be used when the object key has the same name as the variable holding the value. This is equivalent to using `({ data: data })` and `({ err: err })`.
+
+__Note 2__: If you examine the data, you may notice that the doctors and companions are _not_ returned in the order you might expect - this may affect the logic used in one of your routes...
+
+The specifications for the API routes are the <a href="/spring2021/assignments/hw1#routes">same as in HW1</a>, but should use and modify real data this time. If your API works correctly, you should see the same responses as you did in Homework 1.
+
+## What to Turn In
+
+We have provided a testing script for you to use to debug your program, which is the same script we will be using to grade your code. To run the tests, open a second terminal window to the `cs396_api` directory __while your server is running__ and type `npm test`.
+
+We will also be checking to make sure that all your routes query MongoDB; A route that uses the `data` object will result in 0 points for that question.
+
+When you're done, upload your completed `routes.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight. Please be careful that you __don't just upload the original starter file__ (or your HW1 submission), but that you submit __YOUR CODE__.
