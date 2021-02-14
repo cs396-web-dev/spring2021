@@ -1,6 +1,6 @@
 ---
 layout: assignment-two-column
-title: Configure Your Software Stack
+title: Setting Up MongoDB
 type: lab
 abbreviation: Lab 2
 draft: 0
@@ -12,13 +12,12 @@ due_date: 2021-04-09
 
 {:.callout}
 > ## Background Readings
-> These are for your reference, if you want to read more about the technologies we're using.
-> * <a href="https://docs.mongodb.com/manual/introduction/" target="_blank">MongoDB Introduction & Guide</a>
-> * <a href="https://mongoosejs.com/docs/" target="_blank">Mongoose</a> (Node.js Package for connecting to MongoDB)
 > * Background reading on RESTful architectures:
 >      * <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f" target="_blank">High-level overview</a>
 >      * <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank">Fielding's original paper</a>
-> * Deploying to Heroku (for next week): <a href="https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku" target="_blank">Step-by-Step Guide</a>.
+> These are for your reference, if you want to read more about the technologies we're using.
+> * <a href="https://docs.mongodb.com/manual/introduction/" target="_blank">MongoDB Introduction & Guide</a>
+> * <a href="https://mongoosejs.com/docs/" target="_blank">Mongoose</a> (Node.js Package for connecting to MongoDB)
 
 One of the goals of the course is to help you to analyze the **human dimensions** of data-intensive computing applications. A key part of this is the examination of how humans interact with data, through the ways data is stored and presented. In today's lab, we will learn one way data is commonly stored and accessed in large-scale applications.
 
@@ -123,37 +122,9 @@ Connected to cs396_db.
 
 If the message `Could not connect to database` appears instead, let your peer mentor know to debug.
 
-{:#step3}
-## III. Set Up Git and GitHub Repos
-You are going to be using git (and some ther command line tools) to manage versions of your code, and to interact with GitHub (and later with Heroku). 
+Now, deploy your app to Heroku. Since `.env` is not tracked by Git, we have to let Heroku know the values of our environment variables so the app will work once deployed. Open your Heroku dashboard and navigate to the Settings tab. Click "Reveal Config Vars" and add in the key-value pairs for each of the variables in your `.env` file.
 
-### 1. Install / Register
-If you haven't already:
-1. Install git on your computer: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a>
-2. Register for GitHub: <a href="https://github.com/join" target="_blank">https://github.com/join</a>
-
-### 2. Do the Tutorial (Optional)
-If you've never used GitHub or are relatively new to it:
-1. Do the <a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub tutorial</a>. It is optional, but recommended for anyone new to GitHub.
-2. Refer to the <a href="https://www.git-tower.com/blog/git-cheat-sheet/" target="_blank">Git Cheat Sheet</a> if you have questions about specific commands.
-
-### 3. Configure Your Git and GitHub
-Many of you already have a process for doing this, so feel free to do your own thing here. That said, if you're relatively new to this, here are some instructions:
-
-#### GitHub
-1. In your web browser, navigate to GitHub and create a new repository (see tutorial above if you don't know how).
-2. Please make sure that you mark your repo "public."
-
-#### Locally
-When you're done, open your command line (on your local computer) and navigate to your `cs396_api` directory. Then:
-1. Initialize a brand new git repo: `git init`
-1. Connect your local repo to your GitHub repo: `git remote add origin <address-of-repo-on-github>`
-1. Add all of your files to your local repo: `git add .`
-1. Type `git status`, which will show you all of the files that your git repo is currently tracking.
-1. Commit all of them: `git commit -am 'My first commit'`. Committing them is like "saving" them to a version (if you ever needed to later revert to a previous version of your code).
-1. Push them to GitHub: `git push origin master`. "Pushing" transfers all of your committed files to your GitHub repo (on the cloud).
-
-If you make any additional code changes, simply repeat steps 3-6 above.
+<img class="large frame" src="/spring2021/assets/images/lab02/heroku_env.png"/>
 
 ## IV. Review the Checklist & Submit
 
@@ -168,4 +139,5 @@ If you make any additional code changes, simply repeat steps 3-6 above.
    * __Note__: Do _NOT_ remove the `node_modules` line from `.gitignore` under any circumstances.
 
 ### 2. Submit to Canvas
+
 When you are sure you have completed everything, please submit the link to your GitHub repository.

@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Databases
 abbreviation: HW2
 type: homework
-due_date: 2021-04-13
+due_date: 2021-04-18
 ordering: 1
 draft: 0
 points: 15
@@ -76,10 +76,10 @@ router.route("/doctor")
         console.log(`GET /doctor/${req.params.id}`);
         Doctor.find({})
             .then(data => {
-                res.status(200).send({ data });
+                res.status(200).send(data);
             })
             .catch(err => {
-                res.status(404).send({ err });
+                res.status(404).send(err);
             });
     })
 ```
@@ -87,12 +87,8 @@ router.route("/doctor")
 In this example, we query the database for all `Doctor` documents and send them back to the client, sending an error instead if the query failed.
 - `Doctor.find({})` performs a query for Doctor objects. The argument to `.find` is a JSON object containing search queries for objects you want to find. Since we pass in an empty object, all documents are returned.
 - `.then(data => { ... })` follows the Promise syntax described in reading 2; For Mongoose queries, the callback passed to `.then()` takes a `data` object, which is a list of objects returned by the query.
-- `res.status(200).send({ data });` sends back the data to the client with a status code indicating that the request succeeded.
-- `res.status(404).send({ err });` is called if there is an error while querying MongoDB (e.g. if the connection is broken). In this case, we send back an error message with a status code indicating that the requested resource couldn't be found.
-
-__Note__: The `({ data })` and `({ err })` syntax used in the above example is JS shorthand for creating objects and can be used when the object key has the same name as the variable holding the value. This is equivalent to using `({ data: data })` and `({ err: err })`.
-
-__Note 2__: If you examine the data, you may notice that the doctors and companions are _not_ returned in the order you might expect - this may affect the logic used in one of your routes...
+- `res.status(200).send(data);` sends back the data to the client with a status code indicating that the GET request succeeded.
+- `res.status(404).send(err);` is called if there is an error while querying MongoDB (e.g. if the connection is broken). In this case, we send back an error message with a status code indicating that the requested resource couldn't be found.
 
 The specifications for the API routes are the <a href="/spring2021/assignments/hw1#routes">same as in HW1</a>, but should use and modify real data this time. If your API works correctly, you should see the same responses as you did in Homework 1.
 

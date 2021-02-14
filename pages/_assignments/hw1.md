@@ -3,27 +3,25 @@ layout: assignment-two-column
 title: Writing a Web API
 abbreviation: HW1
 type: homework
-due_date: 2021-04-06
+due_date: 2021-04-11
 ordering: 1
 draft: 0
 points: 15
 ---
 
-## Part 1: Node Package Manager (npm)
-
 <a class="nu-button" href="/spring2021/course-files/assignments/cs396_api.zip">cs396_api.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-To start, download `cs396_api.zip`, unzip it, and open the folder in VSCode with `File -> Open Folder`. In this assignment, you will implement endpoints for a basic web API in `src/routes.js` (you don't need to worry about the other files... for now).
+In this assignment, you will create a service where a user can search for information about the hit BBC show _Doctor Who_. When a user asks for this information, their request goes to a web API, which processes their request and sends back the data needed to display the results on screen. The user will also be able to add information to the service, as well as save lists of their favorite characters.
 
-Writing a web server from scratch is tricky, but thankfully, we don't have to! Node has some great libraries that we can use to do a lot of the heavy lifting for us.
+<img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
 
-You can download libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `cs396_api` directory.
+If you haven't already, complete the steps described in [Lab 1](/spring2021/assignments/lab01) to get your Express server up and running.
 
 ## Part 2: Run and Use the Server
 
-The code we wrote in Lab 1 (and, likely, most of the code you've written for previous courses) took the form of a _program_, which runs once. In this homework, we will be writing a _service_, which runs indefinitely and provides utilities that can be called on by other programs.
+Depending on your background, most of the code you've written for previous courses took the form of a _program_, which runs once and then terminates. In this homework, we will be writing a _service_, which runs indefinitely and provides utilities that can be called on by other programs.
 
-You will be using the [Express](https://expressjs.com/) framework to build your service. To run the server, type `npm start` into your terminal window:
+You will be using the [Express](https://expressjs.com/) framework to build your service. As in Lab 1, to run the server, type `npm start` into your terminal window:
 
 ```bash
 $ npm start
@@ -32,9 +30,7 @@ Trying to connect to database...
 Could not connect to database.
 ```
 
-The server is now running! Don't worry about the lines that mention a database; We'll get to that in Homework 2. If you visit [http://localhost:8081](localhost:8081) in a browser window, you should see a message that the app is running.
-
-<img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
+The server is now listening for all requests that are received by port 8081. Don't worry about the output that mentions database connections; we'll get to that in Homework 2.
 
 To test our API, we're going to be using [Postman](https://www.postman.com/downloads/), which is a GUI that lets us send HTTP requests to a specified endpoint. Download Postman, open it up, and put `http://localhost:8081` in the "Enter request URL" bar. Make sure GET is selected in the dropdown and click Send; You should see the response from the request as below:
 
@@ -42,11 +38,7 @@ To test our API, we're going to be using [Postman](https://www.postman.com/downl
 
 You can use Postman similarly to debug all the routes we will be writing in this assignment.
 
-## Part 3: Assignment Information
-
-In this assignment, you will create a service where a user can search for information about the hit BBC show _Doctor Who_. When a user asks for this information, their request goes to a web API, which processes their request and sends back the data needed to display the results on screen. The user will also be able to add information to the service, as well as save lists of their favorite characters.
-
-<img class="large frame" src="/spring2021/assets/images/hw1/img3.png"/>
+## Part 3: AAAAAAAA
 
 ### Anatomy of a Route
 
@@ -56,16 +48,14 @@ Open `routes.js` and examine the first route. All HTTP routes consist of 3 compo
 - The request handler, which processes incoming information and sends back a JSON response
 
 ```javascript
-router.route("/")                   // Path
-    .get((_req, res) => {           // HTTP Method
+router.route("/")                                 // Path
+    .get((_req, res) => {                         // HTTP Method
         console.log("GET /");
-        res.status(200).send({      // Handler
-            data: "App is running"
-        });
+        res.status(200).send("App is running");   // Handler
     });
 ```
 
-This first route simply sends the receiver a response with a message saying "App is running". Instead of a normal function, which uses `return` to output a value, an API uses the `.send()` method to send a value back to the system requesting it (in this case, Postman). Messages between the server and client are sent via JSON, which is a standardized notation for structured data. This route sends back a JavaScript object with one key-value pair; the client can then receive the message and look at the `data` field to find the requested information.
+This first route simply sends the receiver a response with a message saying "App is running". Instead of a normal function, which uses `return` to output a value, an API uses the `.send()` method to send a value back to the system requesting it (in this case, Postman). Messages between the server and client are sent via JSON, which is a standardized notation for structured data. Routes can send back any kind of data; In this example, it sends back a string with the message "App is running".
 
 This route does not accept any input from the user; It will send back the same data each time it is called. There are two ways in which data can be embedded within requests to be used by the handler. The first is _parameters_, which take the form of colon-prefixed variables in the route path. For example, in the path `"/doctor/:n"`, `n` is a parameter that can be accessed within the handler using `req.params["n"]`.
 
@@ -95,7 +85,7 @@ A list of objects representing the Doctor's companions is stored at `data.compan
 {:#routes}
 ## Part 4: Writing the API
 
-Your job is to replace `res.status(501).send()` in each route with your own code that sends back a response alongside an appropriate status (described earlier). All data should be sent in the `data` field of a JavaScript object.
+Your job is to replace `res.status(501).send()` in each route with your own code that sends back a response alongside an appropriate status (described earlier).
 
 Implement the following GET routes.
 
@@ -108,8 +98,8 @@ Implement the following GET routes.
     </th>
     <tr>
         <td>GET /doctor</td>
-        <td>A list of the ids of all Doctors</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of all Doctor objects</td>
+        <td>Array&lt;Object&gt;</td>
         <td>0.5</td>
     </tr>
     <tr>
@@ -120,14 +110,14 @@ Implement the following GET routes.
     </tr>
     <tr>
         <td>GET /doctor/:id/companions</td>
-        <td>A list of the ids of the companions that travelled with the doctor with the specified id</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of the companions that travelled with the doctor with the specified id</td>
+        <td>Array&lt;Object&gt;</td>
         <td>1</td>
     </tr>
     <tr>
         <td>GET /doctor/:id/companions/longest</td>
-        <td>The id of the companion who travelled with this Doctor for the greatest number of seasons; If there's a tie, send the first listed</td>
-        <td>string</td>
+        <td>The companion who travelled with this Doctor for the greatest number of seasons; If there's a tie, send the first listed</td>
+        <td>Object</td>
         <td>1</td>
     </tr>
     <tr>
@@ -138,8 +128,8 @@ Implement the following GET routes.
     </tr>
     <tr>
         <td>GET /companion</td>
-        <td>A list of the ids of all companions</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of all companion objects</td>
+        <td>Array&lt;Object&gt;</td>
         <td>0.5</td>
     </tr>
     <tr>
@@ -150,20 +140,20 @@ Implement the following GET routes.
     </tr>
     <tr>
         <td>GET /companion/:id/doctors</td>
-        <td>A list of the ids of the Doctors with whom this companion travelled</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of the Doctors with whom this companion travelled</td>
+        <td>Array&lt;Object&gt;</td>
         <td>1</td>
     </tr>
     <tr>
         <td>GET /companion/:id/friends</td>
-        <td>A list of the ids of the companions who appeared on at least one of the same seasons as this companion</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of the companions who appeared on at least one of the same seasons as this companion</td>
+        <td>Array&lt;Object&gt;</td>
         <td>1</td>
     </tr>
     <tr>
         <td>GET /companion/crossover</td>
-        <td>A list of the ids of all companions who travelled with multiple doctors</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of the companions who travelled with multiple doctors</td>
+        <td>Array&lt;Object&gt;</td>
         <td>1</td>
     </tr>
 </table>
@@ -248,18 +238,18 @@ The last few routes involve setting up a favorites system in which a user can sa
     </th>
     <tr>
         <td>GET /doctor/favorite</td>
-        <td>Return a list of ids of saved Doctor objects.</td>
+        <td>Return a list  of saved Doctor objects.</td>
         <td>N/A</td>
-        <td>A list of ids of saved Doctor objects.</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of saved Doctor objects.</td>
+        <td>Array&lt;Object&gt;</td>
         <td>0.5</td>
     </tr>
     <tr>
         <td>GET /companion/favorite</td>
-        <td>Return a list of ids of saved companion objects.</td>
+        <td>Return a list of saved companion objects.</td>
         <td>N/A</td>
-        <td>A list of ids of saved companion objects.</td>
-        <td>Array&lt;string&gt;</td>
+        <td>A list of saved companion objects.</td>
+        <td>Array&lt;Object&gt;</td>
         <td>0.5</td>
     </tr>
     <tr>

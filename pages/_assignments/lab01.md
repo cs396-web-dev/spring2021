@@ -1,6 +1,6 @@
 ---
 layout: assignment-two-column
-title: Getting Started with Node.js
+title: Configure Your Software Stack
 type: lab
 abbreviation: Lab 1
 draft: 0
@@ -8,139 +8,105 @@ num: 1
 due_date: 2021-04-02
 ---
 
+{:.callout}
+> ## Background Readings
+> These are for your reference, if you want to read more about the technologies we're using.
+> * <a href="https://www.w3schools.com/js/js_mistakes.asp">JavaScript Tutorial</a>
+>      * JavaScript is a multi-paradigm, weakly-typed programming language that borrows a lot of its syntax from other languages you may have used in the past. It may be useful to skim this resource to get a feel for how JavaScript handles some common semantics.
+>      * You may find the tutorials in the _JS Objects_, _JS Functions_, and _JS Async_ useful. Ignore the "JS Events" and everything in the _JS HTML DOM_ section for now.
+> * <a href="https://expressjs.com/en/starter/hello-world.html">Express.js Hello World</a>
+> * <a href="https://guides.github.com/activities/hello-world/">GitHub Tutorial</a> and <a href="https://www.git-tower.com/blog/git-cheat-sheet/" target="_blank">Git Cheat Sheet</a>
+> * Deploying to Heroku: <a href="https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku" target="_blank">Step-by-Step Guide</a>.
+
+The goal of today's lab is to set up all of the necessary technologies you'll need to complete Homework 1. If one of the steps isn't working, let your Peer Mentor know so we can make sure you're able to progress.
+
 ## Part 1: Install Node.js
 
 {:.callout}
 > Note: If you have any issues installing Node.js, contact your assigned peer mentor. You are also welcome to attend any of the course office hours to get help.
 
-Traditionally, JavaScript code is run in the browser in order to interact with and manipulate DOM elements. In this class, we will also be writing JavaScript APIs, which run as standalone services outside the browser. To do this, we will use Node.js, a runtime environment which enables JavaScript to be run outside the browser.
+Traditionally, JavaScript code runs in the browser in order to interact with and manipulate web pages. In this class, we will also be writing API servers, which run as standalone services. To do this, we will use Node.js, a runtime environment which enables JavaScript to be run outside the browser.
 
 Download the latest version of Node here: [https://nodejs.org/en/](https://nodejs.org/en/)
 
-To check that Node installed correctly, type `npm --version` into a new terminal window.
+To check that Node installed correctly, type `npm --version` into a new terminal window. You should see the version of Node you installed print to the console:
 
 ```bash
 $ npm --version
 7.4.0
 ```
 
-## Part 2: Install Visual Studio Code
+## Part 2: Install Visual Studio Code (Optional, but Strongly Recommended)
 
 Visual Studio Code (VSCode) is a modern text editor with extensive support for debugging, git, and custom extensions. We strongly recommend using it for web development in this course, as we'll be giving tutorials with the editor and recommending extensions that align with the class material.
 
 Download the latest version of VSCode here: [https://code.visualstudio.com/Download](https://code.visualstudio.com/Download).
 
-## Part 3: Getting Started on Homework 1
+## Part 3: Set Up Git and GitHub
 
-Open [Homework 1](/spring2021/assignments/hw1.html) and follow steps 1 and 2. Once these steps are complete, you should be able to see the "App is running" response from the server.
+We will be using git to manage versions of your code and to interact with GitHub (and later Heroku).
 
-### JavaScript
+### Install / Register
+If you haven't already:
+1. Install git on your computer: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">https://git-scm.com/book/en/v2/Getting-Started-Installing-Git</a>
+2. Register for GitHub: <a href="https://github.com/join" target="_blank">https://github.com/join</a>
 
-#### Objects
+### Configure Your GitHub Repository
 
-All non-primitive types in JavaScript are Objects, which are collections of key-value pairs (you might have called them _dictionaries_ or _hash maps_ in other courses). Values in objects can be primitive types, lists, or other Objects. Objects are created and accessed with the following syntax:
+Many of you already have a process for doing this, so feel free to do your own thing here. That said, if you're relatively new to this, here are some instructions:
 
-```javascript
-const myObject = {
-    key1: "value1",
-    key2: 2,
-    key3: ["hey", "there", "delilah"]
-};
-console.log(myObject.key1)      // prints "value1"
-console.log(myObject.key2)      // prints 2
-console.log(myObject.key3)      // prints ["hey", "there", "delilah"]
-console.log(myObject.key3[2])   // prints "delilah"
+In your web browser, navigate to GitHub and create a new repository (see tutorial above if you don't know how). Please make sure that you mark your repo "public." When you're done, download `cs396_api.zip` and unzip it. Open your command line (on your local computer) and navigate to your `cs396_api` directory.
+
+<a class="nu-button" href="/spring2021/course-files/assignments/cs396_api.zip">cs396_api.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+
+Then,
+1. Initialize a brand new git repo: `git init`
+2. Connect your local repo to your GitHub repo: `git remote add origin <address-of-repo-on-github>`
+3. Add all of your files to your local repo: `git add .`
+4. Type `git status`, which will show you all of the files that your git repo is currently tracking.
+5. Commit all of them: `git commit -am 'My first commit'`. Committing them is like "saving" them to a version (if you ever needed to later revert to a previous version of your code).
+6. Push them to GitHub: `git push origin master`. "Pushing" transfers all of your committed files to your GitHub repo (on the cloud).
+
+For code changes that you would like to save and track on GitHub, you should repeat steps 3-6 of the above process.
+
+## Part 3: Set up Homework 1
+
+You can download external libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Open `cs396_api` in VSCode using `File -> Open Folder`. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `cs396_api` directory.
+
+You should now be able to run the program by typing `npm start` into your terminal window (if you get the message `Application listening on PORT: 8081`, it's working):
+
+```bash
+$ npm start
+Application listening on PORT: 8081
+Trying to connect to database...
+Could not connect to database.
 ```
 
-#### Function Types
+Visit [http://localhost:8081](localhost:8081) in a browser window; you should see a message that the app is running.
 
-There are 4 different ways to create a function in JavaScript, 2 of which we'll be discussing in this class (we'll be ignoring [function expressions](https://developer.mozilla.org/en-US/docs/web/JavaScript/Reference/Operators/function) and [function constructors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/Function), at least for the time being). If we wanted to create a function to add two numbers, we could do the following:
+<img class="large frame" src="/spring2021/assets/images/lab01/img1.png"/>
 
-```javascript
-function add(a, b) {
-    return a + b;
-}
-```
+## Part 4: Deploying the API
 
-This is called a _function declaration_, and is most similar to how functions are created in other languages like Python and Java. Note that there are no return or parameter types, as JavaScript is not a strongly typed languages (if you're looking for a _bit_ more type safety, check out [TypeScript](https://www.typescriptlang.org/));
+For the first few assignments in this class, we will be using Heroku, a lightweight hosting service, to deploy our applications to the cloud. Heroku is generally meant for smaller prototype applications, and as such is not acceptable for building large-scale applications (see AWS and friends for that). However, it's perfect for our use case.
 
-Let's look at another way to create a function known as the _arrow function_:
+### Create a Heroku App
 
-```javascript
-const add = (a, b) => a + b;
-```
+[Sign up](https://signup.heroku.com/identity) for a Heroku account and indicate your primary development language as Node.js.
 
-So, what's going on here? Functions in JavaScript are first-class objects, and thus can be assigned to variables and passed as function arguments. Arrow functions are a feature introduced in the latest version of JavaScript and are a way to do exactly that; they are compact, anonymous functions designed to be passed around and used as _callbacks_ by other functions.
+Click 'Create a new app' and give the app a name on the Heroku website. You will be brought to a dashboard where you can manage your application.
 
-An arrow function has 3 parts:
-- __Parameters__: In arrow functions, the parameters are the first things that appear in the function, before the `=>`. They are listed in the same way as they would be in a normal function, as a comma-separated list inside parentheses. If the arrow function takes no parameters, the parentheses must still remain (e.g. `() => console.log("hey")`). If the function takes only a single parameter, the parentheses around it can be optionally removed (e.g. `a => console.log(a)`).
-- __Arrow__: The arrow symbol, `=>`, is required in all arrow functions and separates the parameters from the function body.
-- __Body__: The function body can take one of two forms. First is a normal function body, surrounded by brackets. The second is the one-liner body, which is not surrounded by brackets. This second type is special in that it _returns_ the result of the expression. For example, the function `a => a + 2` takes a number as an argument and _returns_ the name number plus 2. In contrast, `a => { a + 2; }` would evaluate the expression `a + 2` but not return the result. We will utilize this type of function body a fair bit in this class.
+### Connect Heroku to GitHub
 
-#### List Iteration and Comprehension
+In the "Deploy" tab of your Heroku dashboard, switch your app's deployment method from the Heroku CLI to GitHub. Then, click the "Connect to Github" button and search for the repository you created earlier. Press the "connect" button to have Heroku track changes on the main branch of your repository.
 
-If you took `COMP_SCI 111`, you may recognize Racket's `map`, `filter`, and `foldl` functions in JavaScript (`foldl` is renamed `reduce` and is slightly different). These functions are invaluable and will help us write some really clean code when dealing with lists of data. Let's look at these functions to refresh our memories:
+<img class="large frame" src="/spring2021/assets/images/lab01/img2.png"/>
 
-The `map` function applies a transformation function to each element of a list, returning a new list of values.
+Now, all you have to do to deploy your app is to hit the "Deploy Branch" button with "main" selected. Now, if you open your Heroku app, you should see a message indicating that your app is running!
 
-```javascript
-const myList = [1, 2, 3, 4, 5];
-const newList = myList.map(n => n + 2);   // Add 2 to every number
-console.log(newList);                     // prints [3, 4, 5, 6, 7]
-```
+## What to Submit
 
-The `filter` function returns a new list containing all the elements of the original list that return `true` when passed as arguments to a function that returns a boolean.
+Once you're done, submit the following to Canvas:
 
-```javascript
-const myList = [1, 2, 3, 4, 5];
-const newList = myList.map(n => n > 3);   // Return all elements greater than 3
-console.log(newList);                     // prints [4, 5]
-```
-
-The `reduce` function applies a transformation function _pairwise_ on all elements of the list in order to reduce it down to a single value. The function will take the first two elements of the list as arguments, return a value, and then the function will run again, using that return value and the third element of the list, etc. For example, `reduce` can be used to find the sum of a list like so:
-
-```javascript
-const myList = [1, 2, 3, 4, 5];
-const listSum = myList.reduce((a, b) => a + b); // Add the first two elements together, then add the result to the 3rd element, etc.
-console.log(listSum);                           // prints 15
-```
-
-### Your First Endpoint(s)
-
-The first endpoint you will implement in Homework 1 is `GET /doctor`, which returns a list of ids of all the doctors in the `data` object. Look at the __Data__ section of the HW1 assignment information for more on how this data is stored.
-
-The endpoint you'll need to fill in is in the `routes.js` file and looks like this:
-
-```javascript
-.get((_req, res) => {
-    console.log("GET /doctor");
-    res.status(501).send();
-})
-```
-
-When creating endpoints, think of `.send()` as `return`; the value that you want to return to the user should be inside the parentheses. When implemented, this endpoint should look something like:
-
-```javascript
-.get((_req, res) => {
-    console.log("GET /doctor");
-    const listOfDoctorIds = []; // Your code here
-    res.status(200).send({
-        data: listOfDoctorIds
-    });
-})
-```
-
-Notice that we changed the `501` to a `200` (more about that in the assignment) and sent back a JavaScript object with a key of `data` and a value of `listOfDoctorIds`. But how do we create this list? Some good questions to ask might be:
-
-1. How can you retrieve the list of doctors from the global `data` object?
-2. How would you write an arrow function that takes an object as a parameter and returns its `_id`?
-3. What function could you use to _transform_ the list of doctor objects into a list of `_id`s?
-
-Once you're done implementing that route, try to fill in the `GET /companion` route. You might find yourself re-using a lot of the same code from the first route!
-
-```javascript
-.get((_req, res) => {
-    console.log("GET /companion");
-    res.status(501).send();
-})
-```
+- A link to your _public_ GitHub repository
+- A link to your Heroku app
