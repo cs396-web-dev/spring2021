@@ -30,6 +30,7 @@ mongoose.connect(config.database, config.mongoConfig, err => {
 });
 
 const routes = require("./src/routes");
+// const routes = require("./solutions/hw1_routes");
 app.use("", routes);
 
 const PORT = process.env.PORT || 8081;
