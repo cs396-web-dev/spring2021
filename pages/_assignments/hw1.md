@@ -11,7 +11,7 @@ points: 15
 
 <a class="nu-button" href="/spring2021/course-files/assignments/cs396_api.zip">cs396_api.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-In this assignment, you will create a service where a user can search for information about the hit BBC show _Doctor Who_. When a user asks for this information, their request goes to a web API, which processes their request and sends back the data needed to display the results on screen. The user will also be able to add information to the service, as well as save lists of their favorite characters.
+In this assignment, you will create a web service which can be used to search for information about the hit BBC show _Doctor Who_. When a user asks for this information, your API will process their request and send back the specified data. The user will also be able to add information to the service, as well as save lists of their favorite characters.
 
 <img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
 
@@ -38,9 +38,9 @@ To test our API, we're going to be using [Postman](https://www.postman.com/downl
 
 You can use Postman similarly to debug all the routes we will be writing in this assignment.
 
-## Part 3: AAAAAAAA
+## Part 3: Assignment Information
 
-### Anatomy of a Route
+### Anatomy of an Express Route
 
 Open `routes.js` and examine the first route. All HTTP routes consist of 3 components:
 - The path, which will be appended to the host route to be accessed by the front-end application
@@ -61,7 +61,7 @@ This route does not accept any input from the user; It will send back the same d
 
 The second is the _request body_, which can hold any type of information in a JSON object. __NOTE__: GET requests are forbidden from containing request bodies; Only the PUSH, PUT, PATCH, and DELETE methods can use them. You can access this object using `req.body`. The `body-parser` library we downloaded handled converting this body into a readable JSON format.
 
-All HTTP responses have an attached _status code_, which represents additional information about the request. A list of all valid HTTP status codes can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). For this assignment, all routes should return a `200` status code for a valid request unless POST is used, in which case a `201` status should be used.
+All HTTP responses have an attached _status code_, which represents additional information about the request. A list of all valid HTTP status codes can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). For this assignment, all routes should return a `200` status code for a valid request unless POST is used, in which case a `201` status should be used. If a requests asks for information about data that does not exist (e.g. retrieving a Doctor with an id that isn't present in the data), a `404` code should be used.
 
 ### Data
 
