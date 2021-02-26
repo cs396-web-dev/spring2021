@@ -28,37 +28,25 @@ Today, you will building a messaging app using WebSockets. This requires two com
 - A WebSocket server that handles incoming messages from each client
 - A client that establishes a connection to the server and sends messages to the server whenever a user chats.
 
-## Setup
+## 1. Server
 
 <a class="nu-button" href="/spring2021/course-files/assignments/lab07.zip">lab07.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-Create a new GitHub repository for the lab (it can be named whatever you want). Download `lab07.zip`, unzip it, and add the repo as a remote for the project:
+Download `lab07.zip`, unzip it, and open the folder in VSCode.
 
-```bash
-git init
-git remote add origin <address-of-repo-on-github>
-git add .
-git commit -m "Initialize"
-git push origin main
-```
+Install the required packages with `npm install` and run the server locally using `npm start`. Then, open `server.js`. Your job is to implement the server to handle three different types of messages. These messages should be in JSON format with a `type` field that indicates the type of message being sent. Examples of each type are:
 
-## Your Task
+- User login message: `{ type: "login", username: "not_a_chatbot" }`
+- Disconnect message: `{ type: "disconnect", username: "not_a_chatbot" }`
+- Chat message: `{ type: "chat", text: "is this working?", username: "not_a_chatbot" }`
 
-### 1. Server
+Using the provided switch statement, send data back to each connected client as a JSON object. The object can have whatever structure you feel is appropriate, since you'll be writing the client that handles this data in Step 2.
 
-Run the server locally using `npm start`. Then, open `server.js`. Your job is to implement the server to handle two different types of messages:
+- When a user logs in (message type "login"), store their username in a collection on the server and send back a JSON object containing a list of _all_ connected users.
+- When a user disconnects (message type "disconnect"), remove them from the set of connected users and send back a JSON object containing a list of _all_ connected users.
+- When a chat is sent (message type "chat"), broadcast the message and the sender to all connected users. _Tip: You can just send back the received JSON object._
 
-- Messages indicating a user has logged in to the server
-- Messages indicating a user has disconnected from the server
-- Messages indicating a message to be sent
-
-These messages should be in JSON format with a `type` field that indicates the type of message being sent. For example, a user login message could be `{ type: "login", username: "not_a_chatbot" }`, a disconnect message `{ type: "disconnect", username: "not_a_chatbot" }`,  and a chat message `{ type: "chat", text: "is this working?", username: "not_a_chatbot" }`. You should check the type of the message and send data back to each connected client as a stringified JSON object with whatever structure you feel is appropriate, since you'll be writing the client that handles the data.
-
-- When a user logs in, send them a JSON object containing a list of _all_ users that are currently connected (type "login"); you can store these in a list on the server.
-- When a user disconnects, remove them from the list of connected users and send back a JSON object containing a list of _all_ users that are currently connected (type "disconnect").
-- When a message is sent, broadcast the message and the sender to all connected users (type "chat").
-
-Here's a quick example of sending a static message to each connected client:
+Here's a quick example of sending a message to each connected client:
 
 ```javascript
 wss.on("connection", socket => {
@@ -77,24 +65,30 @@ wss.on("connection", socket => {
 
 If we were building this into a full application, we would store each user, conversation, and message in a database to load the appropriate chat history whenever the user opens the application. For now, messages will just be stored on the client and not be persisted between sessions.
 
-### 2. Client
+## 2. Client
 
-Open `index.html` in your browser. The interface is a simple chat interface that allows the user to select a chatroom (just localhost for now), set their name, and send messages to other users in the chatroom. Most of the UX is already implemented; you will implement the following:
+Open `index.html` in your browser. The interface is a simple chat interface that allows the user to select a chatroom (just localhost for now), set their name, and send messages to other users in the chatroom. The client is currently set up to send WebSocket messages to the server whenever a user connects, disconnects, or sends a message. You will implement `handleReceivedMessage`, which updates the UI whenever the client receives a message from the server. You should:
 
-- When the user logs in, send a JSON message with type "login" and the entered username to the server.
-- When the user disconnects from the server, send a JSON message with type "disconnect" and the current username.
-- When the user sends a chat, send a JSON message with the type "chat", the entered text, and the username of the sender
-- Handle all 3 types of messages that the server can send to the client:
-    - Update the list of connected users when you login (or another user does)
-    - Update the list of connected users when a user disconnects
-    - Update the chat with any received messages and their senders
+- Update the list of connected users when a user logs in
+- Update the list of connected users when a user disconnects
+- Update the chat with any received messages and their senders
 
-If your client and server are both working, you should be able to run your server, open `index.html` in two separate browser tabs, and send messages between them!
+If your client and server are both working, you should be able to open `index.html` in two separate browser tabs, log in to the same server on each, and send messages between them!
 
-### 3. (Optional) Deploy & Test
+## 3. (Optional) Deploy with ngrok
 
-If you're done with your implementation, push your code to GitHub and deploy your server via Heroku. You should then be able to add your Heroku app to the list of servers in `index.html` and access it via your front-end. If you want, feel free to send the link to your app in the Zoom chat so others can connect to it with their clients. Ideally, we'll be able to create several open chatrooms that your classmates can use!
+Ngrok is a command line tool for creating a secure URL that points to a localhost server. Using this url, others can access your server securely without you having to host it online.
 
-### What to Turn In
+You should [sign up](https://dashboard.ngrok.com/signup) for ngrok using your Northwestern email and [download](https://ngrok.com/download)/extract the version for your preferred OS.
 
-When you're done, push your code to GitHub and submit the link to the repo. If you ended up deploying your site, submit the link to your app as well!
+Run `ngrok help`; if the command fails, find the location where the ngrok executable was downloaded to and add the folder to your system PATH. Then, run `ngrok authtoken <token>` with the token listed in your ngrok dashboard.
+
+<img class="large frame" src="/spring2021/assets/images/lab07/img3.png" />
+
+With your server running in another terminal window, type `ngrok 8081` to open a tunnel to your server. You should now be able to add the forwarding url (minus the http://) to the list of servers on your client and use it as a separate chat room.
+
+If you want, feel free to send the link to any open tunnels to your app in the Zoom chat so others can connect to it with their clients. Ideally, we'll be able to create several open chatrooms that your classmates can use!
+
+## What to Turn In
+
+When you're done, zip the completed folder and submit it to Canvas.
