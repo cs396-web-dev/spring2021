@@ -11,13 +11,13 @@ points: 15
 
 <a class="nu-button" href="/spring2021/course-files/assignments/cs396_api.zip">cs396_api.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-In this assignment, you will create a web service which can be used to search for information about the hit BBC show _Doctor Who_. When a user asks for this information, your API will process their request and send back the specified data. The user will also be able to add information to the service, as well as save lists of their favorite characters.
+In this assignment, you will create and deploy a web service which can be used to search for information about the hit BBC show _Doctor Who_. When a user asks for this information, your API will process their request and send back the specified data. The user will also be able to add and remove information to and from the service, as well as (optionally) save lists of their favorite characters.
 
 <img class="large frame" src="/spring2021/assets/images/hw1/img1.png"/>
 
 If you haven't already, complete the steps described in [Lab 1](/spring2021/assignments/lab01) to get your Express server up and running.
 
-## Part 2: Run and Use the Server
+## Part 1: Setup
 
 Depending on your background, most of the code you've written for previous courses took the form of a _program_, which runs once and then terminates. In this homework, we will be writing a _service_, which runs indefinitely and provides utilities that can be called on by other programs.
 
@@ -32,15 +32,15 @@ Could not connect to database.
 
 The server is now listening for all requests that are received by port 8081. Don't worry about the output that mentions database connections; we'll get to that in Homework 2.
 
-To test our API, we're going to be using [Postman](https://www.postman.com/downloads/), which is a GUI that lets us send HTTP requests to a specified endpoint. Download Postman, open it up, and put `http://localhost:8081` in the "Enter request URL" bar. Make sure GET is selected in the dropdown and click Send; You should see the response from the request as below:
+To test our API, we're going to be using [Postman](https://www.postman.com/downloads/), which is a GUI that lets us send HTTP requests to a specified endpoint. Download Postman, open it up, and put `http://localhost:8081` in the "Enter request URL" bar. Make sure GET is selected in the dropdown and click Send; you should see the response from the request as below:
 
 <img class="large frame" src="/spring2021/assets/images/hw1/img2.png"/>
 
 You can use Postman similarly to debug all the routes we will be writing in this assignment.
 
-## Part 3: Assignment Information
+## Part 2: Assignment Information
 
-### Anatomy of an Express Route
+### Express Routes
 
 Open `routes.js` and examine the first route. All HTTP routes consist of 3 components:
 - The path, which will be appended to the host route to be accessed by the front-end application
@@ -55,11 +55,11 @@ router.route("/")                                 // Path
     });
 ```
 
-This first route simply sends the receiver a response with a message saying "App is running". Instead of a normal function, which uses `return` to output a value, an API uses the `.send()` method to send a value back to the system requesting it (in this case, Postman). Messages between the server and client are sent via JSON, which is a standardized notation for structured data. Routes can send back any kind of data; In this example, it sends back a string with the message "App is running".
+This first route simply sends the receiver a response with a message saying "App is running". Instead of a normal function, which uses `return` to output a value, an API uses the `.send()` method to send a value back to the system requesting it (in this case, Postman). Messages between the server and client are sent via JSON, which is a standardized notation for structured data. Routes can send back any kind of data. In this example, it sends back a string with the message "App is running".
 
-This route does not accept any input from the user; It will send back the same data each time it is called. There are two ways in which data can be embedded within requests to be used by the handler. The first is _parameters_, which take the form of colon-prefixed variables in the route path. For example, in the path `"/doctor/:n"`, `n` is a parameter that can be accessed within the handler using `req.params["n"]`.
+There are two ways in which data can be sent within requests to be used by the handler. The first is _parameters_, which take the form of colon-prefixed variables in the route path. For example, in the path `"/doctor/:n"`, `n` is a parameter that can be accessed within the handler using `req.params["n"]`.
 
-The second is the _request body_, which can hold any type of information in a JSON object. __NOTE__: GET requests are forbidden from containing request bodies; Only the PUSH, PUT, PATCH, and DELETE methods can use them. You can access this object using `req.body`. The `body-parser` library we downloaded handled converting this body into a readable JSON format.
+The second is the _request body_, which takes the form of a JSON object. You can access this object using `req.body`. __NOTE__: GET requests are forbidden from containing request bodies.
 
 All HTTP responses have an attached _status code_, which represents additional information about the request. A list of all valid HTTP status codes can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). For this assignment, all routes should return a `200` status code for a valid request unless POST is used, in which case a `201` status should be used. If a requests asks for information about data that does not exist (e.g. retrieving a Doctor with an id that isn't present in the data), a `404` code should be used.
 
@@ -83,7 +83,7 @@ A list of objects representing the Doctor's companions is stored at `data.compan
 - `alive`: A boolean representing whether the character is alive or dead.
 
 {:#routes}
-## Part 4: Writing the API
+## Part 3: Writing the API (12 Points)
 
 Your job is to replace `res.status(501).send()` in each route with your own code that sends back a response alongside an appropriate status (described earlier).
 
@@ -158,13 +158,13 @@ Implement the following GET routes.
     </tr>
 </table>
 
-The next set of routes involves storing and manipulating data. Starting in HW2, this will take the form of using a database. For now, you will be manipulating the `data` object. Since the server runs continually in the background, any changes you make to the `data` object will persist between requests, letting us simulate a database.
+The next set of routes involves storing and manipulating data. For now, you will accomplish this by adding and removing items from the `data` object. Since the server runs continually in the background, any changes you make to the `data` object will persist between requests, letting us simulate a database. However, the changes you make will not persist between server runs; if you restart the server, the data object will revert to its initial state.
 
 Notice that the PATCH and DELETE methods detailed below can fail to find an object if it does not exist within `data`. In these cases, you should mark the status of the response as `404`, indicating that the requested resource could not be found.
 
 __Note__: Fields marked with a question mark are optional and may not be included in some request bodies.
 
-__Note 2 (Electric Boogaloo)__: Receiving two POST requests with identical bodies should create two different objects with distinct ids. It's your job to figure out how to make sure that no two objects have the same `_id`.
+__Note 2 (Electric Boogaloo)__: Receiving two POST requests with identical bodies should create two different objects with distinct ids. It's your job to figure out how to make sure that no two objects have the same `_id`. One way to do this might be to append `Date.now()` to a string identifier, since `Date.now()` will return a different value each time it is called (you could also generate a random number and use that instead).
 
 <table>
     <th>
@@ -224,6 +224,26 @@ __Note 2 (Electric Boogaloo)__: Receiving two POST requests with identical bodie
         <td>0.5</td>
     </tr>
 </table>
+
+## Part 4: Deploying the API (3 points)
+
+For the first few assignments in this class, we will be using Heroku, a lightweight hosting service, to deploy our applications to the cloud. Heroku is generally meant for smaller prototype applications, and as such is not acceptable for building large-scale applications (see AWS and friends for that). However, it's perfect for our use case.
+
+### Create a Heroku App
+
+[Sign up](https://signup.heroku.com/identity) for a Heroku account and indicate your primary development language as Node.js.
+
+Click 'Create a new app' and give the app a name on the Heroku website. You will be brought to a dashboard where you can manage your application.
+
+### Connect Heroku to GitHub
+
+In the "Deploy" tab of your Heroku dashboard, switch your app's deployment method from the Heroku CLI to GitHub. Then, click the "Connect to Github" button and search for the repository you created earlier. Press the "connect" button to have Heroku track changes on the main branch of your repository.
+
+<img class="large frame" src="/spring2021/assets/images/hw1/img3.png"/>
+
+Now, all you have to do to deploy your app is to hit the "Deploy Branch" button with "main" selected. Now, if you open your Heroku app, you should see a message indicating that your app is running! You should also be able to access your routes through Postman using the link to your app rather than localhost.
+
+## Extra Credit (Up to 3 points)
 
 The last few routes involve setting up a favorites system in which a user can save their favorite Doctors and companions to find again later. Feel free to use whatever data structure(s) you feel appropriate to create your favorites "database". Return 404 HTTP status codes for the POST and DELETE requests if the entry with the specified `_id` does not exist.
 
@@ -290,6 +310,9 @@ The last few routes involve setting up a favorites system in which a user can sa
 
 Below is a video showing the expected output of some requests to the server (we recommend you pause at each step to compare your server's output to the video). The video does _not_ show every possible input we will be testing during grading, but it should give you a good idea whether or not you're on the right track.
 
-When you're done, upload your completed `routes.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight.
+When you're done, you should submit the following to Canvas:
 
-Please be careful that you __don't just upload the original starter file__, but that you submit __YOUR CODE__.
+- Your completed `routes.js` file
+- A link to your running Heroku app
+
+Make sure to upload the file by Tuesday night at midnight. Please be careful that you __don't just upload the original starter file__, but that you submit __YOUR CODE__.
