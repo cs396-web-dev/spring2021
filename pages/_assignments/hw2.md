@@ -64,7 +64,7 @@ Check to make sure that the data was uploaded successfully to your MongoDB clust
 
 We have 2 collections in our database, one each for Doctor and Companion objects. Note that each object has a 24-character `_id`; These ids are generated automatically by MongoDB, so you don't need to create them for POST requests like in HW1 (in fact, you should never manually create or modify them for any reason).
 
-## Part 3: Your Job
+## Part 3: Your Assignment (15 Points)
 
 Implement the Doctor Who API using the data located in your MongoDB cluster. Use the provided `Doctor` and `Companion` schema to query the database.
 
@@ -90,12 +90,14 @@ In this example, we query the database for all `Doctor` documents and send them 
 - `res.status(200).send(data);` sends back the data to the client with a status code indicating that the GET request succeeded.
 - `res.status(404).send(err);` is called if there is an error while querying MongoDB (e.g. if the connection is broken). In this case, we send back an error message with a status code indicating that the requested resource couldn't be found.
 
-The specifications for the API routes are the <a href="/spring2021/assignments/hw1#routes">same as in HW1</a>, but should use and modify real data this time. If your API works correctly, you should see the same responses as you did in Homework 1.
+The specifications for the API routes are the <a href="/spring2021/assignments/hw1#routes">same as in HW1</a>, but should use and modify database data (instead of a local JavaScript Object). If your API works correctly, you should see the same responses as you did in Homework 1.
+
+__Note__: The extra credit system for the first assignment (where a user can add and remove favorite characters) is _required_ for this assignment and will count for 3 points. You should also upload your app to Heroku and submit its link along with your assignment. 
 
 ## What to Turn In
 
 We have provided a testing script for you to use to debug your program, which is the same script we will be using to grade your code. To run the tests, open a second terminal window to the `cs396_api` directory __while your server is running__ and type `npm test`.
 
-We will also be checking to make sure that all your routes query MongoDB; A route that uses the `data` object will result in 0 points for that question.
+We will also be checking to make sure that all your routes query MongoDB; using the `data` object instead of the database will result in 0 points for that question.
 
-When you're done, upload your completed `routes.js` file to Canvas. Make sure to upload the file by Tuesday night at midnight. Please be careful that you __don't just upload the original starter file__ (or your HW1 submission), but that you submit __YOUR CODE__.
+When you're done, upload your completed `routes.js` file to Canvas and a link to your Heroku app. Make sure to upload the file by Tuesday night at midnight. Please be careful that you __don't just upload the original starter file__ (or your HW1 submission!), and that you submit __YOUR CODE__.
