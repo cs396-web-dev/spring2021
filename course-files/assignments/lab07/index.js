@@ -3,24 +3,13 @@ let connection;
 let username = "";
 
 const chatList = document.querySelector("#chat");
+const messageInput = document.querySelector("#message");
 const usersList = document.querySelector("#users-list");
 
 // TODO: Optionally add other chat servers
 const servers = [
     "localhost:8081"
 ];
-
-function handleChat() {
-    // TODO: use sendJSON(json) to send data over the WebSocket connection
-}
-
-function handleDisconnect() {
-    // TODO: use sendJSON(json) to let the server know you're disconnected (Hint: use the username variable)
-}
-
-function handleLogin() {
-    // TODO: use sendJSON(json) to let the server know you're logged in (Hint: use the username variable)
-}
 
 function handleReceivedMessage(json) {
     switch(json.type) {
@@ -39,13 +28,34 @@ function handleReceivedMessage(json) {
     }
 }
 
+function handleChat() {
+    connection.send(JSON.stringify({
+        type: "chat",
+        text: messageInput.value,
+        username: username
+    }));
+}
+
+function handleDisconnect() {
+    connection.send(JSON.stringify({
+        type: "disconnect",
+        username
+    }));
+}
+
+function handleLogin() {
+    connection.send(JSON.stringify({
+        type: "login",
+        username
+    }));
+}
+
 // -------------------------------------------------------------------------------
 // Don't edit the below code
 // -------------------------------------------------------------------------------
 
 const dropdownButton = document.querySelector("#dropdown-button");
 const dropdownContent = document.querySelector("#dropdown-content");
-const messageInput = document.querySelector("#message");
 const nameContainer = document.querySelector("#name-container");
 const nameDisplay = document.querySelector("#name-display");
 const sendButton = document.querySelector("#send");
@@ -53,10 +63,6 @@ const sendContainer = document.querySelector("#send-container");
 const setName = document.querySelector("#set-name");
 const usersContainer = document.querySelector("#users-container");
 const wsStatus = document.querySelector("#ws-status");
-
-function sendJSON(json) {
-    connection.send(JSON.stringify(json));
-}
 
 function resetApp() {
     connection = null;

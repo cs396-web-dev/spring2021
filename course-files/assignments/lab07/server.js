@@ -4,6 +4,8 @@ const port = process.env.PORT || 8081;
 const wss = new ws.Server({ port });
 console.log("Application listening on PORT: " + port);
 
+// Holds the usernames of all connected users
+// You can convert a set to a list to send using Array.from(loggedInUsers)
 const loggedInUsers = new Set();
 
 const sendJSON = (json, client) => {
@@ -19,13 +21,13 @@ wss.on("connection", socket => {
             if (client.readyState === ws.OPEN) {
                 switch(json.type) {
                     case "login":
-                        // TODO: Add the user to loggedInUsers and use sendJSON(json, client) to send a list of updated users
+                        // TODO: Add the user to loggedInUsers and send a list of updated users
                         break;
                     case "disconnect":
-                        // TODO: Remove the user from loggedInUsers and use sendJSON(json, client) to send a list of updated users
+                        // TODO: Remove the user from loggedInUsers and send a list of updated users
                         break;
                     case "chat":
-                        // TODO: Use sendJSON(json, client) to send back the received json
+                        // TODO: Send back the received message
                         break;
                     default:
                         console.error("Message type not recognized");
