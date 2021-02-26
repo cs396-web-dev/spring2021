@@ -69,7 +69,7 @@ Then,
 
 For code changes that you would like to save and track on GitHub, you should repeat steps 3-6 of the above process.
 
-## Part 3: Set up Homework 1
+## Part 4: Set up Homework 1
 
 You can download external libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Open `cs396_api` in VSCode using `File -> Open Folder`. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `cs396_api` directory.
 
@@ -86,27 +86,6 @@ Visit [http://localhost:8081](localhost:8081) in a browser window; you should se
 
 <img class="large frame" src="/spring2021/assets/images/lab01/img1.png"/>
 
-## Part 4: Deploying the API
-
-For the first few assignments in this class, we will be using Heroku, a lightweight hosting service, to deploy our applications to the cloud. Heroku is generally meant for smaller prototype applications, and as such is not acceptable for building large-scale applications (see AWS and friends for that). However, it's perfect for our use case.
-
-### Create a Heroku App
-
-[Sign up](https://signup.heroku.com/identity) for a Heroku account and indicate your primary development language as Node.js.
-
-Click 'Create a new app' and give the app a name on the Heroku website. You will be brought to a dashboard where you can manage your application.
-
-### Connect Heroku to GitHub
-
-In the "Deploy" tab of your Heroku dashboard, switch your app's deployment method from the Heroku CLI to GitHub. Then, click the "Connect to Github" button and search for the repository you created earlier. Press the "connect" button to have Heroku track changes on the main branch of your repository.
-
-<img class="large frame" src="/spring2021/assets/images/lab01/img2.png"/>
-
-Now, all you have to do to deploy your app is to hit the "Deploy Branch" button with "main" selected. Now, if you open your Heroku app, you should see a message indicating that your app is running!
-
 ## What to Submit
 
-Once you're done, submit the following to Canvas:
-
-- A link to your _public_ GitHub repository
-- A link to your Heroku app
+Once you're done, submit a link to your _public_ GitHub repository to the Canvas assignment.
