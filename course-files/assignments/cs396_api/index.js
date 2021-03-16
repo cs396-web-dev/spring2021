@@ -7,13 +7,12 @@ console.log("ENV: " + env);
 const express = require("express");
 const app = express();
 
-const bodyParser = require("body-parser");
-const bpConfig = {
+const bodyConfig = {
     limit: "10mb",
     extended: true
 };
-app.use(bodyParser.urlencoded(bpConfig));
-app.use(bodyParser.json(bpConfig));
+app.use(express.urlencoded(bodyConfig));
+app.use(express.json(bodyConfig));
 
 const middleware = require("./config/middleware");
 app.use(middleware.cors);
