@@ -13,35 +13,25 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
-title: "Web Special Topics"
-subtitle: "CS 396: Spring 2021"
+title: "CS397: Spring 2021"
+subtitle: "Intro to Web Development"
 email: vanwars@northwestern.edu
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
 baseurl: "/spring2021"
 term_start_date: "2021-03-29"
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-piazza_url: https://piazza.com/northwestern/spring2021/cs396/home
 twitter_username: jekyllrb
 github_username:  jekyll
-
-exclude:
-  - _lectures/drafts
-  - _assignments/drafts
-  # - course-files
+piazza_url: https://piazza.com/northwestern/spring2021/cs130/home
 
 timezone: "America/Chicago"
 # Build settings
 markdown: kramdown
 kramdown:
-  auto_id_prefix: cs396
+  auto_id_prefix: cs397_
 theme: minima
 plugins:
   - jekyll-feed
-incremental: true
+# exclude: [course-files]
 
 collections:
   assignments:
