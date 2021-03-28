@@ -5,6 +5,7 @@ type: lab
 abbreviation: Lab 1
 draft: 0
 num: 1
+points: 5
 due_date: 2021-04-02
 ---
 
@@ -12,7 +13,7 @@ due_date: 2021-04-02
 > ## Background Readings
 > These are for your reference, if you want to read more about the technologies we're using.
 > * <a href="https://www.w3schools.com/js/js_mistakes.asp">JavaScript Tutorial</a>
->      * JavaScript is a multi-paradigm, weakly-typed programming language that borrows a lot of its syntax from other languages you may have used in the past. It may be useful to skim this resource to get a feel for how JavaScript handles some common semantics.
+>      * JavaScript is a weakly-typed programming language that borrows a lot of its syntax from other languages you may have used in the past. It may be useful to skim this resource to get a feel for how JavaScript handles some common semantics.
 >      * You may find the tutorials in the _JS Objects_, _JS Functions_, and _JS Async_ useful. Ignore the "JS Events" and everything in the _JS HTML DOM_ section for now.
 > * <a href="https://expressjs.com/en/starter/hello-world.html">Express.js Hello World</a>
 > * <a href="https://guides.github.com/activities/hello-world/">GitHub Tutorial</a> and <a href="https://www.git-tower.com/blog/git-cheat-sheet/" target="_blank">Git Cheat Sheet</a>
