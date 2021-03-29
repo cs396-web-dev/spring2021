@@ -6,7 +6,7 @@ layout: default
     <!-- gets a distinct list of dates from lectures and assignments -->
     {% assign everything = site.assignments | concat: site.lectures %}
     {% assign dates = everything | sort: 'due_date'| map: 'due_date' | uniq %}
-    {% assign labs = site.assignments | where: 'type', 'tutorial' %}
+    {% assign labs = site.assignments | where: 'type', 'lab' %}
     {% assign main_listing = site.lectures | concat: labs %}
     <p>
         Note: This schedule is subject to change (as needed). 
@@ -56,10 +56,7 @@ layout: default
                             {% assign className = 'lab' %}
                             {% assign prefix = "Lab " | append: lecture.num %}
                         {% endif %} 
-                        {% if lecture.type == 'presentation' %}
-                            {% assign className = 'pj' %}
-                            {% assign prefix = "Presentation" %}
-                        {% endif %} 
+                         
                         {% if lecture.type == 'lab' %}
                             {{ prefix }}
                         {% elsif lecture.draft == 1 and prefix %}
