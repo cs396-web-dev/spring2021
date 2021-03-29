@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Configure Your Software Stack
 type: lab
 abbreviation: Lab 1
-draft: 0
+draft: 1
 num: 1
 points: 5
 due_date: 2021-04-02

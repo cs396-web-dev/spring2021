@@ -1,6 +1,6 @@
 ---
 layout: lecture
-title: Memorial Day
+title: Memorial Day - No Class
 type: lecture
 draft: 1
 num: 19
