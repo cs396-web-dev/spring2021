@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: React and TypeScript
 type: lab
 abbreviation: Lab 8
-draft: 0
+draft: 1
 num: 8
 description: |
     A quick introduction to React and TypeScript

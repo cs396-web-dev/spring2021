@@ -52,15 +52,15 @@ layout: default
                         {% if lecture.num  %}
                             {% assign prefix = "Lesson " | append: lecture.num %}
                         {% endif %} 
-                        {% if lecture.type == 'tutorial' %}
+                        {% if lecture.type == 'lab' %}
                             {% assign className = 'lab' %}
-                            {% assign prefix = "Tutorial " | append: lecture.num %}
+                            {% assign prefix = "Lab " | append: lecture.num %}
                         {% endif %} 
                         {% if lecture.type == 'presentation' %}
                             {% assign className = 'pj' %}
                             {% assign prefix = "Presentation" %}
                         {% endif %} 
-                        {% if lecture.type == 'tutorial' %}
+                        {% if lecture.type == 'lab' %}
                             {{ prefix }}
                         {% elsif lecture.draft == 1 and prefix %}
                             <span class="badge">
@@ -86,7 +86,7 @@ layout: default
                         {% if assignment.type == "homework" %}
                             {% assign classname = "hw" %}
                         {% endif %} 
-                        {% if assignment.type == "tutorial" %}
+                        {% if assignment.type == "lab" %}
                             {% assign classname = "lab" %}
                         {% endif %} 
                         

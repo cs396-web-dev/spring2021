@@ -30,10 +30,10 @@ Lectures, which are dedicated to introducing new topics, will take place every M
 ### 2. Homework Assignments
 You will work on individual homework assignments throughout the quarter. These assignments will all involve (sometimes substantial) JavaScript coding and will vary in subject.
 
-### 3. Weekly Labs / Tutorials
+### 3. Weekly Labs
 On Thursdays and Fridays, you will be completing labs. Some of the labs will help you install, configure, and build a ‘full stack web application.’ Other labs will involve designing, building, and testing versions of your final project. Lab attendance is required, but you may miss one lab without a grade penalty.
 
-You will sign up for a tutorial slot during the first day of class (on Tuesday).
+You will sign up for a lab slot during the first week of classes.
 
 ### 4. Project
 The quarter will culminate in an open-ended project that demonstrates your knowledge of course concepts. You will develop a ‘full stack’ web application in the domain of your choosing, This will involve identifying an appropriate system architecture, setting up required databases and servers, designing and building your own interface, and deploying to the cloud.
@@ -54,13 +54,13 @@ Consider office hours as an extension of the class, and we want you to rely on t
 ## Grading
 Your final grade will be assessed as follows:
 
-### 50% – Homework
+### 45% – Homework
 You will have 5 homework assignments that will each be worth roughly 10-15% of your grade.
 
-### 40% – Project Work
+### 35% – Project Work
 You will also have a series of 4 project deliverables relating to your final project that will each be worth roughly 5-10% of your grade (depending on the deliverable).
 
-### 10% – Labs
+### 20% – Labs
 Your lab participation grade will be based on your engagement during labs, which includes the quality of your lab submissions and your lab attendance. You may miss one lab without a grade penalty.
 
 ### Other Grading Logistics

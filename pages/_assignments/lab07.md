@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Mini Chat App
 type: lab
 abbreviation: Lab 7
-draft: 0
+draft: 1
 num: 7
 description: |
     Create a basic chat app using WebSockets
