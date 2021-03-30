@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Configure Your Software Stack
 type: lab
 abbreviation: Lab 1
-draft: 1
+draft: 0
 num: 1
 points: 5
 due_date: 2021-04-02
@@ -17,7 +17,7 @@ due_date: 2021-04-02
 >      * You may find the tutorials in the _JS Objects_, _JS Functions_, and _JS Async_ useful. Ignore the "JS Events" and everything in the _JS HTML DOM_ section for now.
 > * <a href="https://expressjs.com/en/starter/hello-world.html">Express.js Hello World</a>
 > * <a href="https://guides.github.com/activities/hello-world/">GitHub Tutorial</a> and <a href="https://www.git-tower.com/blog/git-cheat-sheet/" target="_blank">Git Cheat Sheet</a>
-> * Deploying to Heroku: <a href="https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku" target="_blank">Step-by-Step Guide</a>.
+<!-- > * Deploying to Heroku: <a href="https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku" target="_blank">Step-by-Step Guide</a>. -->
 
 The goal of today's lab is to set up all of the necessary technologies you'll need to complete Homework 1. If one of the steps isn't working, let your Peer Mentor know so we can make sure you're able to progress.
 

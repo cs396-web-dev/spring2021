@@ -2,7 +2,7 @@
 layout: module
 title: Introduction to JavaScript
 type: lecture
-draft: 1
+draft: 0
 show_schedule: 1
 num: 2
 due_date: 2021-03-31
@@ -10,12 +10,16 @@ due_date: 2021-03-31
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-slides:
-   - url: ""
-     title: TBD
+# slides:
+#    - url: ""
+#      title: TBD
+
 
 ---
 
+Lesson 2 will involve a series of JavaScript exercises to get you comfortable with the language. I will be posting some additional resources before class on Wednesday.
+
+<!-- 
 This was a JavaScript lab that was cut from the curriculum.
 
 ### JavaScript
@@ -87,4 +91,4 @@ The `reduce` function applies a transformation function _pairwise_ on all elemen
 const myList = [1, 2, 3, 4, 5];
 const listSum = myList.reduce((a, b) => a + b); // Add the first two elements together, then add the result to the 3rd element, etc.
 console.log(listSum);                           // prints 15
-```
+``` -->

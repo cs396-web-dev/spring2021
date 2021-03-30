@@ -2,7 +2,7 @@
 layout: module
 title: Introduction & Course Logistics
 type: lecture
-draft: 1
+draft: 0
 show_schedule: 1
 num: 1
 due_date: 2021-03-30
@@ -11,8 +11,8 @@ due_date: 2021-03-30
 #      title: Recorded Lecture Video
 #      live: 1
 slides:
-   - url: ""
-     title: TBD
+   - url: https://docs.google.com/presentation/d/1-PJT8lEYLm44Q57hQE7W9YCh2ucZtGoBo_69zI8g61A/edit#slide=id.gc7c4494bf6_0_49
+     title: Intro to the Course
 
 ---
 
