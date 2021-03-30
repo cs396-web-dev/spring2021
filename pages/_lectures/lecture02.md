@@ -17,7 +17,12 @@ due_date: 2021-03-31
 
 ---
 
-Lesson 2 will involve a series of JavaScript exercises to get you comfortable with the language. I will be posting some additional resources before class on Wednesday.
+Lesson 2 will involve a series of JavaScript exercises to get you comfortable with the language. Recommended resources:
+
+* [JavaScript Essential Training (LinkedIn Learning)](https://www.linkedin.com/learning/javascript-essential-training/)
+* [Node.js Essential Training (LinkedIn Learning)](https://www.linkedin.com/learning/node-js-essential-training-2/)
+
+If any of you have suggestions re: useful learning resources, feel free to share them on Campuswire!
 
 <!-- 
 This was a JavaScript lab that was cut from the curriculum.
