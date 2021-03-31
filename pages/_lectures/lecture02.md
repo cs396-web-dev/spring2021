@@ -6,10 +6,11 @@ draft: 0
 show_schedule: 1
 num: 2
 due_date: 2021-03-31
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/ITs0nvWnce2hEABXplzVvBVOcSgqTc-AogsE3FDU7azI01xk0ELCoySoTd9XuGvo.zmkNHXCi2ZjIIFz-?startTime=1617217113000
+     title: Recorded Lecture Video
+     live: 1
+     duration: "54:15"
 slides:
    - url: https://docs.google.com/presentation/d/1kUSRkIsDqzQh4VNdvUoC43E7TKD_ZdUG6gWHnreBHOM/edit?usp=sharing
      title: JavaScript Primer
