@@ -31,7 +31,7 @@ Lectures, which are dedicated to introducing new topics, will take place every M
 You will work on individual homework assignments throughout the quarter. These assignments will all involve (sometimes substantial) JavaScript coding and will vary in subject.
 
 ### 3. Weekly Labs
-On Thursdays and Fridays, you will be completing labs. Some of the labs will help you install, configure, and build a ‘full stack web application.’ Other labs will involve designing, building, and testing versions of your final project. Lab attendance is required, but you may miss one lab without a grade penalty.
+On Thursdays and Fridays, you will be completing labs. Some of the labs will help you install, configure, and build a ‘full stack web application.’ Other labs will involve designing, building, and testing versions of your final project. 
 
 You will sign up for a lab slot during the first week of classes.
 
