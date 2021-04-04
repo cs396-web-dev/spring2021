@@ -20,6 +20,7 @@ def zipfolder(foldername, target_dir):
             if not exclude(full_path_to_file):
                 zipobj.write(
                     full_path_to_file, full_path_to_file[rootlen:])
+                # print('include:', full_path_to_file)
             else:
                 print('exclude:', full_path_to_file)
 

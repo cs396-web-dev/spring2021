@@ -24,7 +24,10 @@ module.exports = {
         "character": "Zer0",
     },
     route: route => {
-        const endpoint = (process.env.CURRENT_ENDPOINT || "http://localhost:8081") + route;
+        // you can run this test on a "correct" heroku instance to 
+        // see what the correct output should be:
+        // const endpoint = "https://cs396-hw1.herokuapp.com" + route;
+        const endpoint = "http://localhost:8081" + route;
         // console.log('ENDPOINT:', endpoint);
         return endpoint;
     },

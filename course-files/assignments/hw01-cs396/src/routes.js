@@ -1,7 +1,7 @@
 "use strict";
 
-const Companion = require("./schema/Companion");
-const Doctor = require("./schema/Doctor");
+// const Companion = require("./schema/Companion");
+// const Doctor = require("./schema/Doctor");
 
 const express = require("express");
 const router = express.Router();
