@@ -5,6 +5,7 @@ type: lab
 abbreviation: Lab 6
 draft: 1
 num: 6
+points: 5
 description: |
     Practice with cookies and session storage
 due_date: 2021-05-07

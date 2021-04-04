@@ -5,6 +5,7 @@ type: lab
 abbreviation: Lab 8
 draft: 1
 num: 8
+points: 5
 description: |
     A quick introduction to React and TypeScript
 due_date: 2021-05-21

@@ -5,5 +5,6 @@ type: lab
 abbreviation: Lab 4
 draft: 1
 num: 4
+points: 5
 due_date: 2021-04-23
 ---

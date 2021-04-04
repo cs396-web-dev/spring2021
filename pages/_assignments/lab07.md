@@ -5,6 +5,7 @@ type: lab
 abbreviation: Lab 7
 draft: 1
 num: 7
+points: 5
 description: |
     Create a basic chat app using WebSockets
 due_date: 2021-05-14

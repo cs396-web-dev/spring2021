@@ -5,6 +5,7 @@ type: lab
 abbreviation: Lab 2
 draft: 1
 num: 2
+points: 5
 description: |
     Setup MongoDB, Flask, GitHub
 due_date: 2021-04-09

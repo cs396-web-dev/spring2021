@@ -5,7 +5,7 @@ layout: default
 
 {% assign dateStart = site.term_start_date | date: '%s' %}
 {% assign now = 'now' | date: '%s' %}
-            
+{% assign totalPoints = 0 %}          
 <section class="assignments">
     <table class="assignments-table">
         <thead>
@@ -13,7 +13,7 @@ layout: default
                 <th>Week</th>
                 <th>Assignment</th>
                 <th>Description</th>
-                <!-- <th>Points</th> -->
+                <th>Points</th>
                 <th>Due</th>
                 <th>Days Left</th>
             </tr>
@@ -59,7 +59,7 @@ layout: default
                     {% endif %}                   
                 </td>
                 <td>{{ assignment.title }}</span>
-                <!-- <td>{{ assignment.points }} points</td> -->
+                <td>{{ assignment.points }} points</td>
                 <td>{{ assignment.due_date | date: "%a, %m/%d" }}</td>
                 <td>
                     <span class="due-date">
@@ -68,8 +68,19 @@ layout: default
                 </td>
             </tr>
             {% assign last_week = week %}
+            {% assign totalPoints = totalPoints | plus: assignment.points %}
         {% endfor %}
         </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><strong>Possible points (excluding extra credit)</strong></td>
+                <td><strong>{{totalPoints}} points</strong></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
     </table>
 
     
@@ -92,9 +103,9 @@ layout: default
             const dateString = lastTd.querySelector('.due-date').innerHTML;
             const dueDate = new Date(dateString);
             const numDays = (dueDate - new Date()) / (1000 * 3600 * 24);
-            if (isTutorial) {
-                nextToLastTd.innerHTML = "scheduled tutorial time";
-            }
+            // if (isTutorial) {
+            //     nextToLastTd.innerHTML = "scheduled tutorial time";
+            // }
             if (numDays < -1) {
                 tr.classList.add('passed');
                 lastTd.innerHTML = "passed";
