@@ -16,6 +16,10 @@ What does it take to build a website from scratch? How do designers create beaut
 
 Students will spend the first half of the quarter learning about the basics of creating web applications, including building a web server and REST API, setting up a database, designing usable interfaces, and deploying it all for public use. In the second half, students will apply this knowledge to a short project of their own choosing (completed individually or in pairs), where they will build a web application that utilizes the full range of concepts covered in class.
 
+> {:.callout}
+> ### Acknowledgements
+> <a href="https://github.com/cooperbarth" target="_blank">Cooper Barth</a>, <a href="https://github.com/Ajuogaaz" target="_blank">Linus Okoth</a>, and Sarah Van Wart each designed / developed different parts of this this course, including building the homeworks, labs, and figuring out the scope of the course.
+
 ## Learning Goals
 1. Learning how to design and develop a simple ‘full-stack’ web application (including interacting with a database, building a web server, implementing user authentication, and designing/building a front-end client).
 2. Building proficiency with commonly-used tools and technologies related to web development (e.g. GitHub, MongoDB, Node.js, Heroku, Amazon S3, Web Sockets, testing frameworks like Mocha & Selenium, React, etc).
@@ -40,12 +44,12 @@ The quarter will culminate in an open-ended project that demonstrates your knowl
 
 
 ## Course Staff
-* Linus Okoth (linusokoth2023@u.northwestern.edu)
 * Sanath Angalakudati (sanath@u.northwestern.edu)
-* Richard Lam (richardlam2024@u.northwestern.edu)
-* Emily Weintraub (emilyweintraub2021@u.northwestern.edu)
 * Kieran Bondy (kieranbondy2021@u.northwestern.edu)
+* Richard Lam (richardlam2024@u.northwestern.edu)
+* Linus Okoth (linusokoth2023@u.northwestern.edu)
 * Seoyeon Park (seoyeon@u.northwestern.edu)
+* Emily Weintraub (emilyweintraub2021@u.northwestern.edu)
 
 ### Office Hours
 Consider office hours as an extension of the class, and we want you to rely on them to get the help you need for assignments. We expect that everyone will need to attend office hours from time to time throughout the quarter. Many students opt to go every week. Office hours will be posted on the course's [Google Calendar](https://calendar.google.com/calendar/u/0?cid=aDg5bnY4ZjlpZ3ZtcmNyb25wdGV0ZG51dGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ).
@@ -64,10 +68,18 @@ You will also have a series of 4 project deliverables relating to your final pro
 Your lab participation grade will be based on your engagement during labs, which includes the quality of your lab submissions and your lab attendance. You may miss one lab without a grade penalty.
 
 ### Other Grading Logistics
+
+#### Late Work Policy
+* Late work will be accepted (within 48 hours of the deadline) with a 20% penalty.
+* No work will be accepted 48 hours after the deadline (unless you work with the Dean of Students).
+
+#### Final Grade Calculations
 Final grades are assigned on a fixed scale: 93-100 is an A, 90-92.99 is an A-, 87-89.99 is a B+, etc. Some other logistics:
 
 * Final course grades will not be rounded or curved.
 * We will not be using the final exam time allocated for this class.
+
+
 
 ## Policy on Academic Honesty
 In the past, there have been a few unfortunate instances in which students have presented work other than their own. For the programming assignments: You are allowed (encouraged, even!) to discuss general approaches to solving problems, but all work you submit must be your own. Working “together” and presenting variants of the same file is not acceptable. Here are some specific guidelines to make sure you don’t cross the line:

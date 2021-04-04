@@ -13,6 +13,7 @@ __pycache__
 Gemfile.lock
 cpd.db
 .vscode
+node_modules
 course-files/**/results/*.db
 #course-files/**/results/*.txt
 course-files/**/results/*.log

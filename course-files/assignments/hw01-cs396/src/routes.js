@@ -20,115 +20,115 @@ router.route("/")
 
 const data = require("../config/data.json");
 
-router.route("/doctor")
+router.route("/doctors")
     .get((_req, res) => {
-        console.log("GET /doctor");
+        console.log("GET /doctors");
         res.status(501).send();
     })
     .post((req, res) => {
-        console.log("POST /doctor");
+        console.log("POST /doctors");
         res.status(501).send();
     });
 
-router.route("/doctor/:id")
+router.route("/doctors/:id")
     .get((req, res) => {
-        console.log(`GET /doctor/${req.params.id}`);
+        console.log(`GET /doctors/${req.params.id}`);
         res.status(501).send();
     })
     .patch((req, res) => {
-        console.log(`PATCH /doctor/${req.params.id}`);
+        console.log(`PATCH /doctors/${req.params.id}`);
         res.status(501).send();
     })
     .delete((_req, res) => {
-        console.log(`DELETE /doctor/${req.params.id}`);
+        console.log(`DELETE /doctors/${req.params.id}`);
         res.status(501).send();
     });
 
-router.route("/doctor/:id/companions")
+router.route("/doctors/:id/companions")
     .get((req, res) => {
-        console.log(`GET /doctor/${req.params.id}/companions`);
+        console.log(`GET /doctors/${req.params.id}/companions`);
         res.status(501).send();
     });
 
-router.route("/doctor/:id/companions/longest")
+// router.route("/doctors/:id/companions/longest")
+//     .get((req, res) => {
+//         console.log("GET /doctors/:id/companions/longest");
+//         res.status(501).send();
+//     });
+
+router.route("/doctors/:id/goodparent")
     .get((req, res) => {
-        console.log("GET /doctor/:id/companions/longest");
+        console.log("GET /doctors/:id/goodparent");
         res.status(501).send();
     });
 
-router.route("/doctor/:id/goodparent")
-    .get((req, res) => {
-        console.log("GET /doctor/:id/goodparent");
-        res.status(501).send();
-    });
-
-router.route("/companion")
+router.route("/companions")
     .get((_req, res) => {
-        console.log("GET /companion");
+        console.log("GET /companions");
         res.status(501).send();
     })
     .post((req, res) => {
-        console.log("POST /companion");
+        console.log("POST /companions");
         res.status(501).send();
     });
 
-router.route("/companion/:id")
+router.route("/companions/:id")
     .get((_req, res) => {
-        console.log(`GET /companion/${req.params.id}`);
+        console.log(`GET /companions/${req.params.id}`);
         res.status(501).send();
     })
     .patch((req, res) => {
-        console.log(`PATCH /companion/${req.params.id}`);
+        console.log(`PATCH /companions/${req.params.id}`);
         res.status(501).send();
     })
     .delete((_req, res) => {
-        console.log(`DELETE /companion/${req.params.id}`);
+        console.log(`DELETE /companions/${req.params.id}`);
         res.status(501).send();
     });
 
-router.route("/companion/:id/doctors")
+router.route("/companions/:id/doctors")
     .get((req, res) => {
-        console.log(`GET /companion/${req.params.id}/doctors`);
+        console.log(`GET /companions/${req.params.id}/doctors`);
         res.status(501).send();
     });
 
-router.route("/companion/:id/friends")
+router.route("/companions/:id/friends")
     .get((req, res) => {
-        console.log(`GET /companion/${req.params.id}/friends`);
+        console.log(`GET /companions/${req.params.id}/friends`);
         res.status(501).send();
     });
 
-router.route("/companion/crossover")
+router.route("/companions/crossover")
     .get((_req, res) => {
-        console.log(`GET /companion/crossover`);
+        console.log(`GET /companions/crossover`);
         res.status(501).send();
     });
 
-router.route("/doctor/:id/favorite")
+router.route("/doctors/:id/favorite")
     .get((req, res) => {
-        console.log(`GET /doctor/${req.params.id}/favorite`);
+        console.log(`GET /doctors/${req.params.id}/favorite`);
         res.status(501).send();
     })
     .post((req, res) => {
-        console.log(`POST /doctor/${req.params.id}/favorite`);
+        console.log(`POST /doctors/${req.params.id}/favorite`);
         res.status(501).send();
     })
     .delete((req, res) => {
-        console.log(`DELETE /doctor/${req.params.id}/favorite`);
+        console.log(`DELETE /doctors/${req.params.id}/favorite`);
         res.status(501).send();
     });
 
-router.route("/companion/:id/favorite")
+router.route("/companions/:id/favorite")
     .get((req, res) => {
-        console.log(`GET /companion/${req.params.id}/favorite`);
+        console.log(`GET /companions/${req.params.id}/favorite`);
         res.status(501).send();
     })
     .post((req, res) => {
-        console.log(`POST /companion/${req.params.id}/favorite`);
+        console.log(`POST /companions/${req.params.id}/favorite`);
         res.status(501).send();
     })
     .delete((req, res) => {
-        console.log(`DELETE /companion/${req.params.id}/favorite`);
+        console.log(`DELETE /companions/${req.params.id}/favorite`);
         res.status(501).send();
     });
 
