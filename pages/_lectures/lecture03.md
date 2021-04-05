@@ -10,9 +10,9 @@ due_date: 2021-04-05
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-# slides:
-#    - url: https://docs.google.com/presentation/d/15WVAuAWbNrVfnxVdut06IHs0TwmYk8nnO8cEEaiBf88/edit?usp=sharing
-#      title: Intro to REST
+slides:
+   - url: https://docs.google.com/presentation/d/15WVAuAWbNrVfnxVdut06IHs0TwmYk8nnO8cEEaiBf88/edit?usp=sharing
+     title: Intro to REST
 readings:
   - url: https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f
     title: "What is REST — A Simple Explanation for Beginners"
