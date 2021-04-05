@@ -100,7 +100,7 @@ describe("/doctors/:id", () => {
             // to account for it. See this thread:
             // https://github.com/chaijs/chai-http/issues/75
 
-            axios.get(utils.route(`/doctors/dummyID`))
+            axios.get(utils.route(`/doctors/${utils.mockId}`))
                 .then(response => {
                     expect(response.status).to.equal(404);
                     done();
@@ -523,11 +523,26 @@ describe("/companions/:id/friends", () => {
 
     describe("GET", () => {
 
-        it("should return all of the friends of a particular companion", done => {
+        it("should return all of the friends of the main companion", done => {
             axios.get(utils.route(`/companions/${companion._id}/friends`))
                 .then(response => {
-                    const friends = [{"_id":"c2_1","name":"Anneke Wills","character":"Polly","doctors":["d2"],"seasons":[4],"alive":true},{"_id":"c2_2","name":"Michael Craze","character":"Ben Jackson","doctors":["d2"],"seasons":[4],"alive":true},{"_id":"c2_3","name":"Frazer Hines","character":"Jamie McCrimmon","doctors":["d2"],"seasons":[4,5,6,22],"alive":true}];
+                    const friends = [{"_id":"c2_2","name":"Michael Craze","character":"Ben Jackson","doctors":["d2"],"seasons":[4],"alive":true},{"_id":"c2_3","name":"Frazer Hines","character":"Jamie McCrimmon","doctors":["d2"],"seasons":[4,5,6,22],"alive":true}];
                     expect(response.data).to.have.deep.members(friends);
+                    const ids = friends.map(item => item._id);
+                    expect(companion._id.includes(ids)).to.be.false;
+                    done();
+                })
+                .catch(err => done(err));
+        });
+
+        it("should return all of the friends of companion 'c4_6__5_2'", done => {
+            // and one more...
+            axios.get(utils.route(`/companions/c4_6__5_2/friends`))
+                .then(response => {
+                    const friends = [{"_id":"c4_4","name":"John Leeson","character":"K-9","doctors":["d4"],"seasons":[15,16,17,18],"alive":false},{"_id":"c4_5__5_1","name":"Matthew Waterhouse","character":"Adric","doctors":["d4","d5"],"seasons":[18,19],"alive":false},{"_id":"c4_7__5_3","name":"Janet Fielding","character":"Tegan Jovanka","doctors":["d4","d5"],"seasons":[18,19,20,21],"alive":true},{"_id":"c5_4","name":"Mark Strickson","character":"Vislor Turlough","doctors":["d5"],"seasons":[20,21],"alive":true}];
+                    expect(response.data).to.have.deep.members(friends);
+                    const ids = friends.map(item => item._id);
+                    expect(companion._id.includes(ids)).to.be.false;
                     done();
                 })
                 .catch(err => done(err));
@@ -539,7 +554,7 @@ describe("/companions/:id/friends", () => {
             // to account for it. See this thread:
             // https://github.com/chaijs/chai-http/issues/75
 
-            axios.get(utils.route(`/companions/dummyID/friends`))
+            axios.get(utils.route(`/companions/dummyId/friends`))
                 .then(response => {
                     expect(response.status).to.equal(404);
                     done();
