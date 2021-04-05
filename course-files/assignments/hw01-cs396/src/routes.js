@@ -7,7 +7,7 @@ const express = require("express");
 const router = express.Router();
 
 router.route("/")
-    .get((_req, res) => {
+    .get((req, res) => {
         console.log("GET /");
         res.status(200).send({
             data: "App is running."
@@ -21,7 +21,7 @@ router.route("/")
 const data = require("../config/data.json");
 
 router.route("/doctors")
-    .get((_req, res) => {
+    .get((req, res) => {
         console.log("GET /doctors");
         res.status(501).send();
     })
@@ -39,7 +39,7 @@ router.route("/doctors/:id")
         console.log(`PATCH /doctors/${req.params.id}`);
         res.status(501).send();
     })
-    .delete((_req, res) => {
+    .delete((req, res) => {
         console.log(`DELETE /doctors/${req.params.id}`);
         res.status(501).send();
     });
@@ -63,7 +63,7 @@ router.route("/doctors/:id/goodparent")
     });
 
 router.route("/companions")
-    .get((_req, res) => {
+    .get((req, res) => {
         console.log("GET /companions");
         res.status(501).send();
     })
@@ -73,13 +73,13 @@ router.route("/companions")
     });
 
 router.route("/companions/crossover")
-    .get((_req, res) => {
+    .get((req, res) => {
         console.log(`GET /companions/crossover`);
         res.status(501).send();
     });
 
 router.route("/companions/:id")
-    .get((_req, res) => {
+    .get((req, res) => {
         console.log(`GET /companions/${req.params.id}`);
         res.status(501).send();
     })
@@ -87,7 +87,7 @@ router.route("/companions/:id")
         console.log(`PATCH /companions/${req.params.id}`);
         res.status(501).send();
     })
-    .delete((_req, res) => {
+    .delete((req, res) => {
         console.log(`DELETE /companions/${req.params.id}`);
         res.status(501).send();
     });
