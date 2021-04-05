@@ -15,7 +15,7 @@ due_date: 2021-04-07
 #      title: Intro to Node.js, Express & MongoDB
 readings:
   - url: https://codeburst.io/the-only-nodejs-introduction-youll-ever-need-d969a47ef219
-    title: "The only NodeJs introduction you’ll ever need"
+    title: "The only Node.js introduction you’ll ever need"
     author: Ofoegbu, Victor
     date: January, 2018
     source: "codeburst.io"
@@ -23,16 +23,24 @@ readings:
   - url: https://nodejs.org/api/
     title: Node.js standard library
     source: Node Documentation
+    notes: For your reference
   - url: https://www.linkedin.com/learning/node-js-essential-training-2/core-modules
     title: Accessing standard modules
     source: LinkedIn Learning
+    notes: For your reference
   - url: https://www.linkedin.com/learning/node-js-essential-training-2/export-custom-modules
     title: Exporting custom modules
     source: LinkedIn Learning
+    notes: For your reference
   - url: https://www.linkedin.com/learning/node-js-essential-training-2/create-a-module
     title: Creating a custom modules
     source: LinkedIn Learning
+    notes: For your reference
+  - url: https://docs.mongodb.com/manual/introduction/
+    title: Introduction to MongoDB
+    source: MongoDB website
+    notes: For your reference
 
 ---
 
-In this lecture, we will be going over some functionality of Node.js, and introducing MongoDB.
+In this lecture, we will be going over some functionality of Node.js and introducing MongoDB.
