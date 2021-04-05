@@ -104,6 +104,9 @@ router.route("/companions/:id/friends")
         res.status(501).send();
     });
 
+//////////////////
+// EXTRA CREDIT //
+//////////////////
 router.route("/doctors/favorites")
     .get((req, res) => {
         console.log(`GET /doctors/favorites`);
@@ -112,7 +115,9 @@ router.route("/doctors/favorites")
     .post((req, res) => {
         console.log(`POST /doctors/favorites`);
         res.status(501).send();
-    })
+    });
+
+router.route("/doctors/favorites/:id")
     .delete((req, res) => {
         console.log(`DELETE /doctors/favorites/:id`);
         res.status(501).send();
@@ -127,6 +132,8 @@ router.route("/companions/favorites")
         console.log(`POST /companions/favorites`);
         res.status(501).send();
     })
+
+router.route("/companions/favorites/:id")
     .delete((req, res) => {
         console.log(`DELETE /companions/favorites/:id`);
         res.status(501).send();
