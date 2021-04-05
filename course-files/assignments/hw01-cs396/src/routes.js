@@ -72,6 +72,12 @@ router.route("/companions")
         res.status(501).send();
     });
 
+router.route("/companions/crossover")
+    .get((_req, res) => {
+        console.log(`GET /companions/crossover`);
+        res.status(501).send();
+    });
+
 router.route("/companions/:id")
     .get((_req, res) => {
         console.log(`GET /companions/${req.params.id}`);
@@ -98,37 +104,31 @@ router.route("/companions/:id/friends")
         res.status(501).send();
     });
 
-router.route("/companions/crossover")
-    .get((_req, res) => {
-        console.log(`GET /companions/crossover`);
-        res.status(501).send();
-    });
-
-router.route("/doctors/:id/favorite")
+router.route("/doctors/favorites")
     .get((req, res) => {
-        console.log(`GET /doctors/${req.params.id}/favorite`);
+        console.log(`GET /doctors/favorites`);
         res.status(501).send();
     })
     .post((req, res) => {
-        console.log(`POST /doctors/${req.params.id}/favorite`);
+        console.log(`POST /doctors/favorites`);
         res.status(501).send();
     })
     .delete((req, res) => {
-        console.log(`DELETE /doctors/${req.params.id}/favorite`);
+        console.log(`DELETE /doctors/favorites/:id`);
         res.status(501).send();
     });
 
-router.route("/companions/:id/favorite")
+router.route("/companions/favorites")
     .get((req, res) => {
-        console.log(`GET /companions/${req.params.id}/favorite`);
+        console.log(`GET /companions/favorites`);
         res.status(501).send();
     })
     .post((req, res) => {
-        console.log(`POST /companions/${req.params.id}/favorite`);
+        console.log(`POST /companions/favorites`);
         res.status(501).send();
     })
     .delete((req, res) => {
-        console.log(`DELETE /companions/${req.params.id}/favorite`);
+        console.log(`DELETE /companions/favorites/:id`);
         res.status(501).send();
     });
 
