@@ -56,7 +56,7 @@ If you haven't already:
 
 Many of you already have a process for doing this, so feel free to do your own thing here. That said, if you're relatively new to this, here are some instructions:
 
-In your web browser, navigate to GitHub and create a new repository (see tutorial above if you don't know how). Please make sure that you mark your repo "public." When you're done, download `cs396_api.zip` and unzip it. Open your command line (on your local computer) and navigate to your `cs396_api` directory.
+In your web browser, navigate to GitHub and create a new repository (see tutorial above if you don't know how). Please make sure that you mark your repo "public." When you're done, download `hw01-cs396.zip` and unzip it. Open your command line (on your local computer) and navigate to your `hw01-cs396` directory.
 
 <a class="nu-button" href="/spring2021/course-files/assignments/hw01-cs396.zip">hw01-cs396.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
@@ -72,7 +72,7 @@ For code changes that you would like to save and track on GitHub, you should rep
 
 ## Part 4: Set up Homework 1
 
-You can download external libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Open `cs396_api` in VSCode using `File -> Open Folder`. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `cs396_api` directory.
+You can download external libraries to use in Node.js projects via the [Node Package Manager](https://www.npmjs.com/), or npm for short. Before we can start installing packages, we need to set up our project to use npm. Open `hw01-cs396` in VSCode using `File -> Open Folder`. Select `Terminal -> New Terminal` to open a new terminal window in VSCode and type `npm install`. If this works, a `node_modules` folder should be created in the `hw01-cs396` directory.
 
 You should now be able to run the program by typing `npm start` into your terminal window (if you get the message `Application listening on PORT: 8081`, it's working):
 
