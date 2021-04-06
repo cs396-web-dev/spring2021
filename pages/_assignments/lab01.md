@@ -58,7 +58,7 @@ Many of you already have a process for doing this, so feel free to do your own t
 
 In your web browser, navigate to GitHub and create a new repository (see tutorial above if you don't know how). Please make sure that you mark your repo "public." When you're done, download `cs396_api.zip` and unzip it. Open your command line (on your local computer) and navigate to your `cs396_api` directory.
 
-<a class="nu-button" href="/spring2021/course-files/assignments/cs396_api.zip">cs396_api.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+<a class="nu-button" href="/spring2021/course-files/assignments/hw01-cs396.zip">hw01-cs396.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
 Then,
 1. Initialize a brand new git repo: `git init`
@@ -79,13 +79,11 @@ You should now be able to run the program by typing `npm start` into your termin
 ```bash
 $ npm start
 Application listening on PORT: 8081
-Trying to connect to database...
-Could not connect to database.
 ```
 
 Visit [http://localhost:8081](localhost:8081) in a browser window; you should see a message that the app is running.
 
-<img class="large frame" src="/spring2021/assets/images/lab01/img1.png"/>
+<img class="medium frame" src="/spring2021/assets/images/lab01/img1.png"/>
 
 ## What to Submit
 
