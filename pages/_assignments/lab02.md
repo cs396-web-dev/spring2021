@@ -11,27 +11,49 @@ description: |
 due_date: 2021-04-09
 ---
 
-{:.callout}
-> ## Background Readings
+<style>
+    .gif-right {
+        float: right;
+        width: 180px;
+        margin-top: -40px;
+    }
+</style>
+
+## I. Introduction
+In today's lab, we will be learning how to write code to interact with a database, using MongoDB. Lab02 and HW02 are based on a tutorial written by <a href="https://github.com/Ajuogaaz" target="_blank">Linus Okoth</a> (for the Winter 2021 React course he designed), and adapted by <a href="https://github.com/cooperbarth" target="_blank">Cooper Barth</a> to fit with our Doctor Who theme. 
+
+{:.blockquote-no-margin}
+> ### Background Readings
 > * Background reading on RESTful architectures:
 >      * <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f" target="_blank">High-level overview</a>
 >      * <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank">Fielding's original paper</a>
 > These are for your reference, if you want to read more about the technologies we're using.
 > * <a href="https://docs.mongodb.com/manual/introduction/" target="_blank">MongoDB Introduction & Guide</a>
 > * <a href="https://mongoosejs.com/docs/" target="_blank">Mongoose</a> (Node.js Package for connecting to MongoDB)
+> 
+> ### Some Encouragement :)
+> <img class="gif-right" src="https://media.giphy.com/media/vxqMEsPFonjLaG3EwT/giphy.gif" /> Configuring your laptop and getting all of the pieces to work together can be frustrating and time consuming. We're here to help, and want to ensure that everyone is successful. This lab is not meant to be evaluative -- it's meant to help you get familiar with a tool that is widely used in industry (especially in early-stage startups). If there's anything that you don't understand, we can explain it to you and/or point you towards more resources.
 
-One of the goals of the course is to help you to analyze the **human dimensions** of data-intensive computing applications. A key part of this is the examination of how humans interact with data, through the ways data is stored and presented. In today's lab, we will learn one way data is commonly stored and accessed in large-scale applications.
+<!-- In preparation for HW2 (where you will migrating the data object to an actual database) you will complete the 3 steps below: 
 
-Today, you will be completing the 3 steps below. Please note that configuring your laptop and getting all of the pieces to work together can be frustrating and time consuming. We're here to help, and want to ensure that everyone is successful. This lab is not meant to be evaluative -- it's meant to help you get familiar with a tool that is widely used in industry (especially in early-stage startups). If there's anything that you don't understand, we can explain it to you or point you towards more resources.
+1. <a href="#step1">Setting up a MongoDB database</a>
+2. <a href="#step2">Connecting the database to your server</a>
+3. <a href="#step3">Setting Up Git and GitHub</a> -->
 
-{:.callout}
-> 1. <a href="#step1">Setting up a MongoDB database</a>
-> 2. <a href="#step2">Connecting the database to your server</a>
-> 3. <a href="#step3">Setting Up Git and GitHub</a>
+## I. Your Tasks
+1. Set Up MongoDB
+2. Create a brand new private repo on GitHub
+3. Publish your website to Heroku
+
+### 1. Set up HW02
+1. Set Up MongoDB
+2. Create a brand new private repo on GitHub
+3. Publish your website to Heroku
 
 {:#step1}
-## I. Set Up MongoDB
-MongoDB is a​ ​NoSQL​ database program that organizes collections of JSON-​like documents with optional s​chemas​. There are many different kinds of databases out there (relational systems like SQL are a very popular choice for more robust apps), but we've selected MongoDB because of its flexibility and usefulness for prototyping. Because you will eventually be building a cloud-hosted, publicly accessible system, we're going to go ahead and create a cloud MongoDB instance on MongoDB Atlas. That said, you may also want to install MongoDB locally (optional).
+### 1. Set Up MongoDB
+
+MongoDB is a ​NoSQL database program that organizes collections of JSON-​like documents with optional [schemas​](https://docs.mongodb.com/realm/mongodb/document-schemas/). There are many different kinds of databases out there (relational systems like SQL are a very popular choice for more robust apps), but we've selected MongoDB because of its flexibility and usefulness for prototyping. Because you will eventually be building a cloud-hosted, publicly accessible system, we're going to go ahead and create a cloud MongoDB instance on MongoDB Atlas. That said, you may also want to install MongoDB locally (optional).
 
 ### 1. Register w/MongoDB​ Website
 Login or signup for a <a href="https://account.mongodb.com/account/login" target="_blank">MongoDB​ account</a> using your u.northwestern.edu email.
@@ -67,7 +89,7 @@ Finally, click “Network Access” just below the “Database Access” and cli
 We will use the database stored in this cluster in upcoming labs and homework assignments. Meanwhile, if you are curious about how to interact with MongoDB, take a look at their documentation on <a href="https://docs.mongodb.com/manual/crud/" target="_blank">CRUD operations​</a> (CRUD = "Create, Read, Update, & Delete").
 
 {:#step2}
-## II. Connect your server to MongoDB
+## V. Connect your server to MongoDB
 
 We will now be configuring our server from Homework 1 to connect to MongoDB. To configure your web server, please complete the following steps:
 
@@ -88,20 +110,28 @@ My connection string (copied from MongoDB Atlas) is this...
 
 ```bash
 # Your environment variables (edit this), extracted from your DB connection string
+
+# copied from MongoDB Atlas
+DB_HOST=<your_host_address>        
+DB_USERNAME=<your_database_username> 
 DB_PASSWORD=<your_password>
-DB_NAME=cs396_db
-DB_USERNAME=<your_database_username>
-DB_HOST=<your_host_address>
+
+# NOTE: you can name your database whatever you want
+DB_NAME=cs396_db     
 ```
 
 Here is what Sarah's .env file looks like:
 ```bash
 # Example: Sarah's environment variables, extracted from:
-# mongodb+srv://admin:<password>@cluster0.qb1oh.mongodb.net/<dbname>?retryWrites=true&w=majority
-DB_PASSWORD=my_secret_password
-DB_NAME=cs396_db
-DB_USERNAME=admin
-DB_HOST=cluster0.qb1oh.mongodb.net
+# mongodb+srv://cs396_admin:<password>@cluster0.tdqgg.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+# copied from MongoDB Atlas
+DB_HOST=cluster0.tdqgg.mongodb.net 
+DB_USERNAME=cs396_admin      
+DB_PASSWORD=309cUNCiCYeRFBuY
+
+# NOTE: you can name your database whatever you want
+DB_NAME=cs396_db  
 ```
 
 Note that in the .gitignore file, the .env file is excluded, which means that this file will not be checked into your repo. Feel free to take a look at `cs396_api/config/config.js` to see how your environment variables are used to dynamically build your connection string.
@@ -123,11 +153,14 @@ Connected to cs396_db.
 
 If the message `Could not connect to database` appears instead, let your peer mentor know to debug.
 
-Now, deploy your app to Heroku. Since `.env` is not tracked by Git, we have to let Heroku know the values of our environment variables so the app will work once deployed. Open your Heroku dashboard and navigate to the Settings tab. Click "Reveal Config Vars" and add in the key-value pairs for each of the variables in your `.env` file.
+### 4. Deploy your app to Heroku
+You will deploy your app to Heroku in the same way as you did in HW1. However, since `.env` is not tracked by Git, we have to let Heroku know the values of our environment variables so the app will work once deployed. 
+
+To do this, open your Heroku dashboard and navigate to the Settings tab. Click "Reveal Config Vars" and add in the key-value pairs for each of the variables in your `.env` file.
 
 <img class="large frame" src="/spring2021/assets/images/lab02/heroku_env.png"/>
 
-## IV. Review the Checklist & Submit
+## VI. Review the Checklist & Submit
 
 ### 1. Verify that you're done
 

@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Creating UIs w/HTML & CSS
+title: Intro to Client-Side UIs
 type: lecture
 draft: 1
 show_schedule: 1
@@ -16,4 +16,4 @@ slides:
 
 ---
 
-Welcome to the course!
+Today we will be going over the fundamentals of user interface programming with w/HTML, CSS, and client-side JavaScript.

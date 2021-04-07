@@ -7,6 +7,7 @@
     const nav = document.querySelector("nav");
     const aside = document.querySelector("aside");
     const sticky = nav.offsetTop;
+    // console.log(sticky);
 
     const stickyToggle = (yPos) => {
         const hasMinHeight = () => {

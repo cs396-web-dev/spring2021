@@ -1,6 +1,6 @@
 ---
 layout: module
-title: "Primer: Intro to Node.js, Express & MongoDB"
+title: "Building REST API Endpoints with Node.js"
 type: lecture
 draft: 0
 show_schedule: 1
@@ -10,37 +10,10 @@ due_date: 2021-04-07
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-# slides:
-#    - url: https://docs.google.com/presentation/d/1Fi16a7iSfunz4Aif4WT8lJV9-g88rPgfYYGgWXeKgAc/edit?usp=sharing
-#      title: Intro to Node.js, Express & MongoDB
-readings:
-  - url: https://codeburst.io/the-only-nodejs-introduction-youll-ever-need-d969a47ef219
-    title: "The only Node.js introduction you’ll ever need"
-    author: Ofoegbu, Victor
-    date: January, 2018
-    source: "codeburst.io"
-    notes: "Nice Node.js tutorial + high-level overview"
-  - url: https://nodejs.org/api/
-    title: Node.js standard library
-    source: Node Documentation
-    notes: For your reference
-  - url: https://www.linkedin.com/learning/node-js-essential-training-2/core-modules
-    title: Accessing standard modules
-    source: LinkedIn Learning
-    notes: For your reference
-  - url: https://www.linkedin.com/learning/node-js-essential-training-2/export-custom-modules
-    title: Exporting custom modules
-    source: LinkedIn Learning
-    notes: For your reference
-  - url: https://www.linkedin.com/learning/node-js-essential-training-2/create-a-module
-    title: Creating a custom modules
-    source: LinkedIn Learning
-    notes: For your reference
-  - url: https://docs.mongodb.com/manual/introduction/
-    title: Introduction to MongoDB
-    source: MongoDB website
-    notes: For your reference
+slides:
+   - url: https://docs.google.com/presentation/d/1Fi16a7iSfunz4Aif4WT8lJV9-g88rPgfYYGgWXeKgAc/edit?usp=sharing
+     title: Building REST API Endpoints with Node.js & Express
 
 ---
 
-In this lecture, we will be going over some functionality of Node.js and introducing MongoDB.
+Today we'll be doing a code walkthrough of HW1 to make sure that everyone gets a sense of the core ideas and how the pieces fit together.
