@@ -146,7 +146,7 @@ Connected to cs396_db.
 
 If the message `Could not connect to database` appears instead, let your peer mentor know to debug.
 
-#### 6. Populate your database
+#### 5. Populate your database
 To insert all of the doctors and companions into your database, run this line at the command line (from within the hw02-cs396 directory).
 
 ```bash
@@ -170,7 +170,7 @@ Done!
 ```
 
 
-#### 7. Check the /doctors and /companions endpoints
+#### 6. Check the /doctors and /companions endpoints
 1. Open [http://localhost:8081/doctors](http://localhost:8081/doctors)<br> It should show you doctors (but with different `_ids`)
 2. Open [http://localhost:8081/companions](http://localhost:8081/companions)<br>It should show you companions (but with different `_ids`)
 3. Run the tests `npm test`<br>You should see that two tests passed (see output below).
