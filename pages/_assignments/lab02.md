@@ -127,10 +127,10 @@ DB_PASSWORD=309cUNCiCYeRFBuY
 DB_NAME=cs396_db  
 ```
 
-Note that in the .gitignore file, the .env file is excluded, which means that this file will not be checked into your repo. Feel free to take a look at `cs396_api/config/config.js` to see how your environment variables are used to dynamically build your connection string.
+Note that in the .gitignore file, the .env file is excluded, which means that this file will not be checked into your repo. Feel free to take a look at `hw02-cs396/config/config.js` to see how your environment variables are used to dynamically build your connection string.
 
 #### 4. Test your web app's database connection
-Finally, you are ready to test that your server can connect to your new database. To do this, please navigate to the `cs396_api` directory in your command line and type `npm start`. If successful, you will see an output similar to this:
+Finally, you are ready to test that your server can connect to your new database. To do this, please navigate to the `hw02-cs396` directory in your command line and type `npm start`. If successful, you will see an output similar to this:
 
 ```bash
 Sarahs-MacBook-Pro-4:cs330-web-server vanwars$ npm start
