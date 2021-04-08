@@ -35,10 +35,6 @@ In today's lab, we will be learning how to write code to interact with a databas
 > <img class="gif-right" src="https://media.giphy.com/media/vxqMEsPFonjLaG3EwT/giphy.gif" /> Configuring your laptop and getting all of the pieces to work together can be frustrating and time consuming. We're here to help, and want to ensure that everyone is successful. This lab is not meant to be evaluative -- it's meant to help you get familiar with a tool that is widely used in industry (especially in early-stage startups). If there's anything that you don't understand, we can explain it to you and/or point you towards more resources.
 
 ## II. Your Tasks
-1. Set Up MongoDB
-2. Create a brand new private repo on GitHub
-3. Publish your website to Heroku
-
 
 {:#step1}
 ### A. Set Up MongoDB
@@ -150,7 +146,31 @@ Connected to cs396_db.
 
 If the message `Could not connect to database` appears instead, let your peer mentor know to debug.
 
-#### 5. Check the /doctors and /companions endpoints
+#### 6. Populate your database
+To insert all of the doctors and companions into your database, run this line at the command line (from within the hw02-cs396 directory).
+
+```bash
+npm run populate
+```
+
+You should see the following output:
+```bash
+Sarahs-MacBook-Pro-4:hw02-cs396 vanwars$ npm run populate
+
+> cs396@1.0.0 populate
+> cross-env NODE_ENV=development node ./config/scripts/execPopulateDB.js
+
+Trying to connect to database...
+Connected to cs396_db.
+Clearing database...
+Database cleared.
+Populating database...
+Database populated successfully.
+Done!
+```
+
+
+#### 7. Check the /doctors and /companions endpoints
 1. Open [http://localhost:8081/doctors](http://localhost:8081/doctors)<br> It should show you doctors (but with different `_ids`)
 2. Open [http://localhost:8081/companions](http://localhost:8081/companions)<br>It should show you companions (but with different `_ids`)
 3. Run the tests `npm test`<br>You should see that two tests passed (see output below).
@@ -199,6 +219,9 @@ When you're done, you can test that you're successful by navigating to the posts
 {:.checkbox-list}
 * App Configuration
    * You can run your server locally with `npm start` and receive the `Connected to cs396_db` message.
+   * Two tests pass when you run the tests `npm test`
+   * [http://localhost:8081/doctors](http://localhost:8081/doctors) displays doctors to the screen
+   * [http://localhost:8081/companions](http://localhost:8081/companions) displays companions to the screen
 * GitHub Configuration
    * Your files have been committed and pushed to GitHub
    * You have taken care to not include your database password in your repo by creating a local, hidden file, `.env` that is excluded from your GitHub repo in the `.gitignore` file.
