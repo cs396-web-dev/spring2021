@@ -4,11 +4,8 @@ const chai = require("chai");
 
 const data = require("../config/data.json");
 const utils = require("./util/testUtil");
-const deepEqualInAnyOrder = require('deep-equal-in-any-order');
-
 
 chai.use(asserttype);
-chai.use(deepEqualInAnyOrder);
 const expect = chai.expect;
 
 
