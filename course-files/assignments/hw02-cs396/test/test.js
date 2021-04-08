@@ -20,6 +20,10 @@ const simplify = item => {
     return item;
 };
 
+const areArraysEqual = (a, b) => {
+    return JSON.stringify(a) === JSON.stringify(b);
+}
+
 describe("/doctors", () => {
 
     describe("GET", () => {
@@ -28,13 +32,18 @@ describe("/doctors", () => {
             axios.get(utils.route("/doctors"))
                 .then(response => {
                     expect(response.status).to.equal(200);
-                    expect(
-                        response.data.map(item => simplify(item))
-                        ).to.deep.equalInAnyOrder(
-                            data.doctors.map(item => simplify(item))
-                        );
                     expect(response.data.length).to.eql(13);
                     expect(simplify(response.data[0])).to.eql(simplify(data.doctors[0]));
+                    
+                    // check that all of the doctors returned by the server
+                    // are in the test doctors array:
+                    response.data.forEach(a => {
+                        const matches = data.doctors.filter(b => {
+                            return a.name == b.name && areArraysEqual(a.seasons, b.seasons);
+                        });
+                        expect(matches.length).to.eql(1);
+                    });
+
                     done();
                 })
                 .catch(err => done(err));
@@ -51,13 +60,21 @@ describe("/companions", () => {
             axios.get(utils.route("/companions"))
                 .then(response => {
                     expect(response.status).to.equal(200);
-                    expect(
-                        response.data.map(item => simplify(item))
-                        ).to.deep.equalInAnyOrder(
-                            data.companions.map(item => simplify(item))
-                        );
                     expect(response.data.length).to.eql(35);
                     expect(simplify(response.data[0])).to.eql(simplify(data.companions[0]));
+
+                    // check that all of the companions returned by the server
+                    // are in the test companions array:
+                    response.data.forEach(a => {
+                        const matches = data.companions.filter(b => {
+                            return (
+                                a.name === b.name && 
+                                areArraysEqual(a.seasons, b.seasons) &&
+                                a.alive === b.alive && 
+                                a.character == b.character);
+                        });
+                        expect(matches.length).to.eql(1);
+                    });
                     done();
                 })
                 .catch(err => done(err));
