@@ -66,7 +66,8 @@ Then,
 3. Add all of your files to your local repo: `git add .`
 4. Type `git status`, which will show you all of the files that your git repo is currently tracking.
 5. Commit all of them: `git commit -am 'My first commit'`. Committing them is like "saving" them to a version (if you ever needed to later revert to a previous version of your code).
-6. Push them to GitHub: `git push origin main`. "Pushing" transfers all of your committed files to your GitHub repo (on the cloud).
+6. Create a new branch called main and switch to it: `git branch -M main"`
+7. Push them to GitHub: `git push origin main`. "Pushing" transfers all of your committed files to your GitHub repo (on the cloud).
 
 For code changes that you would like to save and track on GitHub, you should repeat steps 3-6 of the above process.
 
