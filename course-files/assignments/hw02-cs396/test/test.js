@@ -10,12 +10,22 @@ const expect = chai.expect;
 
 
 const simplify = item => {
-    delete item._id;
-    delete item.__v;
-    delete item.doctors;
-    delete item.doc_id;
-    return item;
+    // it's a companion:
+    if (item.doctors) {
+        return {
+            name: item.name,
+            seasons: item.seasons,
+            alive: item.alive,
+            character: item.character
+        }
+    }
+    // it's a doctor
+    return {
+        name: item.name,
+        seasons: item.seasons
+    }
 };
+
 
 const areArraysEqual = (a, b) => {
     return JSON.stringify(a) === JSON.stringify(b);
@@ -79,6 +89,3 @@ describe("/companions", () => {
     });
 
 });
-
-
-
