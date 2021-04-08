@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Setting Up MongoDB
 type: lab
 abbreviation: Lab 2
-draft: 1
+draft: 0
 num: 2
 points: 5
 description: |
@@ -34,43 +34,33 @@ In today's lab, we will be learning how to write code to interact with a databas
 > ### Some Encouragement :)
 > <img class="gif-right" src="https://media.giphy.com/media/vxqMEsPFonjLaG3EwT/giphy.gif" /> Configuring your laptop and getting all of the pieces to work together can be frustrating and time consuming. We're here to help, and want to ensure that everyone is successful. This lab is not meant to be evaluative -- it's meant to help you get familiar with a tool that is widely used in industry (especially in early-stage startups). If there's anything that you don't understand, we can explain it to you and/or point you towards more resources.
 
-<!-- In preparation for HW2 (where you will migrating the data object to an actual database) you will complete the 3 steps below: 
-
-1. <a href="#step1">Setting up a MongoDB database</a>
-2. <a href="#step2">Connecting the database to your server</a>
-3. <a href="#step3">Setting Up Git and GitHub</a> -->
-
-## I. Your Tasks
+## II. Your Tasks
 1. Set Up MongoDB
 2. Create a brand new private repo on GitHub
 3. Publish your website to Heroku
 
-### 1. Set up HW02
-1. Set Up MongoDB
-2. Create a brand new private repo on GitHub
-3. Publish your website to Heroku
 
 {:#step1}
-### 1. Set Up MongoDB
+### A. Set Up MongoDB
 
 MongoDB is a ​NoSQL database program that organizes collections of JSON-​like documents with optional [schemas​](https://docs.mongodb.com/realm/mongodb/document-schemas/). There are many different kinds of databases out there (relational systems like SQL are a very popular choice for more robust apps), but we've selected MongoDB because of its flexibility and usefulness for prototyping. Because you will eventually be building a cloud-hosted, publicly accessible system, we're going to go ahead and create a cloud MongoDB instance on MongoDB Atlas. That said, you may also want to install MongoDB locally (optional).
 
-### 1. Register w/MongoDB​ Website
+#### 1. Register w/MongoDB​ Website
 Login or signup for a <a href="https://account.mongodb.com/account/login" target="_blank">MongoDB​ account</a> using your u.northwestern.edu email.
 
-### 2. Create a Project
+#### 2. Create a Project
 Click on the "create a new project" button. Type in the name of your project as “CS396” and click next. Ignore the "add teammates" prompt and finish the setup.
 
 <img class="large frame" src="/spring2021/assets/images/lab02/ss1.png" />
    
-### 3. Build a Cluster
+#### 3. Build a Cluster
 Click on "Build a Cluster". Select the free options on the next page.
 
 <img class="large frame" src="/spring2021/assets/images/lab02/ss2.png" />
 
 Do not change anything on this page and proceed to create a cluster. It might take several minutes so grab some coffee and relax.
 
-### 4. Create a Database User
+#### 4. Create a Database User
 Next, set up a user and password that will be used by your web applications to access the database.
 
 <img class="large frame" src="/spring2021/assets/images/lab02/ss3.png" />
@@ -81,7 +71,7 @@ Click on “Database Access” under SECURITY. Then click “Add New Database Us
 
 Follow these configurations and use your unique username and password. Make sure to copy the password to somewhere safe, as you will not be able to view it once created.
 
-### 5. Grant Network Access
+#### 5. Grant Network Access
 Finally, click “Network Access” just below the “Database Access” and click Add IP Address and then click “Allow access from Anywhere”. When deploying your backend to servers you will not have to reconfigure the IP address. Confirm to close and complete that step. This might take another few minutes.
 
 <img class="large frame" src="/spring2021/assets/images/lab02/ss5.png" />
@@ -89,11 +79,18 @@ Finally, click “Network Access” just below the “Database Access” and cli
 We will use the database stored in this cluster in upcoming labs and homework assignments. Meanwhile, if you are curious about how to interact with MongoDB, take a look at their documentation on <a href="https://docs.mongodb.com/manual/crud/" target="_blank">CRUD operations​</a> (CRUD = "Create, Read, Update, & Delete").
 
 {:#step2}
-## V. Connect your server to MongoDB
+### B. Connect your Node.js web server to MongoDB
 
-We will now be configuring our server from Homework 1 to connect to MongoDB. To configure your web server, please complete the following steps:
+We will now be configuring your HW2 files to connect to MongoDB. To configure your web server, please complete the following steps:
 
-### 1. Find your MongoDB connection string
+#### 1. Download the HW2 files
+Download hw02-cs396.zip, unzip it, and move the resulting hw02-cs396 folder somewhere sensible (i.e. keep your files organized). Important: you will eventually be converting this folder to its own, new git repo. Given this, take care not to save this folder inside a folder that is already a git repo.
+
+<a class="nu-button" href="/spring2021/course-files/assignments/hw02-cs396.zip">hw02-cs396.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+
+When you're done, open the `hw02-cs396` in VS Code and take a look at the files. Please also navigate to the `hw02-cs396` on the command line and install the dependencies by typing: `npm install`
+
+#### 2. Find your MongoDB connection string
 Go to MongoDB Atlas and find your connection string. To do this:
 1. Click on the "Clusters" link (left-hand navigation)
 2. Click on the project you just made (“CS396”)
@@ -101,7 +98,7 @@ Go to MongoDB Atlas and find your connection string. To do this:
 4. Next, click the "Connect to Application" option:<br><img class="large frame" src="/spring2021/assets/images/lab02/db_connect_2.png" />
 5. Finally, select the Node.js options and copy your connection string:<br><img class="large frame" src="/spring2021/assets/images/lab02/db_connect_3.png" />
 
-### 2. Connect your application to your database
+#### 3. Connect your application to your database
 My connection string (copied from MongoDB Atlas) is this...
 
 `mongodb+srv://admin:<password>@cluster0.qb1oh.mongodb.net/<dbname>?retryWrites=true&w=majority`
@@ -136,7 +133,7 @@ DB_NAME=cs396_db
 
 Note that in the .gitignore file, the .env file is excluded, which means that this file will not be checked into your repo. Feel free to take a look at `cs396_api/config/config.js` to see how your environment variables are used to dynamically build your connection string.
 
-### 3. Test your web app's database connection
+#### 4. Test your web app's database connection
 Finally, you are ready to test that your server can connect to your new database. To do this, please navigate to the `cs396_api` directory in your command line and type `npm start`. If successful, you will see an output similar to this:
 
 ```bash
@@ -153,14 +150,49 @@ Connected to cs396_db.
 
 If the message `Could not connect to database` appears instead, let your peer mentor know to debug.
 
-### 4. Deploy your app to Heroku
-You will deploy your app to Heroku in the same way as you did in HW1. However, since `.env` is not tracked by Git, we have to let Heroku know the values of our environment variables so the app will work once deployed. 
+#### 5. Check the /doctors and /companions endpoints
+1. Open [http://localhost:8081/doctors](http://localhost:8081/doctors)<br> It should show you doctors (but with different `_ids`)
+2. Open [http://localhost:8081/companions](http://localhost:8081/companions)<br>It should show you companions (but with different `_ids`)
+3. Run the tests `npm test`<br>You should see that two tests passed (see output below).
+
+```bash
+Sarahs-MacBook-Pro-4:hw02-cs396 vanwars$ npm test
+
+> cs396@1.0.0 test
+> mocha
+
+
+
+  /doctors
+    GET
+      ✓ should return a list of all Doctors (72ms)
+
+  /companions
+    GET
+      ✓ should return a list of all Companions (55ms)
+
+
+  2 passing (138ms)
+```
+
+<!-- ### C. Deploy your app to Heroku
+You will deploy your app to Heroku in the same way as you did in HW1. This includes:
+1. Making a new GitHub repo (see [Lab1 instructions](/spring2021/assignments/lab01#cs397_configure-your-github-repository))
+2. Committing all of your HW2 files to your new GitHub repo
+3. Deploying your app to Heroku (see [HW1 instructions](/spring2021/assignments/hw01#cs397_4-deploying-to-heroku))
+
+#### Setting up your database connection on Heroku
+Since `.env` is not tracked by Git (because it's in the .gitignore file), we have to let Heroku know the values of our environment variables so the app will work once deployed. 
 
 To do this, open your Heroku dashboard and navigate to the Settings tab. Click "Reveal Config Vars" and add in the key-value pairs for each of the variables in your `.env` file.
 
 <img class="large frame" src="/spring2021/assets/images/lab02/heroku_env.png"/>
 
-## VI. Review the Checklist & Submit
+When you're done, you can test that you're successful by navigating to the posts endpoint.
+
+ -->
+
+## III. Review the Checklist & Submit
 
 ### 1. Verify that you're done
 
@@ -174,4 +206,8 @@ To do this, open your Heroku dashboard and navigate to the Settings tab. Click "
 
 ### 2. Submit to Canvas
 
-When you are sure you have completed everything, please submit the link to your GitHub repository.
+When you are sure you have completed everything, please submit the following 3 files in zip file called lab02.zip:
+
+1. Your .env file
+2. A screenshot of your passing tests 
+3. A screenshot of your /companions output in your web browser (when you click [http://localhost:8081/companions](http://localhost:8081/companions)).
