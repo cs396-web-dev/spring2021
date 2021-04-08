@@ -40,7 +40,6 @@ describe("/doctors", () => {
                 .then(response => {
                     expect(response.status).to.equal(200);
                     expect(response.data.length).to.eql(13);
-                    expect(simplify(response.data[0])).to.eql(simplify(data.doctors[0]));
                     
                     // check that all of the doctors returned by the server
                     // are in the test doctors array:
@@ -68,7 +67,6 @@ describe("/companions", () => {
                 .then(response => {
                     expect(response.status).to.equal(200);
                     expect(response.data.length).to.eql(35);
-                    expect(simplify(response.data[0])).to.eql(simplify(data.companions[0]));
 
                     // check that all of the companions returned by the server
                     // are in the test companions array:
