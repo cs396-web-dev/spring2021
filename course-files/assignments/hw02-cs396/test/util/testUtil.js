@@ -4,10 +4,11 @@ const env = "" + process.env.NODE_ENV;
 const configObj = require("../../config/config")
 const config = configObj[env || "development"];
 const mongoose = require("mongoose");
-const resetDB = require("../../config/scripts/populateDB")
-
+const resetDB = require("../../config/scripts/populateDB");
+const axios = require("axios");
 const Doctor = require("../../src/schema/Doctor");
 const Companion = require("../../src/schema/Companion");
+
 
 const Utils = function () {
 
@@ -90,6 +91,28 @@ const Utils = function () {
         });
         return matched.length === expected.length;
     };
+    
+    this.expect404 = function (url, done) {
+        // Note: the superagent doesn't allow us to test for 404
+        // directly so there's an additional error handling chain
+        // to account for it. See this thread:
+        // https://github.com/chaijs/chai-http/issues/75
+    
+        // console.log(url);
+        axios.get(this.route(url))
+            .then(response => {
+                expect(response.status).to.equal(404);
+                done();
+            })
+            .catch(err => {
+                if (err.response && err.response.status == 404) {
+                    done();
+                } else {
+                    throw err;
+                }
+            })
+            .catch(err => done(err));
+    }.bind(this);
 
     this.resetDB = resetDB;
 

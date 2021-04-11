@@ -17,30 +17,9 @@ const Doctor = require("../src/schema/Doctor");
 const Companion = require("../src/schema/Companion");
 const {
     simplify, resetDB, fixtures, initFixtures, areArraysEqual, 
-    areSameCompanionsInBothArrays, areSameDoctorsInBothArrays
+    areSameCompanionsInBothArrays, areSameDoctorsInBothArrays,
+    expect404
 } = utils;
-
-const expect404 = (url, done) => {
-    // Note: the superagent doesn't allow us to test for 404
-    // directly so there's an additional error handling chain
-    // to account for it. See this thread:
-    // https://github.com/chaijs/chai-http/issues/75
-
-    // console.log(url);
-    axios.get(utils.route(url))
-        .then(response => {
-            expect(response.status).to.equal(404);
-            done();
-        })
-        .catch(err => {
-            if (err.response && err.response.status == 404) {
-                done();
-            } else {
-                throw err;
-            }
-        })
-        .catch(err => done(err));
-};
 
 const asserttype = require("chai-asserttype");
 const axios = require("axios");
