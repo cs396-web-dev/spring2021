@@ -24,10 +24,11 @@ In today's lab, we will be learning how to write code to interact with a databas
 
 {:.blockquote-no-margin}
 > ### Background Readings
+> These are for your reference, if you want to read more about the technologies we're using:
 > * Background reading on RESTful architectures:
 >      * <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f" target="_blank">High-level overview</a>
 >      * <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank">Fielding's original paper</a>
-> These are for your reference, if you want to read more about the technologies we're using.
+> 
 > * <a href="https://docs.mongodb.com/manual/introduction/" target="_blank">MongoDB Introduction & Guide</a>
 > * <a href="https://mongoosejs.com/docs/" target="_blank">Mongoose</a> (Node.js Package for connecting to MongoDB)
 > 
@@ -121,7 +122,7 @@ Here is what Sarah's .env file looks like:
 # copied from MongoDB Atlas
 DB_HOST=cluster0.tdqgg.mongodb.net 
 DB_USERNAME=cs396_admin      
-DB_PASSWORD=309cUNCiCYeRFBuY
+DB_PASSWORD=my_secret_password
 
 # NOTE: you can name your database whatever you want
 DB_NAME=cs396_db  

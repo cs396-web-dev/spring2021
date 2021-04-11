@@ -1,0 +1,6 @@
+{
+    "artists": [
+        { "_id": "60737ac5f3481bbee0bb07f0", "name": "Beyonce", "genres": [ "dance pop", "pop", "post-teen pop", "r&b" ]},
+        { "_id": "60737a44690fbabe460e1a06", "name": "BTS", "genres": [ "k-pop", "k-pop boy group" ]}
+    ]
+}
