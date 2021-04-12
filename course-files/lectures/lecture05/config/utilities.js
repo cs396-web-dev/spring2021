@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
-const schemas = require("../schemas");
+// const schemas = require("../schema/schemas");
+Artist = require("../schema/Artist");
+Track = require("../schema/Track");
 const data = require("./data.json")
-const { Artist } = schemas;
+// const { Artist, Track } = schemas;
 const dotenv = require("dotenv").config();
 const env = process.env;
 
@@ -42,17 +44,34 @@ const deleteArtists = () => {
     return Artist.deleteMany({});
 };
 
+const deleteTracks = () => {
+    // returns a promise:
+    return Track.deleteMany({});
+};
+
 const insertArtists = () => {
     // returns a promise:
     return Artist.insertMany(data.artists);
 };
 
+const insertTracks = () => {
+    // returns a promise:
+    return Track.insertMany(data.tracks);
+};
+
 const populateDB = () => {
     connectToDB
         .then(deleteArtists)
+        .then(deleteTracks)
         .then(insertArtists)
         .then(results => {
-            console.log('The database has been populated.');
+            console.log('Artists have been inserted into the database:');
+            // console.log('The following records have been generated:');
+            console.log(results);
+        })
+        .then(insertTracks)
+        .then(results => {
+            console.log('Tracks have been inserted into the database:');
             // console.log('The following records have been generated:');
             console.log(results);
         })

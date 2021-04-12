@@ -1,10 +1,11 @@
 const success = result => { 
     console.log('success:', result);
+    return result;
 };
 
-const doSomethingWithADelay = new Promise((resolve) => {
-    setTimeout(() => resolve("done"), 1000);
+const doSomethingWithADelay = new Promise(callback => {
+    setTimeout(() => callback("done"), 1000);
 });
 
 doSomethingWithADelay
-    .then(success, failure);
+    .then(success);

@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Setting Up MongoDB
 type: lab
 abbreviation: Lab 2
-draft: 0
+draft: 1
 num: 2
 points: 5
 description: |
