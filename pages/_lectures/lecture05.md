@@ -6,10 +6,11 @@ draft: 0
 show_schedule: 1
 num: 5
 due_date: 2021-04-12
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/rGOpdYXdPvMt8kD4pQ27IHX-J4PipaltgbwskRI9pJFSevmeNXwe-PnrlN67_pfA.xTRNsnx_v4PJMxka?startTime=1618253843000
+     title: Recorded Lecture Video
+     live: 1
+     duration: "53:56"
 exercise_url: lecture05.zip
 slides:
    - url: https://docs.google.com/presentation/d/1pgzCWk8nVQmSEdtn3REECHJhgP5vBZmRe0NnLZwJAxI/edit#slide=id.gc7c4494bf6_0_49
