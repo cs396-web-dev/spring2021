@@ -192,6 +192,7 @@ describe("/doctors/:id", () => {
                     // 2. then delete it:
                     axios.delete(utils.route(deleteURL))
                         .then(response => {
+                            expect(response.data).to.equal('');
                             expect(response.status).to.equal(200);
 
                             // 3. then make sure that the doctor is no longer in the database:
@@ -471,6 +472,7 @@ describe("/companions/:id", () => {
                     // 2. then delete it:
                     axios.delete(utils.route(deleteURL))
                         .then(response => {
+                            expect(response.data).to.equal('');
                             expect(response.status).to.equal(200);
 
                             // 3. then make sure that the companion is no longer in the database:
@@ -544,7 +546,7 @@ describe("/companions/:id/friends", () => {
 
         it("should return all of the friends of companion 'Sarah Sutton'", done => {
             // and one more...
-            const _id = "" + fixtures.companionSS._id;
+            const _id = "" + fixtures.companion4._id;
             const expected = [{"_id":"c4_4","name":"John Leeson","character":"K-9","doctors":["d4"],"seasons":[15,16,17,18],"alive":false},{"_id":"c4_5__5_1","name":"Matthew Waterhouse","character":"Adric","doctors":["d4","d5"],"seasons":[18,19],"alive":false},{"_id":"c4_7__5_3","name":"Janet Fielding","character":"Tegan Jovanka","doctors":["d4","d5"],"seasons":[18,19,20,21],"alive":true},{"_id":"c5_4","name":"Mark Strickson","character":"Vislor Turlough","doctors":["d5"],"seasons":[20,21],"alive":true}];
             axios.get(utils.route(`/companions/${_id}/friends`))
                 .then(response => {

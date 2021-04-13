@@ -196,23 +196,6 @@ Sarahs-MacBook-Pro-4:hw02-cs396 vanwars$ npm test
   2 passing (138ms)
 ```
 
-<!-- ### C. Deploy your app to Heroku
-You will deploy your app to Heroku in the same way as you did in HW1. This includes:
-1. Making a new GitHub repo (see [Lab1 instructions](/spring2021/assignments/lab01#cs397_configure-your-github-repository))
-2. Committing all of your HW2 files to your new GitHub repo
-3. Deploying your app to Heroku (see [HW1 instructions](/spring2021/assignments/hw01#cs397_4-deploying-to-heroku))
-
-#### Setting up your database connection on Heroku
-Since `.env` is not tracked by Git (because it's in the .gitignore file), we have to let Heroku know the values of our environment variables so the app will work once deployed. 
-
-To do this, open your Heroku dashboard and navigate to the Settings tab. Click "Reveal Config Vars" and add in the key-value pairs for each of the variables in your `.env` file.
-
-<img class="large frame" src="/spring2021/assets/images/lab02/heroku_env.png"/>
-
-When you're done, you can test that you're successful by navigating to the posts endpoint.
-
- -->
-
 ## III. Review the Checklist & Submit
 
 ### 1. Verify that you're done

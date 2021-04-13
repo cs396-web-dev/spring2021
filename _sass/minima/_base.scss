@@ -199,6 +199,21 @@ pre.highlight {
 .blockquote-no-margin {
     margin-top: 0px;
 }
+.blockquote-warning {
+    p, li, h2, h3 { color: #000 !important; }
+    margin-top: 0px;
+    background: #9c080836;
+    border-left: solid 10px #9c0808;
+    code.highlighter-rouge {
+        background-color: #9c080836;
+    }
+    ul {
+        list-style: disc !important;
+    } 
+    li::before {
+        content: none !important;
+    }
+}
 blockquote {
     // border-left: solid 7px $lightpurple;
     background: $lightgrey;

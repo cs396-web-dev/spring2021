@@ -607,5 +607,13 @@
             "character": "Yasmin Khan",
             "name": "Mandip Gill"
         }
+    ],
+    "favoriteDoctors": [
+        { "doctor" : "6075029f746e3f38a5f0e94a" },
+        { "doctor" : "6075029f746e3f38a5f0e94f" }
+    ],
+    "favoriteCompanions": [
+        { "companion" : "607502a0746e3f38a5f0e95c" },
+        { "companion" : "607502a0746e3f38a5f0e966" }
     ]
 }

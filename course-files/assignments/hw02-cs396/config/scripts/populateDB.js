@@ -2,6 +2,8 @@
 
 const Companion = require("../../src/schema/Companion");
 const Doctor = require("../../src/schema/Doctor");
+const FavoriteDoctor = require("../../src/schema/FavoriteDoctor");
+const FavoriteCompanion = require("../../src/schema/FavoriteCompanion");
 const data = require("../data.json");
 require("dotenv").config();
 
@@ -19,7 +21,7 @@ const populate = (callback) => {
             console.log("Could not connect to database.");
         }
         // console.log("Clearing database...");
-        const schemas = [ Companion, Doctor ];
+        const schemas = [ Companion, Doctor, FavoriteCompanion, FavoriteDoctor ];
         Promise
             .all(
                 // first delete any data that currently exists:
@@ -30,6 +32,12 @@ const populate = (callback) => {
             })
             .then(() => {
                 return Companion.insertMany(data.companions);
+            })
+            .then(() => {
+                return FavoriteDoctor.insertMany(data.favoriteDoctors);
+            })
+            .then(() => {
+                return FavoriteCompanion.insertMany(data.favoriteCompanions);
             })
             .catch(err => {
                 console.log(err);
