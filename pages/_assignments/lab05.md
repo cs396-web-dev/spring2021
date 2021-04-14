@@ -1,10 +1,10 @@
 ---
 layout: assignment-two-column
-title: Usability & accessibility
+title: CSS Grid, Flex, and Responsive UI
 type: lab
 abbreviation: Lab 5
 draft: 1
-num: 5
 points: 5
+num: 3
 due_date: 2021-04-30
 ---
