@@ -25,6 +25,10 @@ const Utils = function () {
         "name": "Sponge Bob",
         "character": "Square Pants",
         "seasons": [99, 100, 101, 102],
+        "doctors": [
+            "6075029f746e3f38a5f0e94c",
+            "6075029f746e3f38a5f0e94d"
+        ],
         "alive": true
     };
 
@@ -42,7 +46,7 @@ const Utils = function () {
         const newItem = JSON.parse(JSON.stringify(item));
         delete newItem._id;
         delete newItem.__v;
-        delete newItem.doctors;
+        // delete newItem.doctors;
         delete newItem.doc_id;
         delete newItem.old_doctor_ids;
         return newItem;
@@ -51,7 +55,7 @@ const Utils = function () {
     this.mockPatchCompanion = {
         name: "new_name",
         "seasons": [12, 13],
-        "character": "Zer0",
+        "character": "Zer0"
     };
 
     this.route = function (route) {
@@ -87,7 +91,8 @@ const Utils = function () {
                 return a.name == b.name && 
                     JSON.stringify(a.seasons) === JSON.stringify(b.seasons) &&
                     a.alive == b.alive && 
-                    a.character == b.character;
+                    a.character == b.character && 
+                    JSON.stringify(a.doctors) === JSON.stringify(b.doctors)
             });
             return matches.length === 1;
         });
