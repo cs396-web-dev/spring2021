@@ -38,6 +38,7 @@
 //     describe("GET", () => {
 
 //         it("should return a list of the 2 favorite Doctors", done => {
+//             // doctor 4 & 9 are pre-populated in the FavoriteDoctor collection
 //             const expected = [
 //                 fixtures.doctorD4,
 //                 fixtures.doctorD9
