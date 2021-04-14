@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Intro to Client-Side UIs
+title: Integrating MongoDB with your REST API
 type: lecture
 draft: 1
 show_schedule: 1
@@ -16,4 +16,7 @@ slides:
 
 ---
 
-Today we will be going over the fundamentals of user interface programming with w/HTML, CSS, and client-side JavaScript.
+* Promises
+* Working with query string parameters
+* Sorting, filtering, and limiting
+* Chaining queries together
