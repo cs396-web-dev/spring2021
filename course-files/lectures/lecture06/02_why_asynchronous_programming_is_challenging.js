@@ -28,5 +28,5 @@ const getRestaurantAsync = () => {
 
 console.log('This all happens asynchronously, where the getRestaurants() function is moved to a separate process.')
 console.log('1. First get the data.')
-setTimeout(getRestaurantAsync, 1000);
+getRestaurantAsync();
 console.log('3. Do something with the data.')
