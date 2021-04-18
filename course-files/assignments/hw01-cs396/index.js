@@ -17,24 +17,15 @@ app.use(express.json(bodyConfig));
 const middleware = require("./config/middleware");
 app.use(middleware.cors);
 
-// const config = require("./config/config")[env || "development"];
-// console.log(config);
-// const mongoose = require("mongoose");
-// console.log("Trying to connect to database...");
-// mongoose.connect(config.database, config.mongoConfig, err => {
-//     if (err) {
-//         console.log("Could not connect to database.");
-//     } else {
-//         console.log(`Connected to ${process.env.DB_NAME}.`);
-//     }
-// });
-
 const routes = require("./src/routes");
-// const routes = require("./solutions/hw1_routes");
+const testRoutes = require("./src/routes_test");
+
 app.use("", routes);
+app.use("/test", testRoutes);
 
 const PORT = process.env.PORT || 8081;
 app.listen(PORT);
 console.log("Application listening on PORT: " + PORT);
+console.log("http://localhost:" + PORT);
 
 module.exports = app;

@@ -9,12 +9,15 @@ chai.use(asserttype);
 const expect = chai.expect;
 
 const doctor = data.doctors[3]; //'d4'
-const companion = data.companions[3];
+const testCompanion = data.companions[3];
 
 describe("/doctors", () => {
 
-    describe("GET", () => {
+    afterEach(done => {
+        utils.resetDB(done);
+    });
 
+    describe("GET", () => {
         it("should return a list of all Doctors", done => {
             axios.get(utils.route("/doctors"))
                 .then(response => {
@@ -26,12 +29,12 @@ describe("/doctors", () => {
                 })
                 .catch(err => done(err));
         });
-
     });
 
     describe("POST", () => {
 
         it("should create a new Doctor object", done => {
+
             // 1. create new doctor:
             axios.post(utils.route("/doctors"), utils.mockDoctor)
                 .then(response => {
@@ -40,28 +43,21 @@ describe("/doctors", () => {
                     expect(_id).to.be.string();
                     delete response.data._id;
                     expect(response.data).to.eql(utils.mockDoctor);
-                    
-                    // 2. make sure it exists:
-                    axios.get(utils.route(`/doctors/${_id}`))
-                        .then(response => {
-                            expect(response.status).to.equal(200);
-                            expect(response.data._id).to.equal(_id);
-                            delete response.data._id;
-                            expect(response.data).to.eql(utils.mockDoctor);
-                            
-                            // 3. now cleanup (delete doctor you just made):
-                            axios.delete(utils.route(`/doctors/${_id}`))
-                                .then(response => {
-                                    done()
-                                })
-                                .catch(err => done(err));
-                            
-                        })
-                        .catch(err => done(err));
+                    return _id;
+                })
+                .then(utils.getDoctorFromDB) // make sure it exists in the db                                     
+                .then(doc => {
+                    expect(doctor).to.exist;
+                    expect(
+                        utils.simplify(doc)
+                    ).to.eql(
+                        utils.simplify(utils.mockDoctor)
+                    ); 
+                    done();
                 })
                 .catch(err => done(err));
         });
-        
+
         it("should create throw an error if missing data", done => {
             axios.post(utils.route("/doctors"), {name: 'Blah'})
                 .then(response => {
@@ -82,6 +78,10 @@ describe("/doctors", () => {
 
 describe("/doctors/:id", () => {
 
+    afterEach(done => {
+        utils.resetDB(done);
+    });
+
     describe("GET", () => {
 
         it("should find the Doctor object with the specified id", done => {
@@ -93,28 +93,9 @@ describe("/doctors/:id", () => {
                 })
                 .catch(err => done(err));
         });
-
         it("should return a 404 error for a non-existent id", done => {
-            // Note: the superagent doesn't allow us to test for 404
-            // directly so there's an additional error handling chain
-            // to account for it. See this thread:
-            // https://github.com/chaijs/chai-http/issues/75
-
-            axios.get(utils.route(`/doctors/${utils.mockId}`))
-                .then(response => {
-                    expect(response.status).to.equal(404);
-                    done();
-                })
-                .catch(err => {
-                    if (err.response && err.response.status == 404) {
-                        done();
-                    } else {
-                        throw err;
-                    }
-                })
-                .catch(err => done(err));
+            utils.expect404(`/doctors/${utils.mockId}`, done);
         });
-
     });
 
     describe("PATCH", () => {
@@ -127,24 +108,14 @@ describe("/doctors/:id", () => {
                 .then(response => {
                     expect(response.status).to.equal(200);
                     expect(response.data._id).to.equal(_id);
-
-                    // verify it:
-                    axios.get(utils.route(`/doctors/${_id}`))
-                        .then(response => {
-                            expect(
-                                response.status).to.equal(200);
-                                expect(response.data._id).to.equal(_id);
-                                expect(response.data.name).to.eql('new_name');
-                                expect(response.data.seasons).to.eql(doctor.seasons);
-                            
-                            // revert to original: 
-                            axios.patch(utils.route(`/doctors/${_id}`), doctor)
-                                .then(response => {
-                                    done();
-                                })
-                                .catch(err => done(err));
-                        })
-                        .catch(err => done(err));
+                    return _id;
+                })
+                .then(utils.getDoctorFromDB) // make sure it exists in the db   
+                .then(doctor => {
+                    expect(doctor).to.exist;
+                    expect(doctor.name).to.eql('new_name'); 
+                    expect(doctor._id).to.eql(_id);
+                    done(); 
                 })
                 .catch(err => done(err));
         });
@@ -157,60 +128,34 @@ describe("/doctors/:id", () => {
                 .then(response => {
                     expect(response.status).to.equal(200);
                     expect(response.data._id).to.equal(_id);
-
-                    // verify it:
-                    axios.get(utils.route(`/doctors/${_id}`))
-                        .then(response => {
-                            expect(
-                                response.status).to.equal(200);
-                            expect(response.data._id).to.equal(_id);
-                            delete response.data._id;
-                            expect(response.data).to.eql(utils.mockPatchData);
-                            
-                            // revert it:
-                            axios.patch(utils.route(`/doctors/${_id}`), doctor)
-                                .then(response => {;
-                                    done();
-                                })
-                                .catch(err => done(err));
-                        })
-                        .catch(err => done(err));
+                    return _id;
+                })
+                .then(utils.getDoctorFromDB) // make sure it exists in the db   
+                .then(doctor => {
+                    expect(doctor).to.exist;
+                    expect(utils.simplify(doctor)).to.eql(utils.simplify(utils.mockPatchData));
+                    done(); 
                 })
                 .catch(err => done(err));
         });
-        
     });
 
     describe("DELETE", () => {
+        const _id = utils.fixtures.doctorD4._id;
+        const url = `/doctors/${_id}`
         it("should delete the specified doctor from the data object", done => {
-            
-            // create it:
-            axios.post(utils.route("/doctors"), utils.mockDoctor)
+
+            // then delete it:
+            axios.delete(utils.route(url))
                 .then(response => {
-                    _id = response.data._id;
-                    const deleteURL = `/doctors/${_id}`;
-
-                    // then delete it:
-                    axios.delete(utils.route(deleteURL))
-                        .then(response => {
-                            expect(response.status).to.equal(200);
-
-                            // then make sure it's deleted:
-                            axios.get(utils.route(`/doctors/${_id}`))
-                                .then(response => {
-                                    expect(response.status).to.equal(404);
-                                    done();
-                                })
-                                .catch(err => {
-                                    if (err.response && err.response.status == 404) {
-                                        done();
-                                    } else {
-                                        throw err;
-                                    }
-                                })
-                                .catch(err => done(err));
-                        })
-                        .catch(err => done(err));
+                    expect(response.status).to.equal(200);
+                    return _id;
+                })
+                .then(utils.getDoctorFromDB) // verification step  
+                .then(doctor => {
+                    // make sure it does not exist in the db  
+                    expect(doctor).not.to.exist;
+                    done(); 
                 })
                 .catch(err => done(err));
         });
@@ -259,24 +204,17 @@ describe("/doctors/:id/goodparent", () => {
         });
 
         it("D1221 Bad Parent", done => {
-            axios.get(utils.route(`/doctors/dsadsad/goodparent`))
-                .then(response => {
-                    expect(response.status).to.equal(404);
-                    done();
-                })
-                .catch(err => {
-                    if (err.response && err.response.status == 404) {
-                        done();
-                    } else {
-                        throw err;
-                    }
-                })
-                .catch(err => done(err));
+            utils.expect404(`/doctors/dsadsad/goodparent`, done);
         });
+
     });
 });
 
 describe("/companions", () => {
+
+    afterEach(done => {
+        utils.resetDB(done);
+    });
 
     describe("GET", () => {
 
@@ -285,8 +223,6 @@ describe("/companions", () => {
                 .then(response => {
                     expect(response.status).to.equal(200);
                     expect(response.data).to.eql(data.companions);
-                    expect(response.data.length).to.eql(35);
-                    expect(response.data[0]).to.eql(data.companions[0]);
                     done();
                 })
                 .catch(err => done(err));
@@ -302,28 +238,19 @@ describe("/companions", () => {
                     expect(response.status).to.equal(201);
                     const _id = response.data._id;
                     expect(_id).to.be.string();
-                    delete response.data._id;
 
                     // make sure everything saved:
-                    expect(response.data).to.eql(utils.mockCompanion);
-
-                    // get that companion from the GET route:
-                    axios.get(utils.route(`/companions/${_id}`))
-                        .then(response => {
-                            expect(response.status).to.equal(200);
-                            expect(response.data._id).to.equal(_id);
-                            delete response.data._id;
-                            expect(response.data).to.eql(utils.mockCompanion);
-                            
-                            //then remove the companion you just created:
-                            axios.delete(utils.route(`/companions/${_id}`))
-                                .then(response => {
-                                    expect(response.status).to.equal(200);
-                                    done();
-                                })
-                                .catch(err => done(err));
-                        })
-                        .catch(err => done(err));
+                    expect(utils.simplify(response.data)).to.eql(
+                        utils.simplify(utils.mockCompanion));
+                    return _id;
+                })
+                .then(utils.getCompanionFromDB) // verification                                 
+                .then(companion => {
+                    // make sure it exists in the db    
+                    expect(companion).to.exist;
+                    expect(utils.simplify(companion)).to.eql(
+                        utils.simplify(utils.mockCompanion));
+                    done();
                 })
                 .catch(err => done(err));
         });
@@ -349,95 +276,68 @@ describe("/companions", () => {
 
 describe("/companions/:id", () => {
 
+    afterEach(done => {
+        utils.resetDB(done);
+    });
+
     describe("GET", () => {
 
         it("should find the companion object with the specified id", done => {
-            axios.get(utils.route(`/companions/${companion._id}`))
+            axios.get(utils.route(`/companions/${testCompanion._id}`))
                 .then(response => {
                     expect(response.status).to.equal(200);
-                    expect(response.data).to.eql(companion);
+                    expect(response.data).to.eql(testCompanion);
                     done();
                 })
                 .catch(err => done(err));
         });
 
         it("should return a 404 error for a non-existent id", done => {
-            // Note: the superagent doesn't allow us to test for 404
-            // directly so there's an additional error handling chain
-            // to account for it. See this thread:
-            // https://github.com/chaijs/chai-http/issues/75
-
-            axios.get(utils.route(`/companions/dummyID`))
-                .then(response => {
-                    expect(response.status).to.equal(404);
-                    done();
-                })
-                .catch(err => {
-                    if (err.response && err.response.status == 404) {
-                        done();
-                    } else {
-                        throw err;
-                    }
-                })
-                .catch(err => done(err));
+            utils.expect404(`/companions/${utils.mockId}`, done);
         });
     });
 
     describe("PATCH", () => {
 
         it("should update only the specified fields of the given companion", done => {
-            const _id = companion._id;
+            const _id = testCompanion._id;
 
             // patch it:
             axios.patch(utils.route(`/companions/${_id}`), { name: "new_name" })
                 .then(response => {
                     expect(response.status).to.equal(200);
                     expect(response.data._id).to.equal(_id);
-
-                    // then retrieve it:
-                    axios.get(utils.route(`/companions/${_id}`))
-                        .then(response => {
-                            expect(response.status).to.equal(200);
-                            expect(response.data._id).to.equal(_id);
-                            expect(response.data.name).to.eql('new_name');
-                            expect(response.data.seasons).to.eql(companion.seasons);
-                            
-                            // now revert back:
-                            axios.patch(utils.route(`/companions/${_id}`), companion)
-                                .then(response => {;
-                                    done();
-                                });
-                        })
-                        .catch(err => done(err));
+                    return _id;
+                })
+                .then(utils.getCompanionFromDB) // verification                                 
+                .then(companion => {
+                    // make sure it exists in the db    
+                    expect(companion).to.exist;
+                    expect(companion._id).to.equal(_id);
+                    expect(companion.name).to.eql('new_name');
+                    expect(companion.seasons).to.eql(testCompanion.seasons);
+                    done();
                 })
                 .catch(err => done(err));
         });
 
         it("should update the given doctor with the specified information", done => {
-            const _id = companion._id;
+            const _id = testCompanion._id;
 
             // patch it:
             axios.patch(utils.route(`/companions/${_id}`), utils.mockCompanion)
                 .then(response => {
                     expect(response.status).to.equal(200);
                     expect(response.data._id).to.equal(_id);
-
-                    // then retrieve it:
-                    axios.get(utils.route(`/companions/${_id}`))
-                        .then(response => {
-                            expect(
-                                response.status).to.equal(200);
-                            expect(response.data._id).to.equal(_id);
-                            delete response.data._id;
-                            expect(response.data).to.eql(utils.mockCompanion);
-                            
-                            // now revert back:
-                            axios.patch(utils.route(`/companions/${_id}`), companion)
-                                .then(response => {;
-                                    done();
-                                });
-                        })
-                        .catch(err => done(err));
+                    return _id;
+                })
+                .then(utils.getCompanionFromDB) // verification                                 
+                .then(companion => {
+                    // make sure it exists in the db    
+                    expect(companion).to.exist;
+                    expect(utils.simplify(companion)).to.eql(
+                        utils.simplify(utils.mockCompanion));
+                    done();
                 })
                 .catch(err => done(err));
         });
@@ -446,35 +346,20 @@ describe("/companions/:id", () => {
     describe("DELETE", () => {
 
         it("should delete the specified companion from the data object", done => {
-            
-            // create it:
-            axios.post(utils.route("/companions"), utils.mockCompanion)
+            const _id = utils.fixtures.companion1._id;
+            const url = `/companions/${_id}`;
+            axios.delete(utils.route(url))
                 .then(response => {
-                    _id = response.data._id;
-
-                    // then delete it:
-                    const deleteURL = `/companions/${_id}`;
-                    axios.delete(utils.route(deleteURL))
-                        .then(response => {
-                            expect(response.status).to.equal(200);
-
-                            // then make sure it's deleted:
-                            axios.get(utils.route(`/companions/${_id}`))
-                                .then(response => {
-                                    expect(response.status).to.equal(404);
-                                    done();
-                                })
-                                .catch(err => {
-                                    if (err.response && err.response.status == 404) {
-                                        done();
-                                    } else {
-                                        throw err;
-                                    }
-                                })
-                                .catch(err => done(err));
-                        })
-                        .catch(err => done(err));
-                });
+                    expect(response.status).to.equal(200);
+                    return _id;
+                })
+                .then(utils.getCompanionFromDB) // verification step  
+                .then(companion => {
+                    // make sure it does not exist in the db  
+                    expect(companion).not.to.exist;
+                    done(); 
+                })
+                .catch(err => done(err));
         });
     });
 });
@@ -484,9 +369,8 @@ describe("/companions/:id/doctors", () => {
     describe("GET", () => {
 
         it("should return all of the doctors of a particular companion", done => {
-            axios.get(utils.route(`/companions/${companion._id}/doctors`))
+            axios.get(utils.route(`/companions/${testCompanion._id}/doctors`))
                 .then(response => {
-
                     const doctors = [{"_id":"d2","name":"Patrick Troughton","seasons":[4,5,6]}];
                     expect(response.data).to.have.deep.members(doctors);
                     done();
@@ -495,26 +379,8 @@ describe("/companions/:id/doctors", () => {
         });
 
         it("should return a 404 error for a non-existent id", done => {
-            // Note: the superagent doesn't allow us to test for 404
-            // directly so there's an additional error handling chain
-            // to account for it. See this thread:
-            // https://github.com/chaijs/chai-http/issues/75
-
-            axios.get(utils.route(`/companions/dummyID/doctors`))
-                .then(response => {
-                    expect(response.status).to.equal(404);
-                    done();
-                })
-                .catch(err => {
-                    if (err.response && err.response.status == 404) {
-                        done();
-                    } else {
-                        throw err;
-                    }
-                })
-                .catch(err => done(err));
+            utils.expect404(`/companions/${utils.mockId}/doctors`, done);
         });
-
     });
 
 });
@@ -524,12 +390,12 @@ describe("/companions/:id/friends", () => {
     describe("GET", () => {
 
         it("should return all of the friends of the main companion", done => {
-            axios.get(utils.route(`/companions/${companion._id}/friends`))
+            axios.get(utils.route(`/companions/${testCompanion._id}/friends`))
                 .then(response => {
                     const friends = [{"_id":"c2_2","name":"Michael Craze","character":"Ben Jackson","doctors":["d2"],"seasons":[4],"alive":true},{"_id":"c2_3","name":"Frazer Hines","character":"Jamie McCrimmon","doctors":["d2"],"seasons":[4,5,6,22],"alive":true}];
                     expect(response.data).to.have.deep.members(friends);
                     const ids = friends.map(item => item._id);
-                    expect(companion._id.includes(ids)).to.be.false;
+                    expect(testCompanion._id.includes(ids)).to.be.false;
                     done();
                 })
                 .catch(err => done(err));
@@ -542,31 +408,14 @@ describe("/companions/:id/friends", () => {
                     const friends = [{"_id":"c4_4","name":"John Leeson","character":"K-9","doctors":["d4"],"seasons":[15,16,17,18],"alive":false},{"_id":"c4_5__5_1","name":"Matthew Waterhouse","character":"Adric","doctors":["d4","d5"],"seasons":[18,19],"alive":false},{"_id":"c4_7__5_3","name":"Janet Fielding","character":"Tegan Jovanka","doctors":["d4","d5"],"seasons":[18,19,20,21],"alive":true},{"_id":"c5_4","name":"Mark Strickson","character":"Vislor Turlough","doctors":["d5"],"seasons":[20,21],"alive":true}];
                     expect(response.data).to.have.deep.members(friends);
                     const ids = friends.map(item => item._id);
-                    expect(companion._id.includes(ids)).to.be.false;
+                    expect(testCompanion._id.includes(ids)).to.be.false;
                     done();
                 })
                 .catch(err => done(err));
         });
 
         it("should return a 404 error for a non-existent id", done => {
-            // Note: the superagent doesn't allow us to test for 404
-            // directly so there's an additional error handling chain
-            // to account for it. See this thread:
-            // https://github.com/chaijs/chai-http/issues/75
-
-            axios.get(utils.route(`/companions/dummyId/friends`))
-                .then(response => {
-                    expect(response.status).to.equal(404);
-                    done();
-                })
-                .catch(err => {
-                    if (err.response && err.response.status == 404) {
-                        done();
-                    } else {
-                        throw err;
-                    }
-                })
-                .catch(err => done(err));
+            utils.expect404(`/companions/${utils.mockId}/friends`, done);
         });
 
     });

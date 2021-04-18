@@ -1,8 +1,5 @@
 "use strict";
 
-// const Companion = require("./schema/Companion");
-// const Doctor = require("./schema/Doctor");
-
 const express = require("express");
 const router = express.Router();
 
@@ -23,7 +20,7 @@ const data = require("../config/data.json");
 router.route("/doctors")
     .get((req, res) => {
         console.log("GET /doctors");
-        res.status(501).send();
+        res.status(200).send(data.doctors);
     })
     .post((req, res) => {
         console.log("POST /doctors");
@@ -50,12 +47,6 @@ router.route("/doctors/:id/companions")
         res.status(501).send();
     });
 
-// router.route("/doctors/:id/companions/longest")
-//     .get((req, res) => {
-//         console.log("GET /doctors/:id/companions/longest");
-//         res.status(501).send();
-//     });
-
 router.route("/doctors/:id/goodparent")
     .get((req, res) => {
         console.log("GET /doctors/:id/goodparent");
@@ -65,7 +56,7 @@ router.route("/doctors/:id/goodparent")
 router.route("/companions")
     .get((req, res) => {
         console.log("GET /companions");
-        res.status(501).send();
+        res.status(200).send(data.companions);
     })
     .post((req, res) => {
         console.log("POST /companions");
