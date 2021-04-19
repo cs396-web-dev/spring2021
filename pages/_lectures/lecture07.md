@@ -14,6 +14,20 @@ due_date: 2021-04-19
 #    - url: ""
 #      title: TBD
 readings:
+   - url: ../html-reference/
+     title: HTML Resources
+     source: CS 396 Course Website
+     date: 2021
+     internal: 1
+     sections:
+       - HTML Resources
+       - Rules of Thumb
+       - Text Markup Tags
+       - Hyperlinks
+       - Image Tags
+       - Media Tags
+       - Compound Tags
+       - Form Tags
    - url: https://www.linkedin.com/learning-login/share?forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Fcollections%2F6619359376505401345%3Ftrk%3Dshare_collection_url&account=75814418
      title: |
        Playlist 1: Formatting Page Content with HTML 
