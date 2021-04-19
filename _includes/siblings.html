@@ -3,7 +3,7 @@
 
 <ol class="side-menu">
 {% for p in sortedPages %}
-    {% if p.has_children %}
+    {% if p.has_children and p.title != 'Course Files' %}
         <li>
             {% assign cls = "" %}
             {% if p.permalink == page.permalink %}
