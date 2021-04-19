@@ -6,13 +6,14 @@ draft: 0
 show_schedule: 1
 num: 7
 due_date: 2021-04-19
+exercise_url: lecture07.zip
 # videos: 
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-# slides:
-#    - url: ""
-#      title: TBD
+slides:
+   - url: https://docs.google.com/presentation/d/1RQXO_gTJ6wsOCWSyB5lc3ywesQypctBu4PQaKSbm-xQ/edit?usp=sharing
+     title: Intro to Client-Side Web Programming
 readings:
    - url: ../html-reference/
      title: HTML Resources
