@@ -1,6 +1,6 @@
 ---
 layout: module
-title: "Client-Side JS: Part 2"
+title: "Client-Side, Data-Driven Templating"
 type: lecture
 draft: 1
 show_schedule: 1
@@ -10,9 +10,9 @@ due_date: 2021-04-21
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-slides:
-   - url: ""
-     title: TBD
+# slides:
+#    - url: ""
+#      title: TBD
 
 ---
 

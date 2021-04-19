@@ -28,4 +28,12 @@
     {% if item.notes %}
         <br>{{ item.notes }}</em>
     {% endif %}
+    {% if item.sections %}
+        <br>Please review the following sections:
+        <ul class="compact">
+            <li>
+                {{ item.sections | join: "</li><li>" }}
+            </li>
+        </ul>
+    {% endif %}
 </li>

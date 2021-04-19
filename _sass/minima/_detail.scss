@@ -101,6 +101,20 @@ table.instructions {
     }
 }
 
+ul.readings, ol.readings {
+    ul.compact {
+        margin: 10px 0px 10px 0px;
+        li {
+            line-height: 1.3em;
+            font-size: 0.9em;
+            padding: 0px;
+            margin: 0px;
+            color: #999;
+        }
+    }
+    margin-bottom: 30px;
+}
+
 @media (max-width: 1000px) { 
 
     .books {
