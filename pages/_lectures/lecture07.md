@@ -7,10 +7,11 @@ show_schedule: 1
 num: 7
 due_date: 2021-04-19
 exercise_url: lecture07.zip
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/xKp0W1SRF60ME1-s1PZawpjim2RJ6md3xRZjLcdPVl1pJmrv3LIN35gvDgy3twRT.s3GFjmN-woLPDzUS?startTime=1618858705000
+     title: Recorded Lecture Video
+     live: 1
+     duration: "51:36"
 slides:
    - url: https://docs.google.com/presentation/d/1RQXO_gTJ6wsOCWSyB5lc3ywesQypctBu4PQaKSbm-xQ/edit?usp=sharing
      title: Intro to Client-Side Web Programming
