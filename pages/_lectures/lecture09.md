@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Usability & Accessibility
+title: Using the fetch API
 type: lecture
 draft: 1
 show_schedule: 1
@@ -16,4 +16,3 @@ slides:
 
 ---
 
-Welcome to the course!
