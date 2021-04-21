@@ -29,7 +29,9 @@ chai.use(asserttype);
 const expect = chai.expect;
 
 
-describe("/doctors", () => {
+describe("/doctors", function () {
+
+    this.timeout(10000);
 
     describe("GET", () => {
 
@@ -94,7 +96,9 @@ describe("/doctors", () => {
     });
 });
 
-describe("/doctors/:id", () => {
+describe("/doctors/:id", function () {
+
+    this.timeout(10000);
 
     beforeEach(done => {
         initFixtures(done);
@@ -211,7 +215,9 @@ describe("/doctors/:id", () => {
     });
 });
 
-describe("/doctors/:id/companions", () => {
+describe("/doctors/:id/companions", function () {
+
+    this.timeout(10000);
 
     describe("GET", () => {
 
@@ -247,7 +253,9 @@ describe("/doctors/:id/companions", () => {
     });
 });
 
-describe("/doctors/:id/goodparent", () => {
+describe("/doctors/:id/goodparent", function () {
+
+    this.timeout(10000);
 
     describe("GET", () => {
 
@@ -292,7 +300,9 @@ describe("/doctors/:id/goodparent", () => {
 });
 
 
-describe("/companions", () => {
+describe("/companions", function () {
+
+    this.timeout(10000);
 
     describe("GET", () => {
 
@@ -358,7 +368,9 @@ describe("/companions", () => {
     });
 });
 
-describe("/companions/:id", () => {
+describe("/companions/:id", function () {
+
+    this.timeout(10000);
 
     beforeEach(done => {
         initFixtures(done);
@@ -494,7 +506,9 @@ describe("/companions/:id", () => {
     });
 });
 
-describe("/companions/:id/doctors", () => {
+describe("/companions/:id/doctors", function () {
+
+    this.timeout(10000);
 
     beforeEach(done => {
         initFixtures(done);
@@ -520,7 +534,9 @@ describe("/companions/:id/doctors", () => {
 });
 
 
-describe("/companions/:id/friends", () => {
+describe("/companions/:id/friends", function () {
+
+    this.timeout(10000);
 
     beforeEach(done => {
         initFixtures(done);
@@ -567,7 +583,9 @@ describe("/companions/:id/friends", () => {
 
 });
 
-describe("/companions/crossover", () => {
+describe("/companions/crossover", function () {
+
+    this.timeout(10000);
     
     describe("GET", () => {
 
