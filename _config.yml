@@ -34,6 +34,9 @@ plugins:
 # exclude: [course-files]
 exclude: 
   - "*node_modules*"
+  - "course-files/lectures/lecture*/*"
+  - "course-files/assignments/hw*/*"
+  - "course-files/labs/lab0*/*"
 #   - _assignments/draft
 #   - course-files/administrative
 #   - course-files/build
