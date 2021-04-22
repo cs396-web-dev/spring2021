@@ -28,7 +28,7 @@ In the `js/index.js` file, create and attach an event handler (function) to the 
 
 `destinationElement.style.backgroundImage = sourceElement.style.backgroundImage;`
 
-## 2. Implement the Next and Previous Click Event Handler
+## 2. Implement the Next and Previous Click Event Handlers
 
 When you're done with Step 1, implement the "next" and "previous" click event handlers:
 * When the right arrow is clicked, the next image in the thumbnail list should be displayed as the `.featured-image`. When the last thumbnail is reached, it should cycle to the first (see video below).
