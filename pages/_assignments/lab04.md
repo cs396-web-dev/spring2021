@@ -35,7 +35,7 @@ When you're done with Step 1, implement the "next" and "previous" click event ha
 * When the left arrow is clicked, the previous image in the thumbnail list should be displayed as the `.featured-image`. When the first thumbnail is reached, it should cycle to the last (see video below).
 
 ### Tips
-Consider using a global variable to track the indx position of the image that is currently being displayed. You can detect this by accessing the `data-index` attribute of the `.image`. See `hints/index-hint-2.js` if you want a hint.
+Consider using a global variable to track the index position of the image that is currently being displayed. You can detect this by accessing the `data-index` attribute of the `.image`. See `hints/index-hint-2.js` if you want a hint.
 
 ## 3. Attach the Featured Image Click Event to the "Next" Event Handler
 When the `.featured-image` is clicked, invoke the same function that is invoked when `.next` is clicked.
