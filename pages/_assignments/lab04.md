@@ -21,9 +21,12 @@ After inspecting the starter code, please complete the following tasks:
 
 ## 1. Implement the Thumbnail Click Event Handler
 
-In the `js/index.js` file, create and attach an event handler (function) to each thumbnail in the bottom panel (each div element with the class of `.image`). When the thumbnail is clicked, the event handler should update the backgroundImage of the `.featured-image` element with the image of the thumbnail that was just clicked (see video below). 
+In the `js/index.js` file, create and attach an event handler (function) to each thumbnail (div element with a class of `.image`). When the thumbnail is clicked, the event handler should update the backgroundImage of the `.featured-image` element with the image of the thumbnail that was just clicked (see video below). 
   * If you need a hint to get started, take a look at `hints/index-hint-1.js`
   * Note also that you can only attach event handlers **after** they have been rendered in the DOM. In other words, you can't attach the event handlers until `initScreen()` has been invoked. Order matters.
+  * To set the background image of an element, use the syntax shown below:
+
+`destinationElement.style.backgroundImage = sourceElement.style.backgroundImage;`
 
 ## 2. Implement the Next and Previous Click Event Handler
 
