@@ -35,7 +35,7 @@ const initScreen = () => {
             <li class="card">
                 <div class="image" 
                     style="background-image:url('${image}')"
-                    data-index=${idx}"></div>
+                    data-index="${idx}"></div>
             </li>`;
     });
 };
