@@ -31,6 +31,6 @@ readings:
      title: fetch DELETE examples
 ---
 
-In Lesson 9, we'll be applying what you've been learning about templates and event handlers to data that is queried dynamically from a server. We will do this using AJAX, and specifically using the **fetch API**. Please do assigned readings, to see examples of how you might use fetch to issue GET, POST, PATCH, PUT, and DELETE requests to a server.
+In Lesson 9, we'll be applying what you've been learning about templates and event handlers to data that is queried dynamically from a server. We will do this using AJAX, and specifically using the **fetch API**. Please do assigned readings to see examples of how you might use fetch to issue GET, POST, PATCH, PUT, and DELETE requests to a server.
 
 In the examples discussed in the readings, both the "then()" and "await/async" techniques are shown. Recall that there is no meaningful difference (under the hood) between the two approaches. I think this <a href="https://stackoverflow.com/questions/54495711/async-await-vs-then-which-is-the-best-for-performance" target="_blank">StackOverflow post</a> is a nice summary of the distinctions between the two. 
