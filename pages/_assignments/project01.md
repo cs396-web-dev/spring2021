@@ -6,10 +6,10 @@ type: project
 due_date: 2021-04-28
 ordering: 1
 draft: 1
-points: 10
+points: 5
 ---
 
-During the last four weeks of the course, you will be designing and implementing a final project of your choosing. The parameters of the project are described in detail on the <a class="pj" href="../project-description">project description page <i class="fas fa-link" aria-hidden="true"></i></a>.
+During the last three weeks of the course, you will be designing and implementing a final project of your choosing. The parameters of the project are described in detail on the <a class="pj" href="../project-description">project description page <i class="fas fa-link" aria-hidden="true"></i></a>.
 
 ## Your task
 1. Carefully read the project description (linked to above).
