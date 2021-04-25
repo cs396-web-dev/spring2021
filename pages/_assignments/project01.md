@@ -9,10 +9,10 @@ draft: 0
 points: 5
 ---
 
-During the last 3 weeks of the course, you will be designing and implementing a final project of your choosing. The parameters of the project are described in detail on the [final project overview](project-description) page.
+During the last 3 weeks of the course, you will be designing and implementing a final project of your choosing. The parameters of the project are described in detail on the [final project overview](../project-description) page.
 
 ## Your task
-1. Carefully read the [final project overview](project-description) page.
+1. Carefully read the [final project overview](../project-description) page.
 2. Fill out this <a href="https://docs.google.com/document/d/13GhdF06vjr5sPnlUkMXeWTpmGkVSZ3vFc81qr6fQeFQ/edit?usp=sharing" target="_blank">project proposal worksheet</a>. 
 
 Take a look at the appendix (in the Google Doc) for some examples of how to fill the worksheet out, but try not to be too constrained by these examples. Feel free to make this project work for you and your goals.
