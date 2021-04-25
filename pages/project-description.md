@@ -26,6 +26,7 @@ Aim to scope your project so that you can arrive at a coherent stopping point by
 * You may focus on depth or breadth. In other words, you can go deep in one particular area (design + CSS, animation, data visualization, REST APIs, Web Sockets), or build something that uses a little bit of everything.
 * You will be completing 3 project deliverables in the coming weeks (which you will set for yourself). You will also be presenting your final deliverable during the last day of class. Given this, think about how you might break your project into 3 coherent parts.
 * Each deliverable should represent about 4-6 hours of development effort (per teammate). We realize that this is difficult for us to qualitatively assess when we're grading you, and will give you the benefit of the doubt. That said, if your scope of work is significantly less than that of the homework assignments, this will be obvious to us.
+* You're welcome to connect this to a larger project you're working on outside of this class. That said, your three deliverables must be original work that you complete over the course of this class. Moreover, you cannot double-count this work with work in another class.
 * You are welcome to explore something that wasn't directly covered in class. That said, at least 50% of your project should connect with the technologies and ideas from the class. 
 * This project is not your life’s work — it’s the beginning of a longer journey into web technologies. As such, scope your project to something reasonable. You can always build on these ideas later.
 

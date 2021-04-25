@@ -1,19 +1,19 @@
 ---
 layout: assignment-two-column
-title: Project Proposal & Architecture Diagram
+title: Final Project Proposal
 abbreviation: P1
 type: project
-due_date: 2021-04-28
+due_date: 2021-05-02
 ordering: 1
-draft: 1
+draft: 0
 points: 5
 ---
 
-During the last three weeks of the course, you will be designing and implementing a final project of your choosing. The parameters of the project are described in detail on the <a class="pj" href="../project-description">project description page <i class="fas fa-link" aria-hidden="true"></i></a>.
+During the last 3 weeks of the course, you will be designing and implementing a final project of your choosing. The parameters of the project are described in detail on the [final project overview](project-description) page.
 
 ## Your task
-1. Carefully read the project description (linked to above).
-2. Then fill out this <a href="https://docs.google.com/document/d/13GhdF06vjr5sPnlUkMXeWTpmGkVSZ3vFc81qr6fQeFQ/edit?usp=sharing" target="_blank">project proposal worksheet</a>. 
+1. Carefully read the [final project overview](project-description) page.
+2. Fill out this <a href="https://docs.google.com/document/d/13GhdF06vjr5sPnlUkMXeWTpmGkVSZ3vFc81qr6fQeFQ/edit?usp=sharing" target="_blank">project proposal worksheet</a>. 
 
 Take a look at the appendix (in the Google Doc) for some examples of how to fill the worksheet out, but try not to be too constrained by these examples. Feel free to make this project work for you and your goals.
 
@@ -25,4 +25,8 @@ Really, we just want to see that you put some time and effort into thinking abou
 3. Evidence that you did some legwork to explore what kinds of examples, tutorials, and web resouces are out there.
 
 ## What to turn in
-Please submit your completed planning worksheet as either a link to a copy of the Google Doc provided (make sure it’s shared!) or as an uploaded file (e.g. Word Document).
+
+{:.checkbox-list}
+* Please upload your completed planning worksheet as a Word document or PDF file. 
+* Don't include the appendix (sample projects) -- just your proposal.
+* Only one submission per team (if you're working on a team).

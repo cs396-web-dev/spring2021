@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Visual Design
+title: UX/UI Design
 type: lecture
 draft: 1
 show_schedule: 1
