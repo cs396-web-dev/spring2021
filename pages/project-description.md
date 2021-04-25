@@ -64,7 +64,7 @@ Note: if you go this route, we may not have the bandwidth to support you, but if
 * Working with web sockets
 * Integrating a third-party data API (e.g. TikTok, Twitter, YouTube, etc.).
 * Exploring server-side templating
-* Creating your own REST API
+* Creating your own REST API (using Node.js + Express or something else)
 * Supporting login / user authentication / user accounts
 * Using a database (either MongoDB or something else)
 * Integrating media storage (e.g. allowing folks to upload photos, videos, etc.) via S3 (or some other data storage alternative).
