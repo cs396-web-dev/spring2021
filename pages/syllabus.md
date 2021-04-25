@@ -91,9 +91,6 @@ In the past, there have been a few unfortunate instances in which students have 
 
 Contact Sarah Van Wart if you have any questions about what is appropriate.
 
-## Zoom Instructions
-To ensure a smooth lecture experience for everyone, we have created a [Zoom Guide](../zoom/) for you. Please refer to it to understand how to access the course Zoom sessions, and some of the recording and etiquette policies.
-
 ## A Note on Class Recordings
 The Provost's office has asked instructors to publish the following language in the syllabus:
 
