@@ -7,10 +7,11 @@ show_schedule: 1
 num: 9
 due_date: 2021-04-26
 exercise_url: lecture09.zip
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/cfja6LrQsKA4Hq4DPF_QyWfHM-RtAgBfkY8QuBRyXmmHuuSArQwbxL97jMRi8k2K.w6Xhxr1l7XDNw0cJ?startTime=1619463620000
+     title: Recorded Lecture Video
+     live: 1
+     duration: "52:35"
 slides:
    - url: https://docs.google.com/presentation/d/1SJg95HGIcedhxCv8doEge0L73wtAMmJXC2UgcPqrpPw/edit?usp=sharing
      title: Using the fetch API
