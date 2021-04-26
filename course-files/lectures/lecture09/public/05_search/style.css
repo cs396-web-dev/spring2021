@@ -3,51 +3,12 @@
 }
 
 body {
-    margin: 0;
-    display: grid;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.4em;
-    grid-template-columns: 250px auto;
-    grid-template-rows: 10vh 80vh 10vh;
-    grid-template-areas: 
-        "top top"
-        "left main"
-        "bottom bottom";
 }
 
-header, main, aside, footer {
-    border: solid 1px #000;
-    padding: 10px;
-
+main, header {
+    margin: 0px 15vw 0px 15vw;
 }
-main {
-    padding: 20px;
-    overflow-y: auto;
-}
-
-#doctor, #companions {
-    border: dotted 1px #999;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-header {
-    grid-area: top;
-}
-aside {
-    grid-area: left;
-}
-main {
-    grid-area: main;
-}
-footer {
-    grid-area: bottom;
-}
-
-li, p {
-    margin: 0;
-}
-
-
 
 
 
@@ -81,6 +42,11 @@ label {
 .btn-main {
     background-color: #7952b3;
     border-color: #7952b3;
+    color: #fff;
+}
+.btn-delete {
+    background-color: #d64249;
+    border-color: #d30812;
     color: #fff;
 }
 .btn {

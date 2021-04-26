@@ -6,13 +6,14 @@ draft: 0
 show_schedule: 1
 num: 9
 due_date: 2021-04-26
+exercise_url: lecture08.zip
 # videos: 
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-# slides:
-#    - url: ""
-#      title: TBD
+slides:
+   - url: https://docs.google.com/presentation/d/1SJg95HGIcedhxCv8doEge0L73wtAMmJXC2UgcPqrpPw/edit?usp=sharing
+     title: Using the fetch API
 readings:
    - url: https://www.codeinwp.com/blog/fetch-api-tutorial-for-beginners/
      title: "Fetch API Tutorial for Beginners: How to Use Fetch API"
