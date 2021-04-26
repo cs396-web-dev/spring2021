@@ -6,7 +6,7 @@ draft: 0
 show_schedule: 1
 num: 9
 due_date: 2021-04-26
-exercise_url: lecture08.zip
+exercise_url: lecture09.zip
 # videos: 
 #    - url: ""
 #      title: Recorded Lecture Video
