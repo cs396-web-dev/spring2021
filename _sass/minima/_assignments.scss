@@ -37,6 +37,7 @@
     .pj, a.pj, 
     .lec, a.lec, 
     .lab, a.lab, 
+    .warning, a.warning, 
     .live, .recorded, 
     .ec, a.ec {
         display: inline-block;
@@ -73,6 +74,11 @@
     .ec, .ec:hover {
         background: rgba(104, 74, 152, 0.5);
         // color: #444 !important;
+        font-weight: 600;
+    }
+    .warning, .warning:hover {
+        background: $warning;
+        // color: $orange !important;
         font-weight: 600;
     }
     .live {
