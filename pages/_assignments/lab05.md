@@ -141,7 +141,7 @@ When you're done with the `grid` activity, please open the `flex` folder and imp
     </div>
 </section>
 
-### Step by Step Guide
+### Your Tasks
 Follow the steps below. If you get stuck, feel free to take a look at the hints (see `flex/hints` folder). Try to do as much of it as you can on your own (better for learning), and only refer to the hints as needed.
 
 #### Step 1. Set up flex containers
