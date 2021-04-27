@@ -65,6 +65,7 @@ Please complete the readings listed below. Then complete the two activities:
 > * <span class="warning">required (skim)</span> <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#background" target="_blank">CSS Tricks: "A Complete Guide to Flexbox"</a>
 > 
 > If you want a more comprehensive look at Flexbox, these (optional) resources are also great:
+> * <a href="https://flexboxfroggy.com/?learn" target="_blank">Flexbox Froggy</a> (interactive game)
 > * [Flexbox]({{ site.baseurl }}/css-reference/flexbox/) (course website)
 > * <a href="https://webdesign.tutsplus.com/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184" target="_blank">Grid v. Flexbox: Which to use when?</a>
 > 
@@ -73,6 +74,8 @@ Please complete the readings listed below. Then complete the two activities:
 > * <span class="warning">required (skim)</span> <a href="https://css-tricks.com/a-complete-guide-to-css-media-queries/" target="_blank">A complete guide to media queries</a>
 > 
 > There are some additional samples / links relating to media queries on the [course website]({{ site.baseurl }}/css-reference/media-queries/).
+>
+> **Credits:** Thank you to Yjaden Wood for sharing many of these CSS resources.
 
 
 {:#part1}
