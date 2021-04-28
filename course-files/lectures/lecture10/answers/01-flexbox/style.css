@@ -11,7 +11,11 @@ body {
 }
 
 .cards section {
-    flex: 0 0 calc(33.33% - 25px);
+    /*
+    see: https://css-tricks.com/almanac/properties/f/flex/
+    This is the shorthand for flex-grow, flex-shrink and flex-basis. The second and third parameters (flex-shrink and flex-basis) are optional.
+    */
+    flex: 0 0 calc(25% - 25px);
     margin-right: 25px;
     margin-bottom: 25px;
     border: solid 1px #CCC;
