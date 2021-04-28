@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Microservices
+title: User Authentication (OAuth, JWTs)
 type: lecture
 draft: 1
 show_schedule: 1

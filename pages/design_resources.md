@@ -12,6 +12,12 @@ permalink: /design-reference/
 </style>
 As you’re learning about web design and implementing components, it will be useful for you to take a look at how existing companies / organizations make design choices. Many companies even make their stylesheets and widget libraries available.
 
+## Great Websites & Designs
+* [dribbble.com](https://dribbble.com/)
+* [Bright Design](https://www.brightdesign.co.uk/5-of-the-best-website-designs-according-to-the-internet)
+* [Webby Awards](https://winners.webbyawards.com/winners/websites?years=0)
+* There are many resources. Google around...
+
 ## Style Guides and Guidelines
 As you instantiate your frameworks, keep in mind that most companies have standardized widgets, stylesheets, and guidelines to ensure an integrated look-an-feel. Here are some style guides. Please use them to get ideas!
 
