@@ -70,7 +70,7 @@ Please complete the readings listed below. Then complete the two activities:
 > * <a href="https://webdesign.tutsplus.com/articles/flexbox-vs-css-grid-which-should-you-use--cms-30184" target="_blank">Grid v. Flexbox: Which to use when?</a>
 > 
 > ### 3. Media Query Readings
-> From <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries" target="_blank">MDN</a>: "Media queries are useful when you want to modify your site or app depending on a device's general type (such as print vs. screen) or specific characteristics and parameters (such as screen resolution or browser viewport width)." They allow you to create different page layouts depending on whether your user is accessing your website on a mobile, tablet, or desktop screen.
+> Media queries allow you to (a) detect to the type of device that is accessing your website, and (b) apply  rules to the page that correspond to different screen dimensions. This allows you to create "responsive" web pages that can be tailored to different devices and screen sizes. To learn more about media queries, please refer to the following resources:
 > * <span class="warning">required (skim)</span> <a href="https://css-tricks.com/a-complete-guide-to-css-media-queries/" target="_blank">A complete guide to media queries</a>
 > 
 > There are some additional samples / links relating to media queries on the [course website]({{ site.baseurl }}/css-reference/media-queries/).
