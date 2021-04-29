@@ -7,10 +7,11 @@ show_schedule: 1
 num: 10
 due_date: 2021-04-28
 exercise_url: lecture10.zip
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/ctPrig7HIBYO7WF8zmPjcXOxHFjnSz52vTta3xHf12Y-kDBk0ZdLNG7GkFRJJ8Q8.N2iitZUGIjlZdjJc
+     title: Recorded Lecture Video
+     live: 1
+     duration: "51:37"
 slides:
    - url: https://docs.google.com/presentation/d/1H3-ZHTfVXGMS58-YiEStR1ePPGLQtt-JCdp3yK9avW4/edit?usp=sharing
      title: Intro to CSS & Layouts
