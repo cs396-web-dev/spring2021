@@ -22,6 +22,9 @@ const CompanionSchema = new Schema({
     },
     image_url: {
         type: Schema.Types.String
+    },
+    ordering: {
+        type: Schema.Types.Number
     }
 });
 
@@ -35,6 +38,7 @@ CompanionSchema.statics.create = function(obj) {
     companion.name = obj.name;
     companion.seasons = obj.seasons;
     companion.image_url = obj.image_url;
+    companion.ordering = obj.ordering;
     return companion;
 }
 

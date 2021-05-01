@@ -118,7 +118,7 @@
             "name": "David Tennant",
             "doc_id": "d10",
             "image_url": "https://pbs.twimg.com/media/D_s5oR9WwAA90lh?format=jpg&name=medium",
-            "ordering": 9
+            "ordering": 10
         },
         {
             "seasons": [
@@ -169,7 +169,8 @@
             "alive": true,
             "character": "Susan Foreman",
             "name": "Carole Ann Ford",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/20/Susan_Foreman.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/20/Susan_Foreman.jpg",
+            "ordering": 1
         },
         {
             "doctors": [
@@ -182,7 +183,8 @@
             "alive": true,
             "character": "Polly",
             "name": "Anneke Wills",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/bd/Polly_%28Doctor_Who%29.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/bd/Polly_%28Doctor_Who%29.jpg",
+            "ordering": 2
         },
         {
             "doctors": [
@@ -195,7 +197,8 @@
             "alive": true,
             "character": "Ben Jackson",
             "name": "Michael Craze",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/28/Ben_Jackson.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/28/Ben_Jackson.jpg",
+            "ordering": 3
         },
         {
             "doctors": [
@@ -209,7 +212,8 @@
             "alive": true,
             "character": "Harry Sullivan",
             "name": "Ian Merter",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Harry_Sullivan.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Harry_Sullivan.jpg",
+            "ordering": 4
         },
         {
             "doctors": [
@@ -223,7 +227,8 @@
             "alive": true,
             "character": "Barbara Wright",
             "name": "Jacqueline Hill",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c5/Barbara_Wright.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c5/Barbara_Wright.jpg",
+            "ordering": 5
         },
         {
             "doctors": [
@@ -238,7 +243,8 @@
             "alive": true,
             "character": "Jamie McCrimmon",
             "name": "Frazer Hines",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/27/Jamie_mccrimmon_from_tomb.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/27/Jamie_mccrimmon_from_tomb.jpg",
+            "ordering": 6
         },
         {
             "doctors": [
@@ -251,7 +257,8 @@
             "alive": true,
             "character": "Liz Shaw",
             "name": "Caroline John",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/9/94/Liz_Shaw.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/9/94/Liz_Shaw.jpg",
+            "ordering": 7
         },
         {
             "doctors": [
@@ -266,7 +273,8 @@
             "alive": true,
             "character": "Jo Grant",
             "name": "Katy Manning",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e2/Jo_Grant.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e2/Jo_Grant.jpg",
+            "ordering": 8
         },
         {
             "doctors": [
@@ -283,7 +291,8 @@
             "alive": true,
             "character": "Sarah Jane Smith",
             "name": "Elisabeth Sladen",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0e/Sarah_Jane_Smith_2006.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0e/Sarah_Jane_Smith_2006.jpg",
+            "ordering": 9
         },
         {
             "doctors": [
@@ -297,7 +306,8 @@
             "alive": true,
             "character": "Ian Chesterton",
             "name": "William Russell",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/bd/Ian_Chesterton.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/bd/Ian_Chesterton.jpg",
+            "ordering": 10
         },
         {
             "doctors": [
@@ -311,7 +321,8 @@
             "alive": true,
             "character": "Leela",
             "name": "Louise Jameson",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/07/Leela_from_Doctor_Who.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/07/Leela_from_Doctor_Who.jpg",
+            "ordering": 11
         },
         {
             "doctors": [
@@ -326,7 +337,8 @@
             "alive": false,
             "character": "Adric",
             "name": "Matthew Waterhouse",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Adric.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b2/Adric.jpg",
+            "ordering": 12
         },
         {
             "doctors": [
@@ -342,7 +354,8 @@
             "alive": false,
             "character": "K-9",
             "name": "John Leeson",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/2d/K-9.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/2/2d/K-9.jpg",
+            "ordering": 13
         },
         {
             "doctors": [
@@ -358,7 +371,8 @@
             "alive": true,
             "character": "Nyssa",
             "name": "Sarah Sutton",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/7/78/Nyssaoftrakenfairyskirt.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/7/78/Nyssaoftrakenfairyskirt.jpg",
+            "ordering": 14
         },
         {
             "doctors": [
@@ -373,7 +387,8 @@
             "alive": true,
             "character": "Ace",
             "name": "Sophie Aldred",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/e/ef/Ace_%28Doctor_Who%29.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/e/ef/Ace_%28Doctor_Who%29.jpg",
+            "ordering": 15
         },
         {
             "doctors": [
@@ -388,7 +403,8 @@
             "alive": true,
             "character": "Mel Bush",
             "name": "Bonnie Langford",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/1/1e/Melanie_Bush.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/1/1e/Melanie_Bush.jpg",
+            "ordering": 16
         },
         {
             "doctors": [
@@ -405,7 +421,8 @@
             "alive": true,
             "character": "Tegan Jovanka",
             "name": "Janet Fielding",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/08/Tegan_Jovanka.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/08/Tegan_Jovanka.jpg",
+            "ordering": 17
         },
         {
             "doctors": [
@@ -419,7 +436,8 @@
             "alive": true,
             "character": "Vislor Turlough",
             "name": "Mark Strickson",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8a/Turlough.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8a/Turlough.jpg",
+            "ordering": 18
         },
         {
             "doctors": [
@@ -435,7 +453,8 @@
             "alive": true,
             "character": "Peri Brown",
             "name": "Nicola Bryant",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e8/Peri_Brown.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e8/Peri_Brown.jpg",
+            "ordering": 19
         },
         {
             "doctors": [
@@ -446,7 +465,8 @@
             "alive": true,
             "character": "Grace Holloway",
             "name": "Daphne Ashbrook",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0d/Grace_Holloway.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0d/Grace_Holloway.jpg",
+            "ordering": 20
         },
         {
             "doctors": [
@@ -462,7 +482,8 @@
             "alive": true,
             "character": "Rose Tyler",
             "name": "Billie Piper",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/7/74/Rose_Tyler.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/7/74/Rose_Tyler.jpg",
+            "ordering": 21
         },
         {
             "doctors": [
@@ -480,7 +501,8 @@
             "alive": true,
             "character": "Captain Jack Harkness",
             "name": "John Barrowman",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7d/Jack_Harkness.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7d/Jack_Harkness.jpg",
+            "ordering": 22
         },
         {
             "doctors": [
@@ -493,7 +515,8 @@
             "alive": true,
             "character": "Adam Mitchell",
             "name": "Bruno Langley",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/6/62/Adam_Mitchell_%28Doctor_Who%29.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/6/62/Adam_Mitchell_%28Doctor_Who%29.jpg",
+            "ordering": 23
         },
         {
             "doctors": [
@@ -507,7 +530,8 @@
             "alive": true,
             "character": "Mickey Smith",
             "name": "Noel Clarke",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b5/Mickey_Smith.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b5/Mickey_Smith.jpg",
+            "ordering": 24
         },
         {
             "doctors": [
@@ -521,7 +545,8 @@
             "alive": true,
             "character": "Martha Jones",
             "name": "Freema Agyeman",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/Martha_Jones.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/Martha_Jones.jpg",
+            "ordering": 25
         },
         {
             "doctors": [
@@ -534,7 +559,8 @@
             "alive": true,
             "character": "Donna Noble",
             "name": "Catherine Tate",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/d/dd/Donna_Noble.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/d/dd/Donna_Noble.jpg",
+            "ordering": 26
         },
         {
             "doctors": [
@@ -549,7 +575,8 @@
             "alive": false,
             "character": "Amy Pond",
             "name": "Karen Gillan",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0b/Amy_Pond_Doctor_Who.png"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0b/Amy_Pond_Doctor_Who.png",
+            "ordering": 27
         },
         {
             "doctors": [
@@ -565,7 +592,8 @@
             "alive": false,
             "character": "Clara Oswald",
             "name": "Jenna Coleman",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/37/Clara_Oswald.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/37/Clara_Oswald.jpg",
+            "ordering": 28
         },
         {
             "doctors": [
@@ -580,7 +608,8 @@
             "alive": false,
             "character": "Rory Williams",
             "name": "Arthur Davill",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/30/Rory_Williams_Doctor_Who.png"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/30/Rory_Williams_Doctor_Who.png",
+            "ordering": 29
         },
         {
             "doctors": [
@@ -595,7 +624,8 @@
             "alive": true,
             "character": "River Song",
             "name": "Alex Kingston",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3f/River_Song_Doctor_Who.png"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3f/River_Song_Doctor_Who.png",
+            "ordering": 30
         },
         {
             "doctors": [
@@ -608,7 +638,8 @@
             "alive": true,
             "character": "Nardole",
             "name": "Matt Lucas",
-            "image_url": "https://ichef.bbci.co.uk/images/ic/896xn/p04zmzxv.jpg"
+            "image_url": "https://ichef.bbci.co.uk/images/ic/896xn/p04zmzxv.jpg",
+            "ordering": 31
         },
         {
             "doctors": [
@@ -621,7 +652,8 @@
             "alive": false,
             "character": "Bill Potts",
             "name": "Pearl Mackie",
-            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Pearl_Mackie_by_Gage_Skidmore.jpg/440px-Pearl_Mackie_by_Gage_Skidmore.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Pearl_Mackie_by_Gage_Skidmore.jpg/440px-Pearl_Mackie_by_Gage_Skidmore.jpg",
+            "ordering": 32
         },
         {
             "doctors": [
@@ -635,7 +667,8 @@
             "alive": true,
             "character": "Graham O'Brien",
             "name": "Bradley Walsh",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/6/6a/Graham_O%27Brien.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/6/6a/Graham_O%27Brien.jpg",
+            "ordering": 33
         },
         {
             "doctors": [
@@ -649,7 +682,8 @@
             "alive": true,
             "character": "Ryan Sinclair",
             "name": "Tosin Cole",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9d/Ryan_Sinclair.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9d/Ryan_Sinclair.jpg",
+            "ordering": 34
         },
         {
             "doctors": [
@@ -664,7 +698,8 @@
             "alive": true,
             "character": "Yasmin Khan",
             "name": "Mandip Gill",
-            "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9f/Yasmin_Khan_%28Doctor_Who%29.jpg"
+            "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9f/Yasmin_Khan_%28Doctor_Who%29.jpg",
+            "ordering": 35
         }
     ],
     "favoriteDoctors": [

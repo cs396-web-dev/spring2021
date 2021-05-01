@@ -31,7 +31,7 @@ DoctorSchema.statics.create = function(obj) {
     doctor.seasons = obj.seasons;
     doctor.doc_id = obj.doc_id;
     doctor.image_url = obj.image_url;
-    doctor.ordering = obj.ordering
+    doctor.ordering = obj.ordering;
     return doctor;
 }
 
