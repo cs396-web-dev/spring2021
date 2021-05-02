@@ -1,10 +1,7 @@
 const baseURL = 'http://localhost:8081';
 
-/****************************************/
-/* Functions that issue server requests */
-/****************************************/
-
 const initResetButton = () => {
+    // if you want to reset your DB data, click this button:
     document.querySelector('#reset').onclick = ev => {
         fetch(`${baseURL}/reset/`)
             .then(response => response.json())
@@ -14,4 +11,7 @@ const initResetButton = () => {
     };
 };
 
+
+
+// invoke this function when the page loads:
 initResetButton();
