@@ -1,6 +1,6 @@
 ---
 layout: module
-title: UX/UI Design
+title: User Interface Design
 type: lecture
 draft: 0
 show_schedule: 1
@@ -11,9 +11,10 @@ exercise_url: lecture11.zip
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-# slides:
-#    - url: ""
-#      title: TBD
+slides:
+   - url: https://docs.google.com/presentation/d/1dS7cY_GBf4rfqOyIWzLLKb549ADlwqyQmbMaeA_JBNo/edit?usp=sharing
+     title: User Interface Design
+
 include_page: "activities/activity3.md"
 readings:
    - title: "Design Resources"
