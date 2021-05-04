@@ -7,10 +7,11 @@ show_schedule: 1
 num: 11
 due_date: 2021-05-03
 exercise_url: lecture11.zip
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/PQ4kcPvTLom3r9ALjfQy2dsmMe0tMoiwyssZpSN3vmGpDz7ToVeYTXJy6W2usvAR.Re7TTzebAtZpLsTO?startTime=1620068335000
+     title: Recorded Lecture Video
+     live: 1
+     duration: "50:58"
 slides:
    - url: https://docs.google.com/presentation/d/1dS7cY_GBf4rfqOyIWzLLKb549ADlwqyQmbMaeA_JBNo/edit?usp=sharing
      title: User Interface Design
