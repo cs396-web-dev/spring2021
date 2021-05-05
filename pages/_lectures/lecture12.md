@@ -1,6 +1,6 @@
 ---
 layout: module
-title: User Authentication (OAuth, JWTs)
+title: User Authentication using JSON Web Tokens
 type: lecture
 draft: 0
 show_schedule: 1
@@ -10,9 +10,9 @@ due_date: 2021-05-05
 #    - url: ""
 #      title: Recorded Lecture Video
 #      live: 1
-# slides:
-#    - url: ""
-#      title: TBD
+slides:
+   - url: https://docs.google.com/presentation/d/1bu8BZ5DQ6SyS-y8vl1h-YxsppislNvuCMWLVvS4QHHA/edit?usp=sharing
+     title: Intro to JSON Web Tokens
 readings:
    - title: "What Is JWT and Why Should You Use JWT"
      url: https://www.youtube.com/watch?v=7Q17ubqLfaM
