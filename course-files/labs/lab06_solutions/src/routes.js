@@ -66,7 +66,9 @@ router.route("/login")
         }
         
         if (!user || password != userObject.password) {
-            res.status(400).send("Bad Request");
+            res.status(400).send({
+                "message": "Bad Request."
+            });
             return;
         }
 
@@ -78,6 +80,9 @@ router.route("/login")
 
 router.route("/logout")
     .delete((req, res) => {
+        // in JWTs, you don't really log out. You have to wait for the access
+        // token to expire and you can remove the ability for the user use a
+        // refresh token (by removing it from the authorized list of tokens):
         const refreshToken = req.body.token;
 
         // manually delete the refresh token from memory.
@@ -95,11 +100,14 @@ router.route("/token")
             res.status(401).send({
                 "message": "No token found."
             });
+            return;
         }
         if (!refreshTokens.includes(refreshToken)) {
+            // note that if server starts over, the refresh tokens also go away!
             res.status(403).send({
                 "message": "No access."
             });
+            return;
         }
         jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
             if (err) {
@@ -107,6 +115,7 @@ router.route("/token")
                 res.status(403).send({
                     "message": "No access."
                 });
+                return;
             }
             const accessToken = generateAccessToken({
                 username: user.username,
@@ -114,7 +123,7 @@ router.route("/token")
             })
             res.status(200).send({
                 accessToken: accessToken,
-                refreshToken: refreshToken
+                refreshToken: refreshToken // using same refresh token as before:
             });
         });
         res.status(200).send({
@@ -135,7 +144,7 @@ router.route("/tasks")
 
 
 router.route("/users")
-    .get((req, res) => {
+    .get(middleware.authenticateToken, (req, res) => {
         console.log("GET /users");
         // implemented for you:
         User.find({})
@@ -145,9 +154,13 @@ router.route("/users")
     })
 
 router.route("/profile")
-    .get((req, res) => {
+    .get(middleware.authenticateToken, (req, res) => {
         console.log(`GET /profile`);
-        res.status(501).send();
+        User.findById(req.user._id)
+            .then(user => {
+                // send an HTML page
+                res.status(200).send(user);
+            })
     })
     .patch((req, res) => {
         console.log(`PATCH /profile`);
