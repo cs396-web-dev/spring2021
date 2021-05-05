@@ -13,11 +13,11 @@ const login = ev => {
         .then(request => request.json())
         .then(data => {
             console.log(data)
-            document.cookie = `access_token=${data.accessToken}`;
-            document.cookie = `refresh_token=${data.refreshToken}`;
-
-            // redirect them to index.html:
-            window.location.href = '/';
+            // redirect them to index.html (the TODO List):
+            if (data.accessToken) {
+                window.location.href = '/';
+                document.cookie = `access_token=${data.accessToken}`;
+            }
         })
         .catch(err => {
             console.log(err);

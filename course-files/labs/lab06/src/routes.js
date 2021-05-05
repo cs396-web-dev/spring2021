@@ -2,28 +2,37 @@
 
 const express = require("express");
 const router = express.Router();
-const utils = require("../config/utilities");
 const User = require("./schema/User");
 const Task = require("./schema/Task");
-const { 
-    deleteUsers, deleteTasks, insertUsers, insertTasks 
-} = utils;
 
+let refreshTokens = [];
 
-router.route("/")
-    .get((_req, res) => {
-        console.log("GET /");
-        res.status(200).send({
-            data: "App is running."
-        });
-    });
+// new:
+require("dotenv").config()
+const jwt = require("jsonwebtoken");
+
 
 ///////////////////////////////
 // Your code below this line //
 ///////////////////////////////
 
+
+// Part 1
+router.route("/login")
+    .post((req, res) => {
+        const username = req.body.username;
+        const password = req.body.password;
+
+        // Query for user and if authenticated, return jwt
+        res.status(501).send({
+            message: "Not implemented"
+        });
+    });
+
+
+// Part 2
 router.route("/tasks")
-    .get((_req, res) => {
+    .get((req, res) => {
         // implemented for you:
         console.log("GET /tasks");
         Task.find({})
@@ -31,79 +40,27 @@ router.route("/tasks")
                 res.status(200).send(tasks);
             })
     })
+
+router.route("/token")
     .post((req, res) => {
-        console.log("POST /tasks");
-        res.status(501).send();
+        const refreshToken = req.body.token;
+        res.status(501).send({
+            message: "Not implemented"
+        });
     });
 
-router.route("/artists/:id")
-    .get((req, res) => {
-        console.log(`GET /tasks/${req.params.id}`);
-        res.status(501).send();
-    })
-    .patch((req, res) => {
-        console.log(`PATCH /tasks/${req.params.id}`);
-        res.status(501).send();
-    })
+
+router.route("/logout")
     .delete((req, res) => {
-        console.log(`DELETE /tasks/${req.params.id}`);
-        res.status(501).send();
-    });
-
-
-router.route("/users")
-    .get((_req, res) => {
-        console.log("GET /users");
-        // implemented for you:
-        User.find({})
-            .then(users => {
-                res.status(200).send(users);
-            })
-    })
-    .post((req, res) => {
-        console.log("POST /users");
-        res.status(501).send();
-    });
-
-router.route("/users/:id")
-    .get((req, res) => {
-        console.log(`GET /users/${req.params.id}`);
-        res.status(501).send();
-    })
-    .patch((req, res) => {
-        console.log(`PATCH /users/${req.params.id}`);
-        res.status(501).send();
-    })
-    .delete((req, res) => {
-        console.log(`DELETE /users/${req.params.id}`);
-        res.status(501).send();
+        // in JWTs, you don't really log out. You have to wait for the access
+        // token to expire and you can remove the ability for the user use a
+        // refresh token (by removing it from the authorized list of tokens):
+        const refreshToken = req.body.token;
+        res.status(501).send({
+            message: "Not implemented"
+        });
     });
 
 
 
-///////////////////////////////
-// Your code above this line //
-///////////////////////////////
-router.route("/reset")
-    .get((_req, res) => {
-        deleteTasks()
-            .then(results => {
-                console.log('All tasks have been deleted from the database.');
-            })
-            .then(deleteUsers)
-            .then(results => {
-                console.log('All users have been deleted from the database.');
-            })
-            .then(insertUsers)
-            .then(results => {
-                console.log(results.length + ' users have been inserted into the database.');
-            })
-            .then(insertTasks)
-            .then(results => {
-                console.log(results.length + ' tasks have been inserted into the database.');
-                res.status(200).send({
-                    message: "Data has been reset."
-                });
-            });
-    });
 module.exports = router;

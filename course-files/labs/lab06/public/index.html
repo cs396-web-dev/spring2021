@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Homepage</title>
-        <link rel="stylesheet" href="styles.css">
+        <title>TODO List</title>
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <header>
-            <a href="login.html">Login</a>
-            <a href="register.html">Register</a>
-        </header>
         <main>
-            <h1>Homepage</h1>
+            <h1>TODO List</h1>
 
-            <p>If they're logged in, show their custom data.</p>
-            <p>If they're not logged in, show them a generic message.</p>
+            <div class="error-panel">
+                Your JWT has expired. Please <a href="/login.html">log in</a> again.
+            </div>
+
+            <section id="tasks"></section>
+            
         </main>
+
+        <script type="text/javascript" src="js/utilities.js"></script>
+        <script src="js/tasks.js" type="text/javascript"></script>
     </body>
 </html>
