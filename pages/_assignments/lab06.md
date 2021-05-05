@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: JWTs (JavaScript Web Tokens)
 type: lab
 abbreviation: Lab 6
-draft: 1
+draft: 0
 num: 6
 points: 5
 description: |
@@ -35,7 +35,7 @@ GET http://localhost:8081/tasks
 
 Download the Lab 6 files, unzip them, and open them in VS Code: 
 
-<a class="nu-button" href="/spring2021/course-files/assignments/lab06.zip">lab06.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+<a class="nu-button" href="/spring2021/course-files/labs/lab06.zip">lab06.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
 Please complete the following steps to configure your new server:
 1. Copy the `.env` file you have been using all quarter into the root of your `lab06` directory.
@@ -53,10 +53,11 @@ When you're done, run your local server: `npm start`
 
 
 ## Get Oriented with the Code and the Assignment
-The goal of this app is to create a "TODO List" that anyone in the world can use. To use it, the will log into your app with their username and password. When they do, they will be issued a token that they can use to access their tasks, using the `/tasks` endpoint. A few files to point your attention to:
+The goal of this app is to create a "TODO List" that anyone in the world can use. To use it, a user will log into your app with their username and password. If they provide the correct username/password, they will be issued a token that they can use to access their tasks, using the `/tasks` endpoint. A few files to point your attention to:
 * `config/data.json` has two collections: one for users and one for tasks. There are currently 3 registered users. Each user has 4 tasks. Each task has a "user_id" attribute that specifies which user the task is associated with.
+   * Note: currently the users' passwords are stored in plaintext. This is a big no-no, but we'll talk more about this next week!
 * Note the two new schemas (User and Task)
-* The current `tasks` endpoint is not restricted ([http://localhost:8081/tasks](http://localhost:8081/tasks)) and is showing everybody's TODOs! We need to fix this!
+* The current `tasks` endpoint is currently showing everyone's tasks at once ([http://localhost:8081/tasks](http://localhost:8081/tasks)). We need to fix this!
 
 ## Your Tasks
 In this lab, you will implement some logic to:
@@ -67,7 +68,7 @@ In this lab, you will implement some logic to:
 
 {:#step1}
 ### Part 1: Login Endpoint (Authentication)
-In your `src/routes.js` write some logic in the `/login` endpoint for the `POST` method that handles the following scenario:
+In your `src/routes.js` write some logic for the `POST` method of the  `/login` endpoint that handles the following scenario:
 * The user tries to log into the system with a username and password by posting this data to the `/login` endpoint.
 * Your route queries the database for the matching user.
 * Success case: if the user has sent valid credentials:
@@ -89,7 +90,6 @@ const jwt = require("jsonwebtoken");
 
 #### Testing
 Test your route using POSTMAN or the `config/requests.rest` file that we made for you (which requires the REST Client extension in VS Code). If your route is successful, you should see a JWT token in your response body.
-* If you have the time (recommended), you can also write some logic so that this HTML Form [http://localhost:8081/login.html](http://localhost:8081/login.html) posts to the endpoint (optional, but recommended).
 
 {:#step2}
 ### Part 2: Data Protection Using Middleware
@@ -122,7 +122,7 @@ The three arguments needed in the function signature for your middleware functio
 * res: the HTTP response
 * next: the function you invoke when your middleware is done processing so that the route logic can execute.
 
-In this function, you're going to check that a token has been sent in the header and that it's valid, using the `jwt.verify` function.
+In this function, you're going to check that a token has been sent in the header and that it's valid, using the <a href="https://www.npmjs.com/package/jsonwebtoken#tokenexpirederror" target="_blank">jwt.verify</a> function.
 * Success case: If it is, you're going to:
    * Append the user object to the request object and invoke the `next()` function.
 * Failure case: 
@@ -176,6 +176,15 @@ fetch('/tasks',  {
 ```
 
 If the request is successful, show the user's tasks on the index.html (which can be accessed here: [http://localhost:8081](http://localhost:8081)).
+
+
+### If you have time
+If you have the time (optional, but recommended), you can also write some logic so that this HTML Form [http://localhost:8081/login.html](http://localhost:8081/login.html) posts to the `login` endpoint. If successful:
+
+* Store the access_token as a cookie, and then redirect to the "TODO List" page.
+Then, update your "TODO List" logic so that it retrieves the token from the cookie.
+
+See online demo here: <a href="https://lab06-todo.herokuapp.com/" target="_blank">https://lab06-todo.herokuapp.com/</a>
 
 
 **Hint:** If you're stuck, take a look at `public/js/hints/hint-3-tasks.js`
