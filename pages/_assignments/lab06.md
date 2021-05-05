@@ -1,6 +1,6 @@
 ---
 layout: assignment-two-column
-title: JWTs (JavaScript Web Tokens)
+title: JWTs (JSON Web Tokens)
 type: lab
 abbreviation: Lab 6
 draft: 0
