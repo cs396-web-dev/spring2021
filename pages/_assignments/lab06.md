@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Cookies
 type: lab
 abbreviation: Lab 6
-draft: 0
+draft: 1
 num: 6
 points: 5
 description: |
