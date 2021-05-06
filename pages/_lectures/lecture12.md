@@ -6,10 +6,11 @@ draft: 0
 show_schedule: 1
 num: 12
 due_date: 2021-05-05
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/KohzlVjKpZfIyUBD_XjBZsziuVlSxIZ26y50gEqp_5WGHj9eTMS4dqske9cIKY0._PuuoE1ddV5GSFtW
+     title: Recorded Lecture Video
+     live: 1
+     duration: "51:38"
 slides:
    - url: https://docs.google.com/presentation/d/1bu8BZ5DQ6SyS-y8vl1h-YxsppislNvuCMWLVvS4QHHA/edit?usp=sharing
      title: Intro to JSON Web Tokens
