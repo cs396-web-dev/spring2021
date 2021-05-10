@@ -15,6 +15,8 @@ due_date: 2021-05-14
 > ## Background Readings
 > * <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications" target="_blank">WebSocket tutorial</a>
 > * <a href="https://www.ably.io/topic/websockets" target="_blank">A conceptual overview of WebSockets</a>
+> * https://github.com/websockets/ws
+> * https://flaviocopes.com/node-websockets/
 
 Before today, we used the HTTP protocol to send messages between a user's client at the server. Using HTTP, clients must initiate individual connections to the server in order to request and receive data.
 
@@ -35,11 +37,11 @@ Today, you will building a messaging app using WebSockets. This requires two com
 
 Download `lab07.zip`, unzip it, and open the folder in VSCode.
 
-Install the required packages with `npm install` and run the server locally using `npm start`. Then, open `server.js`. Your job is to implement the server to handle three different types of messages. These messages should be in JSON format with a `type` field that indicates the type of message being sent. Examples of each type are:
+Install the required packages with `npm install` and run the server locally using `npm start`. Then, open `chat-server.js`. Your job is to implement the server to handle three different types of messages. These messages should be in JSON format with a `type` field that indicates the type of message being sent. Examples of each type are:
 
-- User login message: `{ type: "login", username: "not_a_chatbot" }`
-- Disconnect message: `{ type: "disconnect", username: "not_a_chatbot" }`
-- Chat message: `{ type: "chat", text: "is this working?", username: "not_a_chatbot" }`
+- User login message: `{ type: "login", username: "my_username" }`
+- Disconnect message: `{ type: "disconnect", username: "my_username" }`
+- Chat message: `{ type: "chat", text: "is this working?", username: "my_username" }`
 
 Using the provided switch statement, send data back to each connected client as a JSON object. The object can have whatever structure you feel is appropriate, since you'll be writing the client that handles this data in Step 2.
 

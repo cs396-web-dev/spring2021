@@ -35,7 +35,7 @@ GET http://localhost:8081/tasks
 
 Download the Lab 6 files, unzip them, and open them in VS Code: 
 
-<a class="nu-button" href="/spring2021/course-files/labs/lab06.zip">lab06.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+<a class="nu-button" href="/spring2021/course-files/labs/lab06.zip">lab06.zip<i class="fas fa-download" aria-hidden="true"></i></a> <a class="nu-button" href="/spring2021/course-files/labs/lab06-solutions.zip">lab06-solutions.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
 Please complete the following steps to configure your new server:
 1. Copy the `.env` file you have been using all quarter into the root of your `lab06` directory.
