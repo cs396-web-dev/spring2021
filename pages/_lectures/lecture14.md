@@ -6,11 +6,11 @@ draft: 0
 show_schedule: 1
 num: 14
 due_date: 2021-05-12
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
-#      duration: ""
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/7TfyM1o3TvN_kn0LRQLfvoon7PmvmpHShY9p9P3kASxYVU0zYkAWUlLGvGQC1qGj.jWrAcoWRjdKJBHnc
+     title: Recorded Lecture Video
+     live: 1
+     duration: "53:36"
 slides:
    - url: https://docs.google.com/presentation/d/1fhs6JXXz2UoZUUqQF7YVQFpBIzat6-LOHFDgV_a0fMA/edit?usp=sharing
      title: Web Sockets
