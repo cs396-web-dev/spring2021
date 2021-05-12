@@ -10,13 +10,12 @@ description: |
     Create a basic chat app using WebSockets
 due_date: 2021-05-14
 ---
+<a class="nu-button" href="/spring2021/course-files/assignments/lab07.zip">lab07.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-{:.callout}
 > ## Background Readings
-> * <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications" target="_blank">WebSocket tutorial</a>
 > * <a href="https://www.ably.io/topic/websockets" target="_blank">A conceptual overview of WebSockets</a>
-> * https://github.com/websockets/ws
-> * https://flaviocopes.com/node-websockets/
+> * <a href="https://github.com/websockets/ws" target="_blank">The ws library</a>
+> * <a href="https://flaviocopes.com/node-websockets/" target="_blank">Demo using ws and node.js</a>
 
 Before today, we used the HTTP protocol to send messages between a user's client at the server. Using HTTP, clients must initiate individual connections to the server in order to request and receive data.
 
@@ -31,56 +30,91 @@ Today, you will building a messaging app using WebSockets. This requires two com
 - A WebSocket server that handles incoming messages from each client
 - A client that establishes a connection to the server and sends messages to the server whenever a user chats.
 
-## 1. Server
+Note that the server and the client don't have to be on the same machine (and furthermore the client doesn't even have to be hosted in the cloud)!
 
-<a class="nu-button" href="/spring2021/course-files/assignments/lab07.zip">lab07.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+## 1. Implement the Server Functionality
 
 Download `lab07.zip`, unzip it, and open the folder in VSCode.
 
-Install the required packages with `npm install` and run the server locally using `npm start`. Then, open `chat-server.js`. Your job is to implement the server to handle three different types of messages. These messages should be in JSON format with a `type` field that indicates the type of message being sent. Examples of each type are:
+From your command line, navigate to the `lab07/server` directory and install the required packages with `npm install` and run the server locally using `npm start`. 
 
-- User login message: `{ type: "login", username: "my_username" }`
-- Disconnect message: `{ type: "disconnect", username: "my_username" }`
-- Chat message: `{ type: "chat", text: "is this working?", username: "my_username" }`
+Open `chat-server.js` in VS Code and take a look at it. Note how the server is listening for messages via the "message" event, and then naively relaying the received message to all of the connected clients (without any validation or processing):
 
-Using the provided switch statement, send data back to each connected client as a JSON object. The object can have whatever structure you feel is appropriate, since you'll be writing the client that handles this data in Step 2.
+```js
+socket.on("message", message => {
 
-- When a user logs in (message type "login"), store their username in a collection on the server and send back a JSON object containing a list of _all_ connected users.
-- When a user disconnects (message type "disconnect"), remove them from the set of connected users and send back a JSON object containing a list of _all_ connected users.
-- When a chat is sent (message type "chat"), broadcast the message and the sender to all connected users. _Tip: You can just send back the received JSON object._
+    const data = JSON.parse(message);
 
-Here's a quick example of sending a message to each connected client:
-
-```javascript
-wss.on("connection", socket => {
-    console.log("Client connected on PORT: " + port);
-    socket.on("message", message => {
-        const json = JSON.parse(message);
-        wss.clients.forEach(client => {
-            if (client.readyState === ws.OPEN) {
-                // Replace the line below with the data you want to send
-                client.send(JSON.stringify({ message: "hello, client!" }));
-            }
-        });
+    // this loop sends the message that was just received to all the connected clients:
+    wss.clients.forEach(client => {
+        if (client.readyState === ws.OPEN) {
+            
+            // replace this line of code in order to implement 
+            // the logic outlined above.
+            sendJSON(data, client);
+        }
     });
 });
 ```
 
-If we were building this into a full application, we would store each user, conversation, and message in a database to load the appropriate chat history whenever the user opens the application. For now, messages will just be stored on the client and not be persisted between sessions.
+Your job is to edit the `chat-server.js` code to handle three different types of JSON messages:
 
-## 2. Client
+1. **Login**: `{ type: "login", username: "my_username" }`
+1. **Disconnect**: `{ type: "disconnect", username: "my_username" }`
+1. **Chat**: `{ type: "chat", text: "is this working?", username: "my_username" }`
 
-Open `index.html` in your browser. The interface is a simple chat interface that allows the user to select a chatroom (just localhost for now), set their name, and send messages to other users in the chatroom. The client is currently set up to send WebSocket messages to the server whenever a user connects, disconnects, or sends a message. You will implement `handleReceivedMessage`, which updates the UI whenever the client receives a message from the server. You should:
+You will handle each of these messages according to the specifications outlined below:
 
-- Update the list of connected users when a user logs in
-- Update the list of connected users when a user disconnects
-- Update the chat with any received messages and their senders
+### 1. Login
+If the `data.type` is "login", add the logged in user to the `loggedInUsers` set. Then, send the following message back to each client:
 
-If your client and server are both working, you should be able to open `index.html` in two separate browser tabs, log in to the same server on each, and send messages between them!
+```json
+{
+    "type": "login",
+    "users": Array.from(loggedInUsers)
+}
+```
+
+### 2. Disconnect
+If the `data.type` is "disconnect", removed the user from the loggedInUsers set. Then, send the following message back to each client:
+
+```json
+{
+    "type": "disconnect",
+    "users": Array.from(loggedInUsers)
+}
+```
+
+### 3. Chat
+If the `data.type` is "chat", just send the `data` object to each client (no processing needed).
+
+If the `data.type` isn't "login," "disconnect," or "message", ignore the message (don't pass it on), and log it to the console: `console.log('Unrecognized message type:', data);`
+
+If we were building this into a full application, we would (probably) store each user, conversation, and message in a database to load the appropriate chat history whenever the user opens the application. For now, messages will just be stored on the client and not be persisted between sessions (perhaps a privacy feature?).
+
+## 2. Implement the Client Functionality
+
+Open `index.html` in your browser. The interface is a simple chat interface that allows the user to select a chatroom (just localhost for now), set their name, and send messages to other users in the chatroom. 
+
+Now open `client.js` in VS Code and take a look at it. Much of this (simple) client has already been implemented for you, including:
+
+* Initializing the connection when the user clicks the "Connect" button
+* Logging the user in when the user clicks the "Set Name" button
+* Sending messages to the server when the user clicks the "Send" button
+
+**Your job** will be to implement the `connection.onmessage` event handler, which will update the UI whenever the client receives a message from the server. You will handle server messages according to the specifications outlined below:
+
+### 1. Login or Disconnect
+If the data.type is "login" or "disconnent", display the list of logged in users in the #users-list div (right-hand panel).
+
+### 2. Chat
+If data.type is "chat", append the chat message to the #chat div (main panel) with the sender's name and message.
+
+If your client and server are both working, you should be able to open `index.html` in two separate browser tabs, log in to the same server on each, and send messages between them (se video below)!
 
 ## 3. (Optional) Deploy with ngrok
 
-Ngrok is a command line tool for creating a secure URL that points to a localhost server. Using this url, others can access your server securely without you having to host it online.
+Ngrok is a command line tool for creating a secure URL that points to server that is running on your local computer. Using this url, others can access your server securely without you having to host it online.
 
 You should [sign up](https://dashboard.ngrok.com/signup) for ngrok using your Northwestern email and [download](https://ngrok.com/download)/extract the version for your preferred OS.
 
