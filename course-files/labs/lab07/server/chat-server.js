@@ -1,6 +1,6 @@
 const ws = require("ws");
 
-const port = process.env.WSS_PORT || 8081;
+const port = process.env.PORT || 8081;
 const wss = new ws.Server({ port });
 console.log("Application listening on PORT: " + port);
 
