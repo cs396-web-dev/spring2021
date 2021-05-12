@@ -13,7 +13,8 @@ due_date: 2021-05-14
 <a class="nu-button" href="/spring2021/course-files/labs/lab07.zip">lab07.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
 > ## Background Readings
-> * <a href="https://www.ably.io/topic/websockets" target="_blank">A conceptual overview of WebSockets</a>
+> * <a href="https://stackoverflow.blog/2019/12/18/websockets-for-fun-and-profit/" target="_blank">WebSockets for fun and profit</a> (a nice, concise overview)
+> * <a href="https://www.ably.io/topic/websockets" target="_blank">A conceptual overview of WebSockets</a> (a longer, more detailed overview)
 > * <a href="https://github.com/websockets/ws" target="_blank">The ws library</a>
 > * <a href="https://flaviocopes.com/node-websockets/" target="_blank">Demo using ws and node.js</a>
 
@@ -138,7 +139,7 @@ Run `ngrok help`; if the command fails, find the location where the ngrok execut
 
 <img class="large frame" src="/spring2021/assets/images/lab07/img3.png" />
 
-With your server running in another terminal window, type `ngrok 8081` to open a tunnel to your server. You should now be able to add the forwarding url (minus the http://) to the list of servers on your client and use it as a separate chat room.
+With your server running in another terminal window, type `ngrok http 8081` to open a tunnel to your server. You should now be able to add the forwarding url (minus the http://) to the list of servers on your client and use it as a separate chat room.
 
 If you want, feel free to send the link to any open tunnels to your app in the Zoom chat so others can connect to it with their clients. Ideally, we'll be able to create several open chatrooms that your classmates can use!
 
