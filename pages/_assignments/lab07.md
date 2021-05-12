@@ -3,27 +3,37 @@ layout: assignment-two-column
 title: Mini Chat App
 type: lab
 abbreviation: Lab 7
-draft: 1
+draft: 0
 num: 7
 points: 5
 description: |
     Create a basic chat app using WebSockets
 due_date: 2021-05-14
 ---
-<a class="nu-button" href="/spring2021/course-files/assignments/lab07.zip">lab07.zip<i class="fas fa-download" aria-hidden="true"></i></a>
+<a class="nu-button" href="/spring2021/course-files/labs/lab07.zip">lab07.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
 > ## Background Readings
 > * <a href="https://www.ably.io/topic/websockets" target="_blank">A conceptual overview of WebSockets</a>
 > * <a href="https://github.com/websockets/ws" target="_blank">The ws library</a>
 > * <a href="https://flaviocopes.com/node-websockets/" target="_blank">Demo using ws and node.js</a>
 
-Before today, we used the HTTP protocol to send messages between a user's client at the server. Using HTTP, clients must initiate individual connections to the server in order to request and receive data.
-
-<img class="large frame" src="/spring2021/assets/images/lab07/img1.png" />
+Until now, we've been using the HTTP protocol to send messages between a user's client at the server. Using HTTP, clients must initiate individual connections to the server in order to request and receive data.
 
 However, there are examples in which it may be useful for the server to send data to the client without the client explicitly requesting it. WebSockets are useful for these cases, since each client establishes a persistent connection to the server over which the server can send messages.
 
-<img class="large frame" src="/spring2021/assets/images/lab07/img2.png" />
+<table style="border-width:0px;">
+    <tr>
+        <td>
+            <img class="large frame" src="/spring2021/assets/images/lab07/img1.png" />
+            <p>HTTP Protocol (http:// or https://)</p>
+        </td>
+        <td>
+            <img class="large frame" src="/spring2021/assets/images/lab07/img2.png" />
+            <p>Web Socket Protocol (ws:// or wss://)</p> 
+        </td>
+    </tr>
+</table>
+
 
 Today, you will building a messaging app using WebSockets. This requires two components:
 
@@ -57,7 +67,7 @@ socket.on("message", message => {
 });
 ```
 
-Your job is to edit the `chat-server.js` code to handle three different types of JSON messages:
+Your job is to edit the `chat-server.js` code to handle the three different types of JSON messages shown below. These data formats are abitrary -- we just made them up as reasonable ways to send login, disconnect, and chat information. You could set these messages up however you want, but we just made some decisions here about how to do things:
 
 1. **Login**: `{ type: "login", username: "my_username" }`
 1. **Disconnect**: `{ type: "disconnect", username: "my_username" }`
@@ -75,6 +85,8 @@ If the `data.type` is "login", add the logged in user to the `loggedInUsers` set
 }
 ```
 
+You can test this by opening `lab07/client/index.html` in your web browser, clicking the "Connect" and "Set Name" buttons (and also providing a username), and seeing if you get the correct JSON output in the browser console.
+
 ### 2. Disconnect
 If the `data.type` is "disconnect", removed the user from the loggedInUsers set. Then, send the following message back to each client:
 
@@ -85,12 +97,16 @@ If the `data.type` is "disconnect", removed the user from the loggedInUsers set.
 }
 ```
 
+You can test this by opening `lab07/client/index.html` in a second browser tab and clicking the "Connect" and "Set Name" buttons (and also providing a username). Then, close the browser tab you just opened. Now go back to your first browser tab and look at the console. You should see a messages in the console indicating that a user both connected and then disconnected from the chat server.
+
 ### 3. Chat
-If the `data.type` is "chat", just send the `data` object to each client (no processing needed).
+If the `data.type` is "chat", just send the `data` object to each client (no processing needed). You can test this by sending a chat message in the client and then seeing if you get the correct JSON output in the browser console.
 
 If the `data.type` isn't "login," "disconnect," or "message", ignore the message (don't pass it on), and log it to the console: `console.log('Unrecognized message type:', data);`
 
-If we were building this into a full application, we would (probably) store each user, conversation, and message in a database to load the appropriate chat history whenever the user opens the application. For now, messages will just be stored on the client and not be persisted between sessions (perhaps a privacy feature?).
+
+> ### Note
+> If we were building this into a full application, we would (probably) store each user, conversation, and message in a database to load the appropriate chat history whenever the user opens the application. For now, messages will just be stored on the client and not be persisted between sessions (perhaps a privacy feature?).
 
 ## 2. Implement the Client Functionality
 
