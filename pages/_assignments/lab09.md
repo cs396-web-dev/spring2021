@@ -1,6 +1,6 @@
 ---
 layout: assignment-two-column
-title: Project Feedback
+title: Project Feedback (Mandatory Attendance)
 type: lab
 abbreviation: Lab 9
 draft: 1
