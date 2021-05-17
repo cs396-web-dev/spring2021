@@ -38,6 +38,7 @@ exclude:
   - "course-files/lectures/lecture*/*"
   - "course-files/assignments/hw*/*"
   - "collections/assignments/drafts/*"
+  - "course-files/labs/lab08/*"
 #  - "course-files/labs/lab0*/*"
 #   - _assignments/draft
 #   - course-files/administrative

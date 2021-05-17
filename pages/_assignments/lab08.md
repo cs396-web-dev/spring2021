@@ -1,88 +1,172 @@
 ---
 layout: assignment-two-column
-title: React and TypeScript
+title: React
 type: lab
 abbreviation: Lab 8
-draft: 1
+draft: 0
 num: 8
-points: 5
-description: |
-    A quick introduction to React and TypeScript
+points: 10
 due_date: 2021-05-21
 ---
+<a class="nu-button" href="/spring2021/course-files/labs/lab08.zip">lab08.zip<i class="fas fa-download" aria-hidden="true"></i></a>
 
-{:.callout}
-> ## Helpful Links
-> * <a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" target="_blank">TypeScript tutorial</a>
-> * <a href="https://reactjs.org/docs/hello-world.html" target="_blank">React tutorial</a>
+> ## Required Readings
+> Before beginning this week's lab, please complete the <a href="https://reactjs.org/docs/hello-world.html" target="_blank">React Step-by-Step Guide</a>. It will take you and hour, but if you're new to React it's an hour well spent. It will be impossible for you to work effectively in React without understanding the core conventions and workflow, including:
+> * <a href="https://reactjs.org/docs/introducing-jsx.html" target="_blank">JSX</a>
+> * <a href="https://reactjs.org/docs/components-and-props.html" target="_blank">Components and props</a>
+> * <a href="https://reactjs.org/docs/state-and-lifecycle.html" target="_blank">State and lifecycle</a>
+> * <a href="https://reactjs.org/docs/conditional-rendering.html" target="_blank">Conditional rendering</a>
+> * <a href="https://reactjs.org/docs/handling-events.html" target="_blank">Handling events</a>
+> * <a href="https://reactjs.org/docs/forms.html" target="_blank">Forms</a>
+> * <a href="https://reactjs.org/docs/lifting-state-up.html" target="_blank">Lifting up state</a>
+> * <a href="https://reactjs.org/docs/thinking-in-react.html" target="_blank">Thinking in React</a>
 
-Today, you will get some practice with two tools frequently used in the modern web development world: TypeScript and React. You will first go through some example code with TypeScript features that are not present in JavaScript and then create a simple shopping list app using React. You should skim the above readings before beginning each of the sections of the lab to get a better understanding of the concepts being used.
+<!-- > * Redux: https://www.smashingmagazine.com/2018/07/redux-designers-guide/ -->
 
-## 1. TypeScript
+## Instructions
+In this week's lab, you will be re-implementing a subset of your Doctor Who UI using React. The following 5 tasks are required in order for you to get full credit for the lab:
+1. [Create a component hierarchy](#step1)
+2. [Create stubs for each component](#step2)
+3. [Implement the doctors list](#step3)
+4. [Implement the doctor "detail view"](#step4)
+5. [Implement the companions list](#step5)
 
-Many React applications are written in TypeScript, a strongly-typed superset of JavaScript (this strong typing fixes the worst part JavaScript, which is why TypeScript is so popular). Unlike JavaScript, TypeScript is a compiled language; a client-side project written in TypeScript is compiled down to JavaScript before being executed in the browser. TypeScript files have the suffix *.ts, instead of JavaScript's *.js.
+We'll just be grading you on #3, #4, and #5.
 
-In order to install TypeScript, type `npm install -g typescript` in a terminal window.
+## Required Tasks
+Download `lab08.zip`, unzip it, and open the folder in VSCode.
 
-Three important features that are included in TypeScript, but not JavaScript, are _enums_, _interfaces_ and _types_. An enum allows the developer to define a set of named, related constants. These constants can also hold string or numeric data. For example, imagine we were writing a method to make API requests. A good use of an enum would be to constrain the types of HTTP responses that can be used to make requests to a pre-defined set, instead of just passing in a string.
+From your command line, navigate to the `lab08` directory and install the required packages with `npm install` and run the server locally using `npm start`. 
 
-```typescript
-enum HTTPMethod {
-    Get = 'get',
-    Post = 'post',
-    Put = 'put',
-    Patch = 'patch',
-    Delete = 'delete'
+> **Note:** Although we are using Node to build and run our React app, we will ultimately be compiling our React app to HTML, CSS, and JavaScript so that the browser can download these files from our website and run them client-side. It's confusing, but the final output of our React App is client-side code that our browser will run.
+
+{:#step1}
+### Step 1: Component Hierarchy
+As described in the <a href="https://reactjs.org/docs/thinking-in-react.html" target="_blank">Thinking in React</a>, it is important to be able to look at a wireframe / mockup and consider what might constitute a component (keeping in mind that components can have child components).
+
+Given the starter `App.js` file we have given you and what you already know about the Doctor Who app you made in Homework 3, think about how you might organize this JSX representation into different components, where each component does a small job within the larger application:
+
+```jsx
+import React from 'react';
+
+class App extends React.Component {  
+
+    render () {
+        return (
+            <div className="container">
+
+                <header className="header">
+                    <h1>Doctor Who Editor</h1>
+                </header>
+
+                <aside className="aside">
+                    List of doctors goes here.
+                </aside>
+
+                <main className="main">
+
+                    <div className="doctor">
+                        <h2>Current Doctor</h2>
+                        <p>Current doctor goes here</p>
+                    </div>
+
+                    <section className="companions">
+                        <h2>Companions</h2>
+                        <p>Companions go here</p>
+                    </section>
+
+                </main>
+
+            </div>
+        );
+    }
+}
+
+export default App;
+```
+
+One potential strategy (though there could certainly be others) might involve splitting up your functionality into 4 components, where each component has 1 job:
+
+| **Header component** | Responsible for displaying the header (and perhaps a menu down the line). |
+| **DoctorList component** | Responsible for displaying a list of doctors (that a user can click on to get more detail). | 
+| **DoctorDetail component** | Responsible for displaying the selected doctor. | 
+| **CompanionList component** | Responsible for displaying the companions that travel with the selected doctor. | 
+
+Think about what your render() function might look like for each component, and which of your components might issue fetch requests.
+
+{:#step2}
+### Step 2: Create stubs for each component
+Once you've decided on your components, create a JavaScript file for each component in your `src` directory. In each JavaScript file, create a react component, and a simple render function that renders only the JSX elements associated with it. So, for instance, the DoctorList would render the `aside` element (and eventually the list of doctors):
+
+```jsx
+import React from 'react';
+
+class DoctorList extends React.Component {
+  
+    render () {
+        return (
+            <aside className="aside">
+                List of doctors goes here.
+            </aside>
+        );
+    }
+}
+
+export default DoctorList;
+```
+
+When you're done creating all of your components, refactor your `App.js` so that the render function is using your React components (don't forget to import them all). Note that in the sample code shown below, the `Header` component is accepting a custom property called "title." Please review <a href="https://reactjs.org/docs/components-and-props.html" target="_blank">components and props</a> if you have any questions about how that works.
+
+```jsx
+render () {
+    return (
+        <div className="container">
+            <Header title="Doctor Who Editor" />
+            <DoctorList />
+
+            <main className="main">
+                <DoctorDetail />
+                <CompanionList />
+            </main>  
+
+        </div>
+    );
 }
 ```
 
-An interface is a contract from which an object can be derived; a conforming object must implement all specified non-optional fields of the interface. Optional fields are specified with a question mark; unless a default value is specified, uninitialized default fields will default to `undefined`. For example, we could use interfaces to specify the structure of HTTP request and response data:
+If you get stuck, please take a look at `hints/hint-1`.
 
-```typescript
-interface HTTPResponse {
-  status: number;
-  data: HTTPResponseData;
-}
+{:#step3}
+### Step 3. Implement the "Doctor List" Functionality
+Next, modify the logic of your `DoctorList` component to display all of the doctors in the list. Recall that in the React model, your fetch logic and your rendering logic are decoupled. In other words, you'll probably want to:
+  
+* Fetch the doctors from a working "Doctor Who" endpoint (we recommend running your HW3 node instance and accessing this endpoint: <a href="http://localhost:8081/doctors">http://localhost:8081/doctors</a>.
+* Save the doctors in your state object.
+* Render the doctors (recall that each time you issue a call to the built-in `this.setState()` method, React automatically re-renders your component -- like magic).
 
-interface HTTPRequest {
-    method: HTTPMethod;
-    url: string;
-    data?: object;
-}
-```
+{:#step4}
+### Step 4. Implement the "Doctor Detail" Functionality
+When the user clicks on one of the doctors, display a panel showing the doctor’s name, picture, and seasons. To do this, you're going to have to figure out how to communicate between your components. When you click on a doctor in your `DoctorList` component, how can notify your `DoctorDetail` component to render? To learn how this might be done, re-read the <a href="https://reactjs.org/docs/lifting-state-up.html" target="_blank">lifting up state</a> page, which provides guidance. The strategy discussed involves:
 
-Right now, our code has no way of knowing how the data in the `HTTPResponse` passed to the callback is structured. Let's say we know the response body can be either a number or a string. In TypeScript, we can solve this problem by defining a new union type `HTTPResponseData` that can be either a number or a string.
+1. Creating an event handler in the component that is a parent of both the `DoctorDetail` and the `DoctorList` component (the `App` component)
+1. Making the event handler available to the `DoctorList` component by passing it in as a property.
+1. Assigning the event handler to the click event of each doctor in the list.
 
-```typescript
-type HTTPResponseData = number | string;
-```
+When a doctor in the list is clicked, the event handler is fired. And, because the event handler belongs to the `App` component, it will be able to pass data (the selected doctor) to the `DoctorDetail` component.
 
-Bringing it all together:
+{:#step5}
+### Step 5. Implement the "Companions List" Functionality
+When the user clicks on one of the doctors, also display a panel showing all of the companions that traveled with that selected doctor. See if you can figure out how to do this.
 
-```typescript
-function request(config: HTTPRequest, callback?: (response: HTTPResponse) => void) {
-    axios(config)
-        .then((response: HTTPResponse) => { callback(response); })
-        .catch((err: string) => console.error(err));
-}
+## Recommended Tasks
+While not required, we strongly encourage you to also try implementing the "create," "update," and "delete" doctor functionality. By doing this part of the lab, you will be able to experience some of the challenges of coordinating state across your components (which is not as easy to appreciate when building smaller interfaces). It will also provide the motivation behind why people who build complex SPAs (single page applications) use tools like <a href="https://www.smashingmagazine.com/2018/07/redux-designers-guide/" target="_blank">Redux</a> to manage state across an application.
 
-const requestConfig: HTTPRequest = {
-    method: HTTPMethod.Get,
-    url: "/",
-    data: {}
-};
+Recommended additional tasks to complete:
+1. Implement the create doctor
+2. Implement the edit doctor
+3. Implement the delete doctor
 
-request(requestConfig, (response: HTTPResponse) => { console.log(response.data); });
-```
+When implementing the create / edit / delete functionality, please draw heavily on the HTML template literals you made in Homework 3. Please also refer back to the <a href="https://reactjs.org/docs/forms.html" target="_blank">forms</a> tutorial, which provides a suggestion around how to use the component's state to manage form updates.
 
-## 2. React
-
-<a class="nu-button" href="/spring2021/course-files/assignments/lab08.zip">lab08.zip<i class="fas fa-download" aria-hidden="true"></i></a>
-
-You will now use what you've learned about TypeScript and React to build part of a simple grocery list application. A user creates a list by adding individual items, quantities to purchase, and food groups to which the items belong.
-
-INSERT IMAGE HERE
-
-Download the provided starter code and run `npm install` to install the dependencies. Don't worry about looking through the setup code now as you'll only be editing files in `src/components` (although the rest of the files might help you set up a TS+React project in the future).
-
-ASK SARAH WHAT SCOPE SHE THINKS IT GOOD FOR STUDENTS
+## What to Turn In
+When you're done, zip your `src` and `public` directories and submit your zip file to Canvas.

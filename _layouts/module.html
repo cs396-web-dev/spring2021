@@ -13,10 +13,10 @@ show_schedule: 1
 {{content}}
 
 
-
-<h2 id="slides">Slides</h2>  
-{% assign num = num | plus: 1 %}
 {% if page.slides %}
+    <h2 id="slides">Slides</h2>  
+    {% assign num = num | plus: 1 %}
+
     <ul>
     {% for slide in page.slides %}
         <li>
@@ -24,8 +24,6 @@ show_schedule: 1
         </li>
     {% endfor %}
     </ul>
-{% else %}
-    <p>Slides will be posted before lecture.</p>
 {% endif %}
 
 {% if page.videos %}
