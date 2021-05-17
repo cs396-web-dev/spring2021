@@ -42,9 +42,9 @@ From your command line, navigate to the `lab08` directory and install the requir
 
 {:#step1}
 ### Step 1: Component Hierarchy
-As described in the <a href="https://reactjs.org/docs/thinking-in-react.html" target="_blank">Thinking in React</a>, it is important to be able to look at a wireframe / mockup and consider what might constitute a component (keeping in mind that components can have child components).
+As described in the <a href="https://reactjs.org/docs/thinking-in-react.html" target="_blank">Thinking in React</a> piece, it is important to be able to look at a wireframe / mockup and consider what might constitute a component (keeping in mind that components can have child components).
 
-Given the starter `App.js` file we have given you and what you already know about the Doctor Who app you made in Homework 3, think about how you might organize this JSX representation into different components, where each component does a small job within the larger application:
+Given (a) the starter `App.js` file we have given you and (b) what you already know about the "Doctor Who" app you made in Homework 3, think about how you might break up this web app into different components, where each one does a small job within the larger application:
 
 ```jsx
 import React from 'react';
