@@ -2,7 +2,7 @@
 layout: module
 title: React Continued
 type: lecture
-draft: 1
+draft: 0
 show_schedule: 1
 num: 16
 exercise_url: lecture16.zip
