@@ -33,6 +33,13 @@ In this week's lab, you will be re-implementing a subset of your Doctor Who UI u
 
 We'll just be grading you on #3, #4, and #5.
 
+> ### Update: Video Walkthroughs
+> Here are some video walkthroughs if you want to see me solve this challenge. They're by no means professional quality, but hopefully they are of some value to you all!
+> * <a href="https://northwestern.zoom.us/rec/share/zHFrGiAPu_I4x9z_4X7HNNi47sYAb4Qx3sDkbf6A8kaccQEppqBDUKPBwFzAmyyq.HgcwKGLll7i5I5X7" target="_blank">Part 1 (Wednesday's Lecture)</a>
+> * <a href="https://northwestern.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9a714ad3-2ffb-423c-b24a-ad2f0013346a" target="_blank">Part 2: Selecting a Doctor</a>
+> * <a href="https://northwestern.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4c1025c1-b17b-4793-94ca-ad2f0018d535" target="_blank">Part 3: Displaying a Doctor</a>
+> * <a href="https://northwestern.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4223e29c-e642-4158-9295-ad2f001e2fd2" target="_blank">Part 4: Displaying the Companions</a>
+
 ## Required Tasks
 Download `lab08.zip`, unzip it, and open the folder in VSCode.
 
