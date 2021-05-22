@@ -25,4 +25,4 @@ Please complete your first deliverable and then fill out thes <a href="https://d
 * **[5 points]** The scope of work completed is commensurate with the size of the group
   * It should be clear how each of the team members contributed to the project
 * **[5 points]** Submits a thoughtful reflection / next steps document (can be short)
-  * This is important. Do take the time to think about how things went 
+  * This is important. Do take the time to reflect and formulate reasonable next steps.
