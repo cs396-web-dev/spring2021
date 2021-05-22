@@ -6,6 +6,6 @@ type: project
 due_date: 2021-06-02
 ordering: 3
 draft: 1
-points: 10
+points: 20
 ---
 TBD

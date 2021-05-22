@@ -127,7 +127,6 @@ Below is a rough guide to the schedule of deliverables and how you will be asses
             <td>
                 <ul>
                     <li>Completes rough draft of first deliverable</li>
-                    <li>The design of the deliver </li>
                     <li>The scope of work / effort demonstrated is commensurate with the size of the team (4-6 hours of development effort per person).</li>
                     <li>Submits a thoughtful reflection / next steps document (can be short)</li>
                 </ul>
