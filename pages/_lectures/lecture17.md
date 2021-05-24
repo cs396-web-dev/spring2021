@@ -6,10 +6,11 @@ draft: 0
 show_schedule: 1
 num: 17
 due_date: 2021-05-24
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/QXeG8BCtaU4HFFTafo2taMzDNKAUPi3ZzV5PPetKwvt9juEJo23jHNDLPhxd6KPI.H9lWiWBOTBUb93PJ
+     title: Recorded Lecture Video
+     live: 1
+     duration: "51:42"
 slides:
    - url: https://docs.google.com/presentation/d/1-utmKT9LWg5gh7MSMaqr_Ya63IoFlx5XcYzedYgRc7c/edit?usp=sharing
      title: "React Wrap-Up; DataVis Libraries"
