@@ -3,6 +3,7 @@
 const express = require("express");
 const router = express.Router();
 const utils = require("../config/utilities");
+const { rawListeners } = require("./schema/Artist");
 const Artist = require("./schema/Artist");
 const Track = require("./schema/Track");
 const { 
@@ -88,20 +89,27 @@ router.route("/search")
     .get((req, res) => {
         console.log(`GET /search`);
         console.log(req.query);
+        const tags = req.query.tags.split(',')
+        // Restaurant.find({
+        //     "tags": req.query.term,
+        //     "price": req.query.price
+        // }).then(restaurants => {
+        //     res.status(200).send(tracks);
+        // })
 
-        // validation code:
-        if (!req.query.term) {
-            res.status(400).send({
-                message: `"term" query parameter is required. Valid search string: /search?term=beyonce&type=track`
-            });
-            return; // don't forget the return to exit early!
-        }
-        if (!req.query.type || !['artist', 'track'].includes(req.query.type)) {
-            res.status(400).send({
-                message: `"type" query parameter is required and must either be "artist" or "track". Valid search string: /search?term=beyonce&type=track`
-            });
-            return; // don't forget the return to exit early!
-        }
+        // // validation code:
+        // if (!req.query.term) {
+        //     res.status(400).send({
+        //         message: `"term" query parameter is required. Valid search string: /search?term=beyonce&type=track`
+        //     });
+        //     return; // don't forget the return to exit early!
+        // }
+        // if (!req.query.type || !['artist', 'track'].includes(req.query.type)) {
+        //     res.status(400).send({
+        //         message: `"type" query parameter is required and must either be "artist" or "track". Valid search string: /search?term=beyonce&type=track`
+        //     });
+        //     return; // don't forget the return to exit early!
+        // }
 
         /**
          * your code below this comment:
@@ -119,7 +127,9 @@ router.route("/search")
 
 
 
-        res.status(501).send();
+        res.status(200).send({
+            "tags": tags
+        });
     })
 
 
