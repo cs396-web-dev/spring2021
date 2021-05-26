@@ -6,6 +6,7 @@ draft: 0
 show_schedule: 1
 num: 18
 due_date: 2021-05-26
+exercise_url: lecture18.zip
 # videos: 
 #    - url: ""
 #      title: Recorded Lecture Video
@@ -17,6 +18,16 @@ slides:
 ---
 
 Today we'll be taking a tour of some front-end techiques involving multimedia and animation. We'll just be glancing at a series of ideas. Some interesting links and resources I found online:
+
+### CSS Transitions & Animation
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions</a>
+* <a href="https://thoughtbot.com/blog/transitions-and-transforms" target="_blank">https://thoughtbot.com/blog/transitions-and-transforms</a>
+* <a href="https://thoughtbot.com/blog/css-animation-for-beginners" target="_blank">https://thoughtbot.com/blog/css-animation-for-beginners</a>
+* <a href="https://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068" target="_blank">https://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068</a>
+
+
+
+
 
 ### Image Backgrounds
 * <a href="https://www.w3schools.com/cssref/pr_background-attachment.asp" target="_blank">background-attachment</a>
