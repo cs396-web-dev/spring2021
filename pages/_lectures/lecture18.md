@@ -7,10 +7,11 @@ show_schedule: 1
 num: 18
 due_date: 2021-05-26
 exercise_url: lecture18.zip
-# videos: 
-#    - url: ""
-#      title: Recorded Lecture Video
-#      live: 1
+videos: 
+   - url: https://northwestern.zoom.us/rec/share/kvoFooCSeCllvCqjV_TcpLRWWm0xWUrKWV_QGxgRppaLUilpCh4oPDB04K62C8mZ.pLP7fpJ7LhgpT9mH
+     title: Recorded Lecture Video
+     live: 1
+     duration: "51:06"
 slides:
    - url: https://docs.google.com/presentation/d/1mEM072Piy3wKkDxZC0A4LJPvfr3B8dbUOaSBz_KRLuM/edit?usp=sharing
      title: "Alternative Inputs / Outputs"
