@@ -27,9 +27,6 @@ Today we'll be taking a tour of some front-end techiques involving multimedia an
 * <a href="https://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068" target="_blank">https://webdesign.tutsplus.com/tutorials/a-beginners-introduction-to-css-animation--cms-21068</a>
 
 
-
-
-
 ### Image Backgrounds
 * <a href="https://www.w3schools.com/cssref/pr_background-attachment.asp" target="_blank">background-attachment</a>
 * <a href="https://www.w3schools.com/cssref/css3_pr_filter.asp" target="_blank">CSS filters</a>
