@@ -18,7 +18,7 @@ For your final deliverable, please write a reflection / self assessment (1-2 pag
   * The overall goal of your project and intended audience.
   * The web technologies / frameworks you used.
   * 1-2 things you learned in the process of completing your project.
-  * How you believe you should be evaluated (pick from the list of evaluation criteria below and/or suggest your own criteria). Bullets fine.
+  * How you believe you should be evaluated (list your accomplishments and how they relate to the themes of the class). Bullets fine.
   * How you think you did on this project given the evaluation criteria you selected.
   * What your next steps would be if you had more time.
 
