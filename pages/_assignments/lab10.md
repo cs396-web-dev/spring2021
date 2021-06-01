@@ -6,7 +6,7 @@ abbreviation: Lab 10
 draft: 0
 num: 10
 points: 5
-due_date: 2021-06-03
+due_date: 2021-06-04
 ---
 
 

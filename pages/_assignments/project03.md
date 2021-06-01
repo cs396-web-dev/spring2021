@@ -3,7 +3,7 @@ layout: assignment-two-column
 title: Project Checkpoint 2
 abbreviation: P3
 type: project
-due_date: 2021-06-02
+due_date: 2021-06-04
 ordering: 3
 draft: 0
 points: 20
